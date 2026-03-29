@@ -9,4 +9,5 @@ add_executable(sbv
     src/instancia.cpp
     src/solucao.cpp
     src/busca_local.cpp
+    src/ga.cpp
 )
