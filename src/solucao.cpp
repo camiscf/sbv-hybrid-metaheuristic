@@ -15,28 +15,39 @@ void Solucao::inicializar(int n) {
 
 double Solucao::calcular_fo(const Instancia& inst) {
     double distancia_total = 0.0;
-    double penalidade      = 0.0;
-    double PESO_PENALIDADE = 1000000.0;
+    double penalidade      = 1000000.0;
 
-    // Calcula distância percorrida por cada time
     for (int i = 0; i < n_times; i++) {
+        int local_atual = i; // começa na cidade sede do time i
+
         for (int r = 0; r < n_rodadas; r++) {
             int adversario = tabela[i][r];
-            if (adversario == -1) continue;
 
-            // Se joga fora, viaja até a cidade do adversário
-            if (!casa[i][r]) {
-                distancia_total += inst.distancia(i, adversario);
+            if (casa[i][r]) {
+                // Joga em casa — se estava fora, viaja de volta
+                if (local_atual != i) {
+                    distancia_total += inst.distancia(local_atual, i);
+                    local_atual = i;
+                }
+            } else {
+                // Joga fora — viaja da localização atual até a cidade do adversário
+                distancia_total += inst.distancia(local_atual, adversario);
+                local_atual = adversario;
             }
+        }
+
+        // Volta para casa ao final do campeonato
+        if (local_atual != i) {
+            distancia_total += inst.distancia(local_atual, i);
         }
     }
 
-    // Penalidades por violações
-    penalidade += violacoes_consecutivos_casa()  * PESO_PENALIDADE;
-    penalidade += violacoes_consecutivos_fora()  * PESO_PENALIDADE;
-    penalidade += violacoes_balanco_mando()      * PESO_PENALIDADE;
+    // Penalidades por violações de restrição
+    distancia_total += violacoes_consecutivos_casa() * penalidade;
+    distancia_total += violacoes_consecutivos_fora() * penalidade;
+    distancia_total += violacoes_balanco_mando()     * penalidade;
 
-    fo = distancia_total + penalidade;
+    fo = distancia_total;
     return fo;
 }
 
