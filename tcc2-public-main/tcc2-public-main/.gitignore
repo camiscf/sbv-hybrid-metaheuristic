@@ -1,0 +1,24 @@
+# Arquivos temporários
+*.swp
+*.swo
+*~
+
+# Arquivos de compilação
+*.o
+*.out
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente específico
+.env
+
+# Logs e arquivos de saída
+/logs
+*.log
+
+# Ignorar arquivos executáveis
+*.exe
+*.out
+*.app
