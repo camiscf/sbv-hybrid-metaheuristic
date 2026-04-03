@@ -48,6 +48,7 @@ void escrevePoligono();
 void escreve_times_dist_ordenados();
 void escreve_solucao_tabela_teste(st_solucao &s, const char *caminho, const char *edicao, const char *temporada, int cabecalho);
 void escreve_sol_final_rodadas(st_solucao &s);
+void escreve_solucao_detalhada_arquivo(st_solucao &s, const char *caminho, const char *edicao, const char *temporada, const char *metodo);
 
 // Métodos do ILS
 void iteratedLocalSearch(st_solucao &s);
@@ -76,3 +77,11 @@ void simulateAnnealing(double tx_resf, int num_iter, int tp_inicial, double tp_f
 void testa_tabela(st_solucao &s);
 void copiaSolucao(st_solucao &s, st_solucao &s_aux);
 void verifica_tabela_solucao(st_solucao &s);
+
+// Métodos do GA + RVND
+void geneticAlgorithm(st_solucao &s_best);
+void crossover(st_solucao &p1, st_solucao &p2, st_solucao &child);
+void repair(st_solucao &child);
+void rvnd(st_solucao &s);
+int torneio(st_solucao pop[], int n, int k);
+void sort_populacao(st_solucao pop[], int n);

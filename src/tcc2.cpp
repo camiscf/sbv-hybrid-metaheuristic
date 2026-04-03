@@ -3,6 +3,7 @@
 #include <memory.h>
 #include <time.h>
 #include <math.h>
+#include <string.h>
 #include "header_tcc2.h"
 
 #define MAX(X, Y) ((X > Y) ? X : Y)
@@ -38,6 +39,16 @@ double TEMP_FIN = 0.01;
 
 double tempo_execucao = 300; // segundos
 
+// ######### PARÂMETROS DO GA #########
+
+#define POP_SIZE 50
+#define TORNEIO_K 3
+#define PROB_MUTACAO 0.20
+#define FRAC_ELITE 0.30
+
+st_solucao populacao[POP_SIZE];
+st_solucao nova_populacao[POP_SIZE];
+
 #define PASTA "../instancias"
 #define CAMINHO_ARQUIVO_DADOS "/dados-oficiais-"
 #define CAMINHO_ARQUIVO_RESULTADOS "/resultados-calib/calib-"
@@ -50,72 +61,67 @@ double tempo_execucao = 300; // segundos
 
 int main(int argc, char *argv[])
 {
-    // if (argc < 7)
-    // {
-    //     // Exemplo de uso: .\tcc2.exe feminina-22-23 0.99 200 10 0.01 50
-    //     printf("Uso: %s <instancia> <taxaResfriamento> <numeroIteracoes> <temperaturaInicial> <temperaturaFinal> <maxExec> <pertb_rodada> <pertb_mando> <pertb_times>\n", argv[0]);
-    //     return 1;
-    // }
-
-    // const char *instancia = argv[1];
-    // TAXA_RESFRIAMENTO = atof(argv[2]);
-    // NUMERO_ITERACOES = atoi(argv[3]);
-    // TEMPERATURA_INICIAL = atoi(argv[4]);
-    // PERTURBA_RODADA = atof(argv[5]);
-    // PERTURBA_MANDO = atof(argv[6]);
-    // PERTURBA_TIMES = atof(argv[7]);
-
     srand(time(0));
 
-    // ##### TROCAR PARA EXECUTAR IRACE #####
+    // Uso: ./tcc2 <edicao> <temporada> [num_execucoes] [metodo]
+    // Exemplo: ./tcc2 masculina 21-22 1 ga
+    // metodo: "ils" (default) ou "ga"
+    // Sem argumentos: roda todas as 8 instâncias × 10 execuções (ILS)
 
-    // IRACE
-    // char caminho_irace[100];
-    // snprintf(caminho_irace, sizeof(caminho_irace), "./instancias/%s.txt", instancia);
-    // ler_instancia(caminho_irace);
-
-    // EXECUCAO NORMAL
-
-    // const char *caminho = PASTA EDICAO CAMINHO_ARQUIVO_DADOS TEMPORADA TXT;
-    // printf("Caminho do arquivo: %s\n", caminho);
-    // ler_instancia(caminho);
-
-    // ##### FIM DA TROCA  #####
-
-    // EXECUÇÕES DE TESTE
-
-    const char *ed[] = {"masculina", "feminina"};
-    const char *temp[] = {"21-22", "22-23", "23-24", "24-25"};
-    char caminho_teste[100];
-    int cabecalho = 1;
-
-    for (int i = 0; i < 2; i++)
+    if (argc >= 3)
     {
-        for (int j = 0; j < 4; j++)
-        {
-            snprintf(caminho_teste, sizeof(caminho_teste), "../instancias/%s%s%s.txt", ed[i], CAMINHO_ARQUIVO_DADOS, temp[j]);
-            printf("Caminho do arquivo: %s\n", caminho_teste);
-            ler_instancia(caminho_teste);
-            escreve_instancia();
+        const char *edicao = argv[1];
+        const char *temporada = argv[2];
+        int num_exec = (argc >= 4) ? atoi(argv[3]) : 1;
+        const char *metodo = (argc >= 5) ? argv[4] : "ils";
 
-            for (int k = 0; k < 10; k++)
-            {
-                st_solucao s;
+        char caminho[200];
+        snprintf(caminho, sizeof(caminho), "../instancias/%s%s%s.txt", edicao, CAMINHO_ARQUIVO_DADOS, temporada);
+        printf("Caminho do arquivo: %s\n", caminho);
+        ler_instancia(caminho);
+        escreve_instancia();
+
+        int cabecalho = 1;
+        for (int k = 0; k < num_exec; k++)
+        {
+            st_solucao s;
+            if (strcmp(metodo, "ga") == 0)
+                geneticAlgorithm(s);
+            else
                 iteratedLocalSearch(s);
-                escreve_solucao_tabela_teste(s, "resultados-exec-teste.csv", ed[i], temp[j], cabecalho);
-                cabecalho = 0;
+            const char *csv = (strcmp(metodo, "ga") == 0) ? "resultados-test-ga.csv" : "resultados-exec-teste.csv";
+            escreve_solucao_tabela_teste(s, csv, edicao, temporada, cabecalho);
+            escreve_solucao_detalhada_arquivo(s, csv, edicao, temporada, metodo);
+            cabecalho = 0;
+        }
+    }
+    else
+    {
+        // Modo batch: todas as instâncias × 10 execuções
+        const char *ed[] = {"masculina", "feminina"};
+        const char *temp[] = {"21-22", "22-23", "23-24", "24-25"};
+        char caminho_teste[200];
+        int cabecalho = 1;
+
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                snprintf(caminho_teste, sizeof(caminho_teste), "../instancias/%s%s%s.txt", ed[i], CAMINHO_ARQUIVO_DADOS, temp[j]);
+                printf("Caminho do arquivo: %s\n", caminho_teste);
+                ler_instancia(caminho_teste);
+                escreve_instancia();
+
+                for (int k = 0; k < 10; k++)
+                {
+                    st_solucao s;
+                    iteratedLocalSearch(s);
+                    escreve_solucao_tabela_teste(s, "resultados-exec-teste.csv", ed[i], temp[j], cabecalho);
+                    cabecalho = 0;
+                }
             }
         }
     }
-
-    // escreve_instancia();
-
-    // executar_leitura_tabela_resultado();
-
-    // st_solucao s;
-    // iteratedLocalSearch(s);
-
-    // escreve_resultado_solucao(s);
 
     return 0;
 }
@@ -243,7 +249,7 @@ void geraPoligono(st_solucao &s)
     int times_para_sortear = num_times;
     int posicao_poligono = 0;
 
-    int time_sorteado[num_times - 1];
+    int time_sorteado[num_times]; // era num_times-1 (bug OOB no original)
     memset(&time_sorteado, 0, sizeof(time_sorteado)); // define que nenhum time foi sorteado
 
     while (times_para_sortear > 0)
@@ -573,7 +579,6 @@ void escreve_resultado_solucao(st_solucao &s)
 
 void escreve_solucao_detalhada(st_solucao &s)
 {
-
     printf("Numero de rodadas : %d\n", num_rodadas);
     printf("\n\n-------- Tabela ---------\n");
     for (int j = 1; j <= num_rodadas; j++)
@@ -592,9 +597,49 @@ void escreve_solucao_detalhada(st_solucao &s)
     {
         printf("%s = %d\n", nome_time[i], s.distancia_time[i]);
     }
-
-    // calcFO(s);
     printf("\nFO = %d\nDist Total = %d\nTempo Melhor FO = %d\n", s.funObj, s.total_dist, s.tempo_melhor_fo);
+}
+
+// Salva tabela detalhada em arquivo TXT
+void escreve_solucao_detalhada_arquivo(st_solucao &s, const char *caminho, const char *edicao, const char *temporada, const char *metodo)
+{
+    char nome_arq[300];
+    snprintf(nome_arq, sizeof(nome_arq), "solucao-%s-%s-%s.txt", metodo, edicao, temporada);
+
+    FILE *f = fopen(nome_arq, "w");
+    if (f == NULL)
+    {
+        printf("Erro ao abrir %s\n", nome_arq);
+        return;
+    }
+
+    fprintf(f, "Metodo: %s\n", metodo);
+    fprintf(f, "Instancia: %s %s\n", edicao, temporada);
+    fprintf(f, "FO = %d\n", s.funObj);
+    fprintf(f, "Dist Total = %d\n", s.total_dist);
+    fprintf(f, "Tempo Melhor FO = %d\n\n", s.tempo_melhor_fo);
+
+    fprintf(f, "-------- Tabela ---------\n");
+    for (int j = 1; j <= num_rodadas; j++)
+    {
+        fprintf(f, "\nRodada %d:\n", j);
+        for (int i = 1; i <= num_times; i++)
+        {
+            if (s.time_rodada[i][j] > 0)
+            {
+                fprintf(f, "  %s x %s\n", nome_time[i], nome_time[s.time_rodada[i][j]]);
+            }
+        }
+    }
+
+    fprintf(f, "\n----- Distancia por time -----\n\n");
+    for (int i = 1; i <= num_times; i++)
+    {
+        fprintf(f, "%s = %d\n", nome_time[i], s.distancia_time[i]);
+    }
+
+    fclose(f);
+    printf("Tabela salva em %s\n", nome_arq);
 }
 
 void escreve_solucao_tabela_teste(st_solucao &s, const char *caminho, const char *edicao, const char *temporada, int cabecalho)
@@ -753,4 +798,312 @@ void verifica_tabela_solucao(st_solucao &s)
             break;
         }
     }
+}
+
+// ######### GA + RVND #########
+
+// Seleção por torneio: sorteia k indivíduos, retorna índice do melhor
+int torneio(st_solucao pop[], int n, int k)
+{
+    int best = rand() % n;
+    for (int i = 1; i < k; i++)
+    {
+        int cand = rand() % n;
+        if (pop[cand].funObj < pop[best].funObj)
+            best = cand;
+    }
+    return best;
+}
+
+// Ordena população por funObj (insertion sort — N=50, ok)
+void sort_populacao(st_solucao pop[], int n)
+{
+    for (int i = 1; i < n; i++)
+    {
+        st_solucao key;
+        memcpy(&key, &pop[i], sizeof(st_solucao));
+        int j = i - 1;
+        while (j >= 0 && pop[j].funObj > key.funObj)
+        {
+            memcpy(&pop[j + 1], &pop[j], sizeof(st_solucao));
+            j--;
+        }
+        memcpy(&pop[j + 1], &key, sizeof(st_solucao));
+    }
+}
+
+// RVND: busca local com vizinhanças em ordem aleatória, só aceita melhoras
+// Tenta RVND_MAX_TENT movimentos por vizinhança antes de desistir
+#define RVND_MAX_TENT 50
+
+void rvnd(st_solucao &s)
+{
+    int ordem[3] = {0, 1, 2};
+
+    // Fisher-Yates shuffle
+    for (int i = 2; i > 0; i--)
+    {
+        int j = rand() % (i + 1);
+        int tmp = ordem[i];
+        ordem[i] = ordem[j];
+        ordem[j] = tmp;
+    }
+
+    int k = 0;
+    while (k < 3)
+    {
+        int melhorou = 0;
+        for (int tent = 0; tent < RVND_MAX_TENT; tent++)
+        {
+            st_solucao s_viz;
+            memcpy(&s_viz, &s, sizeof(st_solucao));
+
+            switch (ordem[k])
+            {
+            case 0:
+                permuta_rodada(s_viz);
+                break;
+            case 1:
+                inverte_mando(s_viz);
+                break;
+            case 2:
+                permuta_times(s_viz);
+                break;
+            }
+
+            calcFO(s_viz);
+
+            if (s_viz.funObj < s.funObj)
+            {
+                memcpy(&s, &s_viz, sizeof(st_solucao));
+                melhorou = 1;
+                break;
+            }
+        }
+
+        if (melhorou)
+        {
+            k = 0;
+            // Re-shuffle
+            for (int i = 2; i > 0; i--)
+            {
+                int j = rand() % (i + 1);
+                int tmp = ordem[i];
+                ordem[i] = ordem[j];
+                ordem[j] = tmp;
+            }
+        }
+        else
+        {
+            k++;
+        }
+    }
+}
+
+// Crossover greedy por rodada: escolhe pai que minimiza conflitos de matchup
+void crossover(st_solucao &p1, st_solucao &p2, st_solucao &child)
+{
+    int played[MAX_TIMES][MAX_TIMES]; // played[t][u] = 1 se t já enfrenta u no turno do filho
+    memset(played, 0, sizeof(played));
+
+    // Embaralhar ordem das rodadas para evitar viés
+    int round_order[MAX_TIMES];
+    for (int i = 0; i < num_rodadas / 2; i++)
+        round_order[i] = i + 1;
+    for (int i = num_rodadas / 2 - 1; i > 0; i--)
+    {
+        int j = rand() % (i + 1);
+        int tmp = round_order[i];
+        round_order[i] = round_order[j];
+        round_order[j] = tmp;
+    }
+
+    for (int idx = 0; idx < num_rodadas / 2; idx++)
+    {
+        int r = round_order[idx];
+
+        // Contar conflitos de cada pai para esta rodada
+        int conf1 = 0, conf2 = 0;
+        for (int t = 1; t <= num_times; t++)
+        {
+            int u1 = MOD(p1.time_rodada[t][r]);
+            if (t < u1 && played[t][u1])
+                conf1++;
+            int u2 = MOD(p2.time_rodada[t][r]);
+            if (t < u2 && played[t][u2])
+                conf2++;
+        }
+
+        // Escolher pai com menos conflitos (empate: aleatório)
+        st_solucao *pai;
+        if (conf1 < conf2)
+            pai = &p1;
+        else if (conf2 < conf1)
+            pai = &p2;
+        else
+            pai = (rand() % 2 == 0) ? &p1 : &p2;
+
+        for (int t = 1; t <= num_times; t++)
+        {
+            child.time_rodada[t][r] = pai->time_rodada[t][r];
+            child.time_rodada[t][r + num_rodadas / 2] = pai->time_rodada[t][r] * -1;
+            int u = MOD(pai->time_rodada[t][r]);
+            played[t][u] = 1;
+            played[u][t] = 1;
+        }
+    }
+}
+
+// Contadores de crossover (diagnóstico)
+int crossover_ok = 0, crossover_fail = 0;
+
+// Reparo pós-crossover: se há conflitos, gera solução nova
+void repair(st_solucao &child)
+{
+    // Verificar se há duplicatas no turno
+    int played[MAX_TIMES][MAX_TIMES];
+    memset(played, 0, sizeof(played));
+
+    for (int r = 1; r <= num_rodadas / 2; r++)
+    {
+        for (int t = 1; t <= num_times; t++)
+        {
+            int u = MOD(child.time_rodada[t][r]);
+            if (t < u)
+                played[t][u]++;
+        }
+    }
+
+    for (int t = 1; t <= num_times; t++)
+    {
+        for (int u = t + 1; u <= num_times; u++)
+        {
+            if (played[t][u] != 1)
+            {
+                crossover_fail++;
+                geraSolucaoInicial(child);
+                return;
+            }
+        }
+    }
+    crossover_ok++;
+    // Tabela válida — nada a fazer
+}
+
+// Loop principal do GA
+void geneticAlgorithm(st_solucao &s_best)
+{
+    clock_t h_inicio = clock();
+    double tempo = 0;
+
+    // Inicializar população
+    for (int i = 0; i < POP_SIZE; i++)
+    {
+        geraSolucaoInicial(populacao[i]);
+        calcFO(populacao[i]);
+    }
+
+    sort_populacao(populacao, POP_SIZE);
+    memcpy(&s_best, &populacao[0], sizeof(st_solucao));
+    s_best.tempo_melhor_fo = 0;
+    printf("GA Init: melhor FO = %d\n", s_best.funObj);
+
+    int geracao = 0;
+
+    while (tempo < tempo_execucao)
+    {
+        // Elitismo: manter elite da geração anterior, gerar filhos para o resto
+        int num_elite = (int)(FRAC_ELITE * POP_SIZE);
+        int num_filhos = POP_SIZE - num_elite;
+
+        for (int i = 0; i < num_filhos; i++)
+        {
+            int p1 = torneio(populacao, POP_SIZE, TORNEIO_K);
+            int p2 = torneio(populacao, POP_SIZE, TORNEIO_K);
+            while (p2 == p1)
+                p2 = torneio(populacao, POP_SIZE, TORNEIO_K);
+
+            crossover(populacao[p1], populacao[p2], nova_populacao[i]);
+            repair(nova_populacao[i]);
+
+            // Mutação
+            double r = (double)(rand() % 1001) / 1000.0;
+            if (r < PROB_MUTACAO)
+            {
+                int mov = rand() % 3;
+                switch (mov)
+                {
+                case 0:
+                    inverte_mando(nova_populacao[i]);
+                    break;
+                case 1:
+                    permuta_rodada(nova_populacao[i]);
+                    break;
+                case 2:
+                    permuta_times(nova_populacao[i]);
+                    break;
+                }
+            }
+
+            calcFO(nova_populacao[i]);
+        }
+
+        // Substituir não-elite pelos filhos (elite fica nas primeiras posições)
+        memcpy(&populacao[num_elite], nova_populacao, sizeof(st_solucao) * num_filhos);
+
+        // Ordenar por funObj
+        sort_populacao(populacao, POP_SIZE);
+
+        // RVND nas top 3 elite (não todas, para evitar convergência prematura)
+        int num_rvnd = MIN(3, num_elite);
+        for (int i = 0; i < num_rvnd; i++)
+        {
+            rvnd(populacao[i]);
+            tempo = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
+            if (tempo >= tempo_execucao)
+                break;
+        }
+
+        // Re-ordenar após RVND
+        sort_populacao(populacao, POP_SIZE);
+
+        // Atualizar melhor global
+        if (populacao[0].funObj < s_best.funObj)
+        {
+            memcpy(&s_best, &populacao[0], sizeof(st_solucao));
+            s_best.tempo_melhor_fo = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
+            printf("GA Gen %d: melhor FO = %d TEMPO = %d\n", geracao, s_best.funObj, s_best.tempo_melhor_fo);
+        }
+
+        // Diversidade: se elite convergiu, perturbar toda a população exceto o melhor
+        if (populacao[0].funObj == populacao[num_elite - 1].funObj)
+        {
+            for (int i = 1; i < POP_SIZE; i++)
+            {
+                memcpy(&populacao[i], &populacao[0], sizeof(st_solucao));
+                perturbarSolucao(PERTURBA_RODADA, PERTURBA_MANDO, PERTURBA_TIMES, populacao[i]);
+                calcFO(populacao[i]);
+            }
+            sort_populacao(populacao, POP_SIZE);
+        }
+
+        // Log de estagnação a cada 200 gerações
+        if (geracao % 200 == 0)
+        {
+            printf("Gen %d: best=%d, worst_elite=%d, best_filho=%d, crossover=%d/%d (%.0f%% ok)\n",
+                   geracao, populacao[0].funObj, populacao[num_elite - 1].funObj,
+                   populacao[num_elite].funObj,
+                   crossover_ok, crossover_ok + crossover_fail,
+                   (crossover_ok + crossover_fail > 0) ? 100.0 * crossover_ok / (crossover_ok + crossover_fail) : 0.0);
+        }
+
+        geracao++;
+        tempo = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
+    }
+
+    printf("GA: %d geracoes, melhor FO = %d\n", geracao, s_best.funObj);
+    printf("Crossover final: %d ok, %d fail (%.1f%% ok)\n",
+           crossover_ok, crossover_fail,
+           (crossover_ok + crossover_fail > 0) ? 100.0 * crossover_ok / (crossover_ok + crossover_fail) : 0.0);
+    verifica_tabela_solucao(s_best);
 }
