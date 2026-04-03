@@ -49,6 +49,18 @@ double tempo_execucao = 300; // segundos
 st_solucao populacao[POP_SIZE];
 st_solucao nova_populacao[POP_SIZE];
 
+// ######### PARÂMETROS DO Q-LEARNING (QVND) #########
+
+#define Q_ESTADOS 81   // 3^4 features discretizadas
+#define Q_ACOES 3      // 3 vizinhanças
+#define Q_ALPHA 0.1    // taxa de aprendizado
+#define Q_GAMMA_RL 0.9 // fator de desconto (nome diferente de gamma do SA)
+#define Q_EPSILON_INIT 0.2
+#define Q_EPSILON_MIN 0.05
+
+double tabela_Q[Q_ESTADOS][Q_ACOES]; // persiste entre gerações
+double q_epsilon = Q_EPSILON_INIT;   // decai ao longo das gerações
+
 #define PASTA "../instancias"
 #define CAMINHO_ARQUIVO_DADOS "/dados-oficiais-"
 #define CAMINHO_ARQUIVO_RESULTADOS "/resultados-calib/calib-"
@@ -65,7 +77,7 @@ int main(int argc, char *argv[])
 
     // Uso: ./tcc2 <edicao> <temporada> [num_execucoes] [metodo]
     // Exemplo: ./tcc2 masculina 21-22 1 ga
-    // metodo: "ils" (default) ou "ga"
+    // metodo: "ils" (default), "ga" (GA+RVND), "qvnd" (GA+QVND)
     // Sem argumentos: roda todas as 8 instâncias × 10 execuções (ILS)
 
     if (argc >= 3)
@@ -86,10 +98,18 @@ int main(int argc, char *argv[])
         {
             st_solucao s;
             if (strcmp(metodo, "ga") == 0)
-                geneticAlgorithm(s);
+                geneticAlgorithm(s, 0);
+            else if (strcmp(metodo, "qvnd") == 0)
+                geneticAlgorithm(s, 1);
             else
                 iteratedLocalSearch(s);
-            const char *csv = (strcmp(metodo, "ga") == 0) ? "resultados-test-ga.csv" : "resultados-exec-teste.csv";
+            const char *csv;
+            if (strcmp(metodo, "qvnd") == 0)
+                csv = "resultados-test-qvnd.csv";
+            else if (strcmp(metodo, "ga") == 0)
+                csv = "resultados-test-ga.csv";
+            else
+                csv = "resultados-exec-teste.csv";
             escreve_solucao_tabela_teste(s, csv, edicao, temporada, cabecalho);
             escreve_solucao_detalhada_arquivo(s, csv, edicao, temporada, metodo);
             cabecalho = 0;
@@ -900,6 +920,169 @@ void rvnd(st_solucao &s)
     }
 }
 
+// ######### QVND — Q-Learning VND #########
+
+// Inicializa tabela Q com zeros
+void inicializa_tabela_Q()
+{
+    memset(tabela_Q, 0, sizeof(tabela_Q));
+    q_epsilon = Q_EPSILON_INIT;
+}
+
+// Extrai estado discretizado da solução (4 features → 81 estados)
+int extrair_estado(st_solucao &s, int ultima_viz)
+{
+    // Feature 1: distância normalizada (0, 1, 2)
+    // Normalizar pelo máximo teórico: soma de todas as distâncias
+    int dist_max = 0;
+    for (int i = 1; i <= num_times; i++)
+        dist_max += dist_total_time[i];
+    if (dist_max == 0) dist_max = 1;
+    double dist_norm = (double)s.total_dist / dist_max;
+    int f1;
+    if (dist_norm < 0.3) f1 = 0;
+    else if (dist_norm < 0.6) f1 = 1;
+    else f1 = 2;
+
+    // Feature 2: viagens longas >1500km (0, 1, 2)
+    int viagens_longas = 0;
+    for (int i = 1; i <= num_times; i++)
+    {
+        int ultima = i;
+        for (int j = 1; j <= num_rodadas; j++)
+        {
+            int destino;
+            if (s.time_rodada[i][j] > 0)
+                destino = i; // joga em casa
+            else
+                destino = MOD(s.time_rodada[i][j]); // joga fora
+            if (dist[ultima][destino] > 1500)
+                viagens_longas++;
+            ultima = destino;
+        }
+    }
+    int f2;
+    if (viagens_longas <= 2) f2 = 0;
+    else if (viagens_longas <= 5) f2 = 1;
+    else f2 = 2;
+
+    // Feature 3: máximo consecutivos fora (0, 1, 2)
+    int max_consec_fora = 0;
+    for (int i = 1; i <= num_times; i++)
+    {
+        int consec = 0;
+        for (int j = 1; j <= num_rodadas; j++)
+        {
+            if (s.time_rodada[i][j] < 0)
+            {
+                consec++;
+                if (consec > max_consec_fora)
+                    max_consec_fora = consec;
+            }
+            else
+            {
+                consec = 0;
+            }
+        }
+    }
+    int f3;
+    if (max_consec_fora <= 2) f3 = 0;
+    else if (max_consec_fora <= 4) f3 = 1;
+    else f3 = 2;
+
+    // Feature 4: última vizinhança usada (0, 1, 2)
+    int f4 = ultima_viz; // 0=permuta_rodada, 1=inverte_mando, 2=permuta_times
+
+    return f1 * 27 + f2 * 9 + f3 * 3 + f4;
+}
+
+// Política ε-greedy: escolhe ação com maior Q ou aleatória com prob ε
+int epsilon_greedy(int estado)
+{
+    double r = (double)(rand() % 1001) / 1000.0;
+    if (r < q_epsilon)
+    {
+        return rand() % Q_ACOES; // exploração
+    }
+    else
+    {
+        // exploitation: ação com maior Q
+        int melhor = 0;
+        for (int a = 1; a < Q_ACOES; a++)
+        {
+            if (tabela_Q[estado][a] > tabela_Q[estado][melhor])
+                melhor = a;
+        }
+        return melhor;
+    }
+}
+
+// QVND: busca local guiada por Q-Learning
+void qvnd(st_solucao &s)
+{
+    int ultima_viz = rand() % 3; // inicializa aleatoriamente
+    int estado = extrair_estado(s, ultima_viz);
+
+    int sem_melhora = 0;
+    // Para quando 3 ações consecutivas não melhoram (análogo ao RVND)
+    while (sem_melhora < Q_ACOES)
+    {
+        int acao = epsilon_greedy(estado);
+
+        // Aplicar vizinhança com múltiplas tentativas (como RVND)
+        int melhorou = 0;
+        for (int tent = 0; tent < RVND_MAX_TENT; tent++)
+        {
+            st_solucao s_viz;
+            memcpy(&s_viz, &s, sizeof(st_solucao));
+
+            switch (acao)
+            {
+            case 0:
+                permuta_rodada(s_viz);
+                break;
+            case 1:
+                inverte_mando(s_viz);
+                break;
+            case 2:
+                permuta_times(s_viz);
+                break;
+            }
+
+            calcFO(s_viz);
+
+            double recompensa = (s.funObj > s_viz.funObj) ? (double)(s.funObj - s_viz.funObj) : 0.0;
+            int novo_estado = extrair_estado(s_viz, acao);
+
+            // Atualização Q-Learning
+            double max_q_next = tabela_Q[novo_estado][0];
+            for (int a = 1; a < Q_ACOES; a++)
+            {
+                if (tabela_Q[novo_estado][a] > max_q_next)
+                    max_q_next = tabela_Q[novo_estado][a];
+            }
+            tabela_Q[estado][acao] += Q_ALPHA * (recompensa + Q_GAMMA_RL * max_q_next - tabela_Q[estado][acao]);
+
+            if (s_viz.funObj < s.funObj)
+            {
+                memcpy(&s, &s_viz, sizeof(st_solucao));
+                estado = novo_estado;
+                melhorou = 1;
+                break;
+            }
+        }
+
+        if (melhorou)
+        {
+            sem_melhora = 0;
+        }
+        else
+        {
+            sem_melhora++;
+        }
+    }
+}
+
 // Crossover greedy por rodada: escolhe pai que minimiza conflitos de matchup
 void crossover(st_solucao &p1, st_solucao &p2, st_solucao &child)
 {
@@ -991,10 +1174,14 @@ void repair(st_solucao &child)
 }
 
 // Loop principal do GA
-void geneticAlgorithm(st_solucao &s_best)
+void geneticAlgorithm(st_solucao &s_best, int usar_qvnd)
 {
     clock_t h_inicio = clock();
     double tempo = 0;
+
+    // Inicializar tabela Q se usando QVND
+    if (usar_qvnd)
+        inicializa_tabela_Q();
 
     // Inicializar população
     for (int i = 0; i < POP_SIZE; i++)
@@ -1054,17 +1241,28 @@ void geneticAlgorithm(st_solucao &s_best)
         // Ordenar por funObj
         sort_populacao(populacao, POP_SIZE);
 
-        // RVND nas top 3 elite (não todas, para evitar convergência prematura)
-        int num_rvnd = MIN(3, num_elite);
-        for (int i = 0; i < num_rvnd; i++)
+        // Busca local nas top 3 elite
+        int num_bl = MIN(3, num_elite);
+        for (int i = 0; i < num_bl; i++)
         {
-            rvnd(populacao[i]);
+            if (usar_qvnd)
+                qvnd(populacao[i]);
+            else
+                rvnd(populacao[i]);
             tempo = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
             if (tempo >= tempo_execucao)
                 break;
         }
 
-        // Re-ordenar após RVND
+        // Decair epsilon do QVND ao longo das gerações
+        if (usar_qvnd && q_epsilon > Q_EPSILON_MIN)
+        {
+            q_epsilon *= 0.999;
+            if (q_epsilon < Q_EPSILON_MIN)
+                q_epsilon = Q_EPSILON_MIN;
+        }
+
+        // Re-ordenar após busca local
         sort_populacao(populacao, POP_SIZE);
 
         // Atualizar melhor global

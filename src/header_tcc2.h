@@ -79,9 +79,15 @@ void copiaSolucao(st_solucao &s, st_solucao &s_aux);
 void verifica_tabela_solucao(st_solucao &s);
 
 // Métodos do GA + RVND
-void geneticAlgorithm(st_solucao &s_best);
+void geneticAlgorithm(st_solucao &s_best, int usar_qvnd);
 void crossover(st_solucao &p1, st_solucao &p2, st_solucao &child);
 void repair(st_solucao &child);
 void rvnd(st_solucao &s);
 int torneio(st_solucao pop[], int n, int k);
 void sort_populacao(st_solucao pop[], int n);
+
+// Métodos do QVND
+void qvnd(st_solucao &s);
+int extrair_estado(st_solucao &s, int ultima_viz);
+int epsilon_greedy(int estado);
+void inicializa_tabela_Q();
