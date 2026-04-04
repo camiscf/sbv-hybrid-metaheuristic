@@ -39,36 +39,45 @@ double TEMP_FIN = 0.01;
 
 double tempo_execucao = 300; // segundos
 
-// ######### PARÂMETROS DO GA #########
+// ######### PARÂMETROS DO GA (variáveis — calibráveis pelo irace) #########
 
-#define POP_SIZE 50
-#define TORNEIO_K 3
-#define PROB_MUTACAO 0.20
-#define FRAC_ELITE 0.30
+int POP_SIZE = 50;
+int TORNEIO_K = 3;
+double PROB_MUTACAO = 0.20;
+double FRAC_ELITE = 0.30;
+int RVND_MAX_TENT = 50;
+int NUM_BL = 3; // quantas elite recebem busca local
 
-st_solucao populacao[POP_SIZE];
-st_solucao nova_populacao[POP_SIZE];
+#define POP_MAX 200 // tamanho máximo de arrays (fixo)
+st_solucao populacao[POP_MAX];
+st_solucao nova_populacao[POP_MAX];
 
-// ######### PARÂMETROS DO Q-LEARNING (QVND) #########
+// ######### PARÂMETROS DO Q-LEARNING (variáveis — calibráveis pelo irace) #########
 
-#define Q_ESTADOS 81   // 3^4 features discretizadas
-#define Q_ACOES 3      // 3 vizinhanças
-#define Q_ALPHA 0.1    // taxa de aprendizado
-#define Q_GAMMA_RL 0.9 // fator de desconto (nome diferente de gamma do SA)
-#define Q_EPSILON_INIT 0.2
-#define Q_EPSILON_MIN 0.05
+#define Q_ESTADOS 81 // 3^4 features discretizadas
+#define Q_ACOES 3    // 3 vizinhanças
+double Q_ALPHA = 0.1;
+double Q_GAMMA_RL = 0.9;
+double Q_EPSILON_INIT = 0.2;
+double Q_EPSILON_MIN = 0.05;
+double Q_EPSILON_DECAY = 0.999;
 
-double tabela_Q[Q_ESTADOS][Q_ACOES]; // persiste entre gerações
-double q_epsilon = Q_EPSILON_INIT;   // decai ao longo das gerações
+double tabela_Q[Q_ESTADOS][Q_ACOES];
+double q_epsilon = 0.2;
 
-// ######### PARÂMETROS DA MULTIMINERAÇÃO #########
+// ######### PARÂMETROS DA MULTIMINERAÇÃO (variáveis — calibráveis pelo irace) #########
 
-#define POOL_ELITE_SIZE 100
+int POOL_ELITE_SIZE = 100;
+double FRAC_TEMPO_FASE1 = 0.50;
 
-st_solucao pool_elite[POOL_ELITE_SIZE];
+#define POOL_MAX 200 // tamanho máximo do pool (fixo)
+st_solucao pool_elite[POOL_MAX];
 int pool_count = 0;
-int mineracao_ativa = 0;              // 0 = Fase 1, 1 = Fase 2
-int mando_freq[MAX_TIMES][MAX_TIMES]; // mando_freq[i][j] = vezes que i jogou em casa contra j nas elite
+int mineracao_ativa = 0;
+int mando_freq[MAX_TIMES][MAX_TIMES];
+
+// Flag do modo irace (imprime só FO)
+int modo_irace = 0;
 
 #define PASTA "../instancias"
 #define CAMINHO_ARQUIVO_DADOS "/dados-oficiais-"
@@ -84,9 +93,9 @@ int main(int argc, char *argv[])
 {
     srand(time(0));
 
-    // Uso: ./tcc2 <edicao> <temporada> [num_execucoes] [metodo]
-    // Exemplo: ./tcc2 masculina 21-22 1 ga
-    // metodo: "ils" (default), "ga", "qvnd", "gam" (GA+RVND+Min), "qvndm" (GA+QVND+Min)
+    // Uso: ./tcc2 <edicao> <temporada> [num_execucoes] [metodo] [--flags]
+    // Exemplo: ./tcc2 masculina 21-22 1 gam --pop 30 --tent 100 --irace
+    // metodo: "ils", "ga", "qvnd", "gam", "qvndm"
     // Sem argumentos: roda todas as 8 instâncias × 10 execuções (ILS)
 
     if (argc >= 3)
@@ -96,11 +105,32 @@ int main(int argc, char *argv[])
         int num_exec = (argc >= 4) ? atoi(argv[3]) : 1;
         const char *metodo = (argc >= 5) ? argv[4] : "ils";
 
+        // Parsear flags opcionais (para irace)
+        for (int a = 5; a < argc; a++)
+        {
+            if (strcmp(argv[a], "--pop") == 0 && a + 1 < argc)      POP_SIZE = atoi(argv[++a]);
+            else if (strcmp(argv[a], "--tent") == 0 && a + 1 < argc) RVND_MAX_TENT = atoi(argv[++a]);
+            else if (strcmp(argv[a], "--elite") == 0 && a + 1 < argc) FRAC_ELITE = atof(argv[++a]);
+            else if (strcmp(argv[a], "--mut") == 0 && a + 1 < argc)  PROB_MUTACAO = atof(argv[++a]);
+            else if (strcmp(argv[a], "--tk") == 0 && a + 1 < argc)   TORNEIO_K = atoi(argv[++a]);
+            else if (strcmp(argv[a], "--nbl") == 0 && a + 1 < argc)  NUM_BL = atoi(argv[++a]);
+            else if (strcmp(argv[a], "--pool") == 0 && a + 1 < argc) POOL_ELITE_SIZE = atoi(argv[++a]);
+            else if (strcmp(argv[a], "--fase1") == 0 && a + 1 < argc) FRAC_TEMPO_FASE1 = atof(argv[++a]);
+            else if (strcmp(argv[a], "--qalpha") == 0 && a + 1 < argc) Q_ALPHA = atof(argv[++a]);
+            else if (strcmp(argv[a], "--qgamma") == 0 && a + 1 < argc) Q_GAMMA_RL = atof(argv[++a]);
+            else if (strcmp(argv[a], "--qeps") == 0 && a + 1 < argc) Q_EPSILON_INIT = atof(argv[++a]);
+            else if (strcmp(argv[a], "--qepsmin") == 0 && a + 1 < argc) Q_EPSILON_MIN = atof(argv[++a]);
+            else if (strcmp(argv[a], "--qdecay") == 0 && a + 1 < argc) Q_EPSILON_DECAY = atof(argv[++a]);
+            else if (strcmp(argv[a], "--seed") == 0 && a + 1 < argc) srand(atoi(argv[++a]));
+            else if (strcmp(argv[a], "--tempo") == 0 && a + 1 < argc) tempo_execucao = atof(argv[++a]);
+            else if (strcmp(argv[a], "--irace") == 0) modo_irace = 1;
+        }
+
         char caminho[200];
         snprintf(caminho, sizeof(caminho), "../instancias/%s%s%s.txt", edicao, CAMINHO_ARQUIVO_DADOS, temporada);
-        printf("Caminho do arquivo: %s\n", caminho);
+        if (!modo_irace) printf("Caminho do arquivo: %s\n", caminho);
         ler_instancia(caminho);
-        escreve_instancia();
+        if (!modo_irace) escreve_instancia();
 
         int cabecalho = 1;
         for (int k = 0; k < num_exec; k++)
@@ -117,13 +147,18 @@ int main(int argc, char *argv[])
             else
                 iteratedLocalSearch(s);
 
-            // CSV por método
-            char csv_name[100];
-            snprintf(csv_name, sizeof(csv_name), "resultados-%s.csv", metodo);
-            const char *csv = csv_name;
-            escreve_solucao_tabela_teste(s, csv, edicao, temporada, cabecalho);
-            escreve_solucao_detalhada_arquivo(s, csv, edicao, temporada, metodo);
-            cabecalho = 0;
+            if (modo_irace)
+            {
+                printf("%d\n", s.funObj);
+            }
+            else
+            {
+                char csv_name[100];
+                snprintf(csv_name, sizeof(csv_name), "resultados-%s.csv", metodo);
+                escreve_solucao_tabela_teste(s, csv_name, edicao, temporada, cabecalho);
+                escreve_solucao_detalhada_arquivo(s, csv_name, edicao, temporada, metodo);
+                cabecalho = 0;
+            }
         }
     }
     else
@@ -865,7 +900,6 @@ void sort_populacao(st_solucao pop[], int n)
 
 // RVND: busca local com vizinhanças em ordem aleatória, só aceita melhoras
 // Tenta RVND_MAX_TENT movimentos por vizinhança antes de desistir
-#define RVND_MAX_TENT 50
 
 void rvnd(st_solucao &s)
 {
@@ -1148,7 +1182,7 @@ void minerar_padroes()
     }
 
     mineracao_ativa = 1;
-    printf("Mineracao: %d solucoes mineradas\n", pool_count);
+    if (!modo_irace) printf("Mineracao: %d solucoes mineradas\n", pool_count);
 }
 
 // Crossover greedy por rodada: escolhe pai que minimiza conflitos de matchup
@@ -1280,7 +1314,7 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
     sort_populacao(populacao, POP_SIZE);
     memcpy(&s_best, &populacao[0], sizeof(st_solucao));
     s_best.tempo_melhor_fo = 0;
-    printf("GA Init: melhor FO = %d\n", s_best.funObj);
+    if (!modo_irace) printf("GA Init: melhor FO = %d\n", s_best.funObj);
 
     int geracao = 0;
 
@@ -1349,7 +1383,7 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
         sort_populacao(populacao, POP_SIZE);
 
         // Busca local nas top 3 elite
-        int num_bl = MIN(3, num_elite);
+        int num_bl = MIN(NUM_BL, num_elite);
         for (int i = 0; i < num_bl; i++)
         {
             if (usar_qvnd)
@@ -1364,7 +1398,7 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
         // Decair epsilon do QVND ao longo das gerações
         if (usar_qvnd && q_epsilon > Q_EPSILON_MIN)
         {
-            q_epsilon *= 0.999;
+            q_epsilon *= Q_EPSILON_DECAY;
             if (q_epsilon < Q_EPSILON_MIN)
                 q_epsilon = Q_EPSILON_MIN;
         }
@@ -1377,7 +1411,7 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
         {
             memcpy(&s_best, &populacao[0], sizeof(st_solucao));
             s_best.tempo_melhor_fo = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
-            printf("GA Gen %d: melhor FO = %d TEMPO = %d\n", geracao, s_best.funObj, s_best.tempo_melhor_fo);
+            if (!modo_irace) printf("GA Gen %d: melhor FO = %d TEMPO = %d\n", geracao, s_best.funObj, s_best.tempo_melhor_fo);
         }
 
         // Mineração: coleta elite (Fase 1) e transição (Fase 2)
@@ -1386,7 +1420,7 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
             if (!mineracao_ativa)
             {
                 atualiza_pool_elite(populacao, num_elite);
-                if (tempo >= tempo_execucao / 2.0)
+                if (tempo >= tempo_execucao * FRAC_TEMPO_FASE1)
                     minerar_padroes();
             }
         }
@@ -1404,7 +1438,7 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
         }
 
         // Log de estagnação a cada 200 gerações
-        if (geracao % 200 == 0)
+        if (!modo_irace && geracao % 200 == 0)
         {
             printf("Gen %d: best=%d, worst_elite=%d, best_filho=%d, crossover=%d/%d (%.0f%% ok)\n",
                    geracao, populacao[0].funObj, populacao[num_elite - 1].funObj,
@@ -1417,9 +1451,12 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
         tempo = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
     }
 
-    printf("GA: %d geracoes, melhor FO = %d\n", geracao, s_best.funObj);
-    printf("Crossover final: %d ok, %d fail (%.1f%% ok)\n",
-           crossover_ok, crossover_fail,
-           (crossover_ok + crossover_fail > 0) ? 100.0 * crossover_ok / (crossover_ok + crossover_fail) : 0.0);
-    verifica_tabela_solucao(s_best);
+    if (!modo_irace)
+    {
+        printf("GA: %d geracoes, melhor FO = %d\n", geracao, s_best.funObj);
+        printf("Crossover final: %d ok, %d fail (%.1f%% ok)\n",
+               crossover_ok, crossover_fail,
+               (crossover_ok + crossover_fail > 0) ? 100.0 * crossover_ok / (crossover_ok + crossover_fail) : 0.0);
+        verifica_tabela_solucao(s_best);
+    }
 }
