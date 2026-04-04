@@ -41,12 +41,12 @@ double tempo_execucao = 300; // segundos
 
 // ######### PARÂMETROS DO GA (variáveis — calibráveis pelo irace) #########
 
-int POP_SIZE = 50;
+int POP_SIZE = 38;
 int TORNEIO_K = 3;
-double PROB_MUTACAO = 0.20;
-double FRAC_ELITE = 0.30;
-int RVND_MAX_TENT = 50;
-int NUM_BL = 3; // quantas elite recebem busca local
+double PROB_MUTACAO = 0.1458;
+double FRAC_ELITE = 0.3938;
+int RVND_MAX_TENT = 72;
+int NUM_BL = 10; // quantas elite recebem busca local
 
 #define POP_MAX 200 // tamanho máximo de arrays (fixo)
 st_solucao populacao[POP_MAX];
@@ -56,19 +56,19 @@ st_solucao nova_populacao[POP_MAX];
 
 #define Q_ESTADOS 81 // 3^4 features discretizadas
 #define Q_ACOES 3    // 3 vizinhanças
-double Q_ALPHA = 0.1;
-double Q_GAMMA_RL = 0.9;
-double Q_EPSILON_INIT = 0.2;
-double Q_EPSILON_MIN = 0.05;
-double Q_EPSILON_DECAY = 0.999;
+double Q_ALPHA = 0.2927;
+double Q_GAMMA_RL = 0.883;
+double Q_EPSILON_INIT = 0.2237;
+double Q_EPSILON_MIN = 0.0292;
+double Q_EPSILON_DECAY = 0.9993;
 
 double tabela_Q[Q_ESTADOS][Q_ACOES];
-double q_epsilon = 0.2;
+double q_epsilon = 0.2237;
 
 // ######### PARÂMETROS DA MULTIMINERAÇÃO (variáveis — calibráveis pelo irace) #########
 
-int POOL_ELITE_SIZE = 100;
-double FRAC_TEMPO_FASE1 = 0.50;
+int POOL_ELITE_SIZE = 30;
+double FRAC_TEMPO_FASE1 = 0.4978;
 
 #define POOL_MAX 200 // tamanho máximo do pool (fixo)
 st_solucao pool_elite[POOL_MAX];
