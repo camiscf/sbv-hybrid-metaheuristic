@@ -1,0 +1,198 @@
+Metodo: ils
+Instancia: masculina 24-25
+FO = 79326
+Dist Total = 79326
+Tempo Melhor FO = 73
+
+-------- Tabela ---------
+
+Rodada 1:
+  Blumenau x Suzano
+  Campinas x SESI-Bauru
+  Sao_Jose_dos_Campos x Minas
+  Goias x Neurologia_Ativa
+  Joinville x Guarulhos
+  Praia_Clube x Cruzeiro
+
+Rodada 2:
+  Minas x Neurologia_Ativa
+  Blumenau x SESI-Bauru
+  Campinas x Guarulhos
+  Sao_Jose_dos_Campos x Suzano
+  Joinville x Cruzeiro
+  Praia_Clube x Goias
+
+Rodada 3:
+  Minas x Goias
+  Cruzeiro x Neurologia_Ativa
+  Guarulhos x Praia_Clube
+  Blumenau x Sao_Jose_dos_Campos
+  Campinas x Suzano
+  Joinville x SESI-Bauru
+
+Rodada 4:
+  Cruzeiro x Goias
+  SESI-Bauru x Neurologia_Ativa
+  Guarulhos x Minas
+  Sao_Jose_dos_Campos x Campinas
+  Suzano x Praia_Clube
+  Joinville x Blumenau
+
+Rodada 5:
+  SESI-Bauru x Goias
+  Guarulhos x Cruzeiro
+  Campinas x Praia_Clube
+  Sao_Jose_dos_Campos x Joinville
+  Suzano x Minas
+  Neurologia_Ativa x Blumenau
+
+Rodada 6:
+  SESI-Bauru x Guarulhos
+  Campinas x Minas
+  Suzano x Cruzeiro
+  Goias x Blumenau
+  Praia_Clube x Sao_Jose_dos_Campos
+  Neurologia_Ativa x Joinville
+
+Rodada 7:
+  Guarulhos x Blumenau
+  Campinas x Cruzeiro
+  Suzano x SESI-Bauru
+  Goias x Joinville
+  Praia_Clube x Minas
+  Neurologia_Ativa x Sao_Jose_dos_Campos
+
+Rodada 8:
+  Minas x Cruzeiro
+  SESI-Bauru x Praia_Clube
+  Guarulhos x Neurologia_Ativa
+  Blumenau x Campinas
+  Goias x Sao_Jose_dos_Campos
+  Joinville x Suzano
+
+Rodada 9:
+  Cruzeiro x Sao_Jose_dos_Campos
+  SESI-Bauru x Minas
+  Guarulhos x Goias
+  Blumenau x Praia_Clube
+  Suzano x Neurologia_Ativa
+  Joinville x Campinas
+
+Rodada 10:
+  SESI-Bauru x Cruzeiro
+  Blumenau x Minas
+  Campinas x Neurologia_Ativa
+  Sao_Jose_dos_Campos x Guarulhos
+  Suzano x Goias
+  Joinville x Praia_Clube
+
+Rodada 11:
+  Guarulhos x Suzano
+  Blumenau x Cruzeiro
+  Campinas x Goias
+  Sao_Jose_dos_Campos x SESI-Bauru
+  Joinville x Minas
+  Praia_Clube x Neurologia_Ativa
+
+Rodada 12:
+  Minas x Sao_Jose_dos_Campos
+  Cruzeiro x Praia_Clube
+  SESI-Bauru x Campinas
+  Guarulhos x Joinville
+  Suzano x Blumenau
+  Neurologia_Ativa x Goias
+
+Rodada 13:
+  Cruzeiro x Joinville
+  SESI-Bauru x Blumenau
+  Guarulhos x Campinas
+  Suzano x Sao_Jose_dos_Campos
+  Goias x Praia_Clube
+  Neurologia_Ativa x Minas
+
+Rodada 14:
+  SESI-Bauru x Joinville
+  Sao_Jose_dos_Campos x Blumenau
+  Suzano x Campinas
+  Goias x Minas
+  Praia_Clube x Guarulhos
+  Neurologia_Ativa x Cruzeiro
+
+Rodada 15:
+  Minas x Guarulhos
+  Blumenau x Joinville
+  Campinas x Sao_Jose_dos_Campos
+  Goias x Cruzeiro
+  Praia_Clube x Suzano
+  Neurologia_Ativa x SESI-Bauru
+
+Rodada 16:
+  Minas x Suzano
+  Cruzeiro x Guarulhos
+  Blumenau x Neurologia_Ativa
+  Goias x SESI-Bauru
+  Joinville x Sao_Jose_dos_Campos
+  Praia_Clube x Campinas
+
+Rodada 17:
+  Minas x Campinas
+  Cruzeiro x Suzano
+  Guarulhos x SESI-Bauru
+  Blumenau x Goias
+  Sao_Jose_dos_Campos x Praia_Clube
+  Joinville x Neurologia_Ativa
+
+Rodada 18:
+  Minas x Praia_Clube
+  Cruzeiro x Campinas
+  SESI-Bauru x Suzano
+  Blumenau x Guarulhos
+  Sao_Jose_dos_Campos x Neurologia_Ativa
+  Joinville x Goias
+
+Rodada 19:
+  Cruzeiro x Minas
+  Campinas x Blumenau
+  Sao_Jose_dos_Campos x Goias
+  Suzano x Joinville
+  Praia_Clube x SESI-Bauru
+  Neurologia_Ativa x Guarulhos
+
+Rodada 20:
+  Minas x SESI-Bauru
+  Campinas x Joinville
+  Sao_Jose_dos_Campos x Cruzeiro
+  Goias x Guarulhos
+  Praia_Clube x Blumenau
+  Neurologia_Ativa x Suzano
+
+Rodada 21:
+  Minas x Blumenau
+  Cruzeiro x SESI-Bauru
+  Guarulhos x Sao_Jose_dos_Campos
+  Goias x Suzano
+  Praia_Clube x Joinville
+  Neurologia_Ativa x Campinas
+
+Rodada 22:
+  Minas x Joinville
+  Cruzeiro x Blumenau
+  SESI-Bauru x Sao_Jose_dos_Campos
+  Suzano x Guarulhos
+  Goias x Campinas
+  Neurologia_Ativa x Praia_Clube
+
+----- Distancia por time -----
+
+Minas = 6933
+Cruzeiro = 8811
+SESI-Bauru = 5209
+Guarulhos = 5966
+Blumenau = 5834
+Campinas = 4183
+Sao_Jose_dos_Campos = 6534
+Suzano = 6258
+Goias = 7359
+Joinville = 7097
+Praia_Clube = 7757
+Neurologia_Ativa = 7385

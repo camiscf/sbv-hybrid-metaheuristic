@@ -1,0 +1,198 @@
+Metodo: ils
+Instancia: feminina 21-22
+FO = 79323
+Dist Total = 79323
+Tempo Melhor FO = 111
+
+-------- Tabela ---------
+
+Rodada 1:
+  Praia_Clube x Sesi-Bauru
+  Sesc-Flamengo x Pinheiros
+  Fluminense x Brasília
+  Barueri x Osasco
+  Maringa x Minas
+  Curitiba x Valinhos
+
+Rodada 2:
+  Sesc-Flamengo x Brasília
+  Fluminense x Praia_Clube
+  Sesi-Bauru x Minas
+  Pinheiros x Osasco
+  Maringa x Curitiba
+  Valinhos x Barueri
+
+Rodada 3:
+  Osasco x Brasília
+  Sesc-Flamengo x Praia_Clube
+  Fluminense x Minas
+  Pinheiros x Barueri
+  Valinhos x Maringa
+  Curitiba x Sesi-Bauru
+
+Rodada 4:
+  Osasco x Praia_Clube
+  Sesc-Flamengo x Minas
+  Fluminense x Curitiba
+  Sesi-Bauru x Maringa
+  Barueri x Brasília
+  Valinhos x Pinheiros
+
+Rodada 5:
+  Praia_Clube x Maringa
+  Minas x Curitiba
+  Pinheiros x Fluminense
+  Barueri x Sesc-Flamengo
+  Brasília x Sesi-Bauru
+  Valinhos x Osasco
+
+Rodada 6:
+  Praia_Clube x Curitiba
+  Osasco x Sesc-Flamengo
+  Minas x Valinhos
+  Sesi-Bauru x Pinheiros
+  Barueri x Fluminense
+  Brasília x Maringa
+
+Rodada 7:
+  Osasco x Fluminense
+  Minas x Praia_Clube
+  Sesi-Bauru x Barueri
+  Maringa x Pinheiros
+  Brasília x Curitiba
+  Valinhos x Sesc-Flamengo
+
+Rodada 8:
+  Minas x Brasília
+  Fluminense x Sesc-Flamengo
+  Sesi-Bauru x Osasco
+  Maringa x Barueri
+  Valinhos x Praia_Clube
+  Curitiba x Pinheiros
+
+Rodada 9:
+  Praia_Clube x Brasília
+  Sesc-Flamengo x Sesi-Bauru
+  Fluminense x Valinhos
+  Pinheiros x Minas
+  Maringa x Osasco
+  Curitiba x Barueri
+
+Rodada 10:
+  Sesc-Flamengo x Maringa
+  Fluminense x Sesi-Bauru
+  Pinheiros x Praia_Clube
+  Barueri x Minas
+  Valinhos x Brasília
+  Curitiba x Osasco
+
+Rodada 11:
+  Osasco x Minas
+  Sesc-Flamengo x Curitiba
+  Fluminense x Maringa
+  Pinheiros x Brasília
+  Barueri x Praia_Clube
+  Valinhos x Sesi-Bauru
+
+Rodada 12:
+  Osasco x Barueri
+  Minas x Maringa
+  Sesi-Bauru x Praia_Clube
+  Pinheiros x Sesc-Flamengo
+  Brasília x Fluminense
+  Valinhos x Curitiba
+
+Rodada 13:
+  Praia_Clube x Fluminense
+  Osasco x Pinheiros
+  Minas x Sesi-Bauru
+  Barueri x Valinhos
+  Brasília x Sesc-Flamengo
+  Curitiba x Maringa
+
+Rodada 14:
+  Praia_Clube x Sesc-Flamengo
+  Minas x Fluminense
+  Sesi-Bauru x Curitiba
+  Barueri x Pinheiros
+  Maringa x Valinhos
+  Brasília x Osasco
+
+Rodada 15:
+  Praia_Clube x Osasco
+  Minas x Sesc-Flamengo
+  Pinheiros x Valinhos
+  Maringa x Sesi-Bauru
+  Brasília x Barueri
+  Curitiba x Fluminense
+
+Rodada 16:
+  Osasco x Valinhos
+  Sesc-Flamengo x Barueri
+  Fluminense x Pinheiros
+  Sesi-Bauru x Brasília
+  Maringa x Praia_Clube
+  Curitiba x Minas
+
+Rodada 17:
+  Sesc-Flamengo x Osasco
+  Fluminense x Barueri
+  Pinheiros x Sesi-Bauru
+  Maringa x Brasília
+  Valinhos x Minas
+  Curitiba x Praia_Clube
+
+Rodada 18:
+  Praia_Clube x Minas
+  Sesc-Flamengo x Valinhos
+  Fluminense x Osasco
+  Pinheiros x Maringa
+  Barueri x Sesi-Bauru
+  Curitiba x Brasília
+
+Rodada 19:
+  Praia_Clube x Valinhos
+  Osasco x Sesi-Bauru
+  Sesc-Flamengo x Fluminense
+  Pinheiros x Curitiba
+  Barueri x Maringa
+  Brasília x Minas
+
+Rodada 20:
+  Osasco x Maringa
+  Minas x Pinheiros
+  Sesi-Bauru x Sesc-Flamengo
+  Barueri x Curitiba
+  Brasília x Praia_Clube
+  Valinhos x Fluminense
+
+Rodada 21:
+  Praia_Clube x Pinheiros
+  Osasco x Curitiba
+  Minas x Barueri
+  Sesi-Bauru x Fluminense
+  Maringa x Sesc-Flamengo
+  Brasília x Valinhos
+
+Rodada 22:
+  Praia_Clube x Barueri
+  Minas x Osasco
+  Sesi-Bauru x Valinhos
+  Maringa x Fluminense
+  Brasília x Pinheiros
+  Curitiba x Sesc-Flamengo
+
+----- Distancia por time -----
+
+Praia_Clube = 7875
+Osasco = 5239
+Minas = 6502
+Sesc-Flamengo = 5085
+Fluminense = 5776
+Sesi-Bauru = 7405
+Pinheiros = 5135
+Barueri = 5554
+Maringa = 6951
+Brasília = 8426
+Valinhos = 8023
+Curitiba = 7352

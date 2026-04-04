@@ -1,0 +1,198 @@
+Metodo: ils
+Instancia: feminina 23-24
+FO = 85259
+Dist Total = 85259
+Tempo Melhor FO = 152
+
+-------- Tabela ---------
+
+Rodada 1:
+  Minas x Sesi-Bauru
+  Sesc-Flamengo x Osasco
+  Fluminense x Pinheiros
+  Maringa x Barueri
+  Brasilia x Praia_Clube
+  Sao_Caetano x Bluvolei
+
+Rodada 2:
+  Praia_Clube x Sao_Caetano
+  Osasco x Maringa
+  Minas x Fluminense
+  Sesc-Flamengo x Pinheiros
+  Barueri x Bluvolei
+  Brasilia x Sesi-Bauru
+
+Rodada 3:
+  Praia_Clube x Sesi-Bauru
+  Osasco x Bluvolei
+  Minas x Sesc-Flamengo
+  Pinheiros x Maringa
+  Barueri x Sao_Caetano
+  Brasilia x Fluminense
+
+Rodada 4:
+  Praia_Clube x Fluminense
+  Osasco x Barueri
+  Sesi-Bauru x Sao_Caetano
+  Pinheiros x Bluvolei
+  Maringa x Minas
+  Brasilia x Sesc-Flamengo
+
+Rodada 5:
+  Praia_Clube x Sesc-Flamengo
+  Sesi-Bauru x Fluminense
+  Pinheiros x Barueri
+  Maringa x Brasilia
+  Sao_Caetano x Osasco
+  Bluvolei x Minas
+
+Rodada 6:
+  Osasco x Pinheiros
+  Fluminense x Sao_Caetano
+  Sesi-Bauru x Sesc-Flamengo
+  Barueri x Minas
+  Maringa x Praia_Clube
+  Bluvolei x Brasilia
+
+Rodada 7:
+  Osasco x Minas
+  Sesc-Flamengo x Fluminense
+  Pinheiros x Sao_Caetano
+  Barueri x Brasilia
+  Maringa x Sesi-Bauru
+  Bluvolei x Praia_Clube
+
+Rodada 8:
+  Osasco x Fluminense
+  Minas x Praia_Clube
+  Sesi-Bauru x Pinheiros
+  Barueri x Sesc-Flamengo
+  Sao_Caetano x Brasilia
+  Bluvolei x Maringa
+
+Rodada 9:
+  Praia_Clube x Pinheiros
+  Sesc-Flamengo x Bluvolei
+  Sesi-Bauru x Osasco
+  Barueri x Fluminense
+  Maringa x Sao_Caetano
+  Brasilia x Minas
+
+Rodada 10:
+  Praia_Clube x Barueri
+  Minas x Pinheiros
+  Sesc-Flamengo x Sao_Caetano
+  Sesi-Bauru x Bluvolei
+  Maringa x Fluminense
+  Brasilia x Osasco
+
+Rodada 11:
+  Praia_Clube x Osasco
+  Minas x Sao_Caetano
+  Fluminense x Bluvolei
+  Barueri x Sesi-Bauru
+  Maringa x Sesc-Flamengo
+  Brasilia x Pinheiros
+
+Rodada 12:
+  Praia_Clube x Brasilia
+  Osasco x Sesc-Flamengo
+  Sesi-Bauru x Minas
+  Pinheiros x Fluminense
+  Barueri x Maringa
+  Bluvolei x Sao_Caetano
+
+Rodada 13:
+  Fluminense x Minas
+  Sesi-Bauru x Brasilia
+  Pinheiros x Sesc-Flamengo
+  Maringa x Osasco
+  Sao_Caetano x Praia_Clube
+  Bluvolei x Barueri
+
+Rodada 14:
+  Sesc-Flamengo x Minas
+  Fluminense x Brasilia
+  Sesi-Bauru x Praia_Clube
+  Maringa x Pinheiros
+  Sao_Caetano x Barueri
+  Bluvolei x Osasco
+
+Rodada 15:
+  Minas x Maringa
+  Sesc-Flamengo x Brasilia
+  Fluminense x Praia_Clube
+  Barueri x Osasco
+  Sao_Caetano x Sesi-Bauru
+  Bluvolei x Pinheiros
+
+Rodada 16:
+  Osasco x Sao_Caetano
+  Minas x Bluvolei
+  Sesc-Flamengo x Praia_Clube
+  Fluminense x Sesi-Bauru
+  Barueri x Pinheiros
+  Brasilia x Maringa
+
+Rodada 17:
+  Praia_Clube x Maringa
+  Minas x Barueri
+  Sesc-Flamengo x Sesi-Bauru
+  Pinheiros x Osasco
+  Brasilia x Bluvolei
+  Sao_Caetano x Fluminense
+
+Rodada 18:
+  Praia_Clube x Bluvolei
+  Minas x Osasco
+  Fluminense x Sesc-Flamengo
+  Sesi-Bauru x Maringa
+  Brasilia x Barueri
+  Sao_Caetano x Pinheiros
+
+Rodada 19:
+  Praia_Clube x Minas
+  Sesc-Flamengo x Barueri
+  Fluminense x Osasco
+  Pinheiros x Sesi-Bauru
+  Maringa x Bluvolei
+  Brasilia x Sao_Caetano
+
+Rodada 20:
+  Osasco x Sesi-Bauru
+  Minas x Brasilia
+  Fluminense x Barueri
+  Pinheiros x Praia_Clube
+  Sao_Caetano x Maringa
+  Bluvolei x Sesc-Flamengo
+
+Rodada 21:
+  Osasco x Brasilia
+  Fluminense x Maringa
+  Pinheiros x Minas
+  Barueri x Praia_Clube
+  Sao_Caetano x Sesc-Flamengo
+  Bluvolei x Sesi-Bauru
+
+Rodada 22:
+  Osasco x Praia_Clube
+  Sesc-Flamengo x Maringa
+  Sesi-Bauru x Barueri
+  Pinheiros x Brasilia
+  Sao_Caetano x Minas
+  Bluvolei x Fluminense
+
+----- Distancia por time -----
+
+Praia_Clube = 6374
+Osasco = 6208
+Minas = 7347
+Sesc-Flamengo = 7806
+Fluminense = 7587
+Sesi-Bauru = 6777
+Pinheiros = 5693
+Barueri = 7014
+Maringa = 7215
+Brasilia = 6993
+Sao_Caetano = 8602
+Bluvolei = 7643

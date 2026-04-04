@@ -1,0 +1,198 @@
+Metodo: ils
+Instancia: masculina 23-24
+FO = 87040
+Dist Total = 87040
+Tempo Melhor FO = 88
+
+-------- Tabela ---------
+
+Rodada 1:
+  Minas x SESI-Bauru
+  Cruzeiro x Suzano
+  Blumenal x Campinas
+  America-MG x Guarulhos
+  Joinville x Sao_Jose_dos_Campos
+  Araguari x Monte_Carmelo
+
+Rodada 2:
+  Minas x Suzano
+  Guarulhos x Joinville
+  Blumenal x Sao_Jose_dos_Campos
+  Campinas x Araguari
+  America-MG x SESI-Bauru
+  Monte_Carmelo x Cruzeiro
+
+Rodada 3:
+  SESI-Bauru x Joinville
+  Guarulhos x Blumenal
+  Sao_Jose_dos_Campos x Campinas
+  America-MG x Suzano
+  Araguari x Cruzeiro
+  Monte_Carmelo x Minas
+
+Rodada 4:
+  Cruzeiro x Campinas
+  SESI-Bauru x Blumenal
+  Guarulhos x Sao_Jose_dos_Campos
+  Suzano x Joinville
+  Araguari x Minas
+  Monte_Carmelo x America-MG
+
+Rodada 5:
+  Cruzeiro x Minas
+  SESI-Bauru x Sao_Jose_dos_Campos
+  Guarulhos x Campinas
+  Suzano x Blumenal
+  Joinville x Monte_Carmelo
+  Araguari x America-MG
+
+Rodada 6:
+  Minas x Campinas
+  Cruzeiro x America-MG
+  SESI-Bauru x Guarulhos
+  Blumenal x Monte_Carmelo
+  Suzano x Sao_Jose_dos_Campos
+  Joinville x Araguari
+
+Rodada 7:
+  Minas x America-MG
+  Blumenal x Araguari
+  Campinas x SESI-Bauru
+  Sao_Jose_dos_Campos x Monte_Carmelo
+  Suzano x Guarulhos
+  Joinville x Cruzeiro
+
+Rodada 8:
+  SESI-Bauru x Suzano
+  Guarulhos x Monte_Carmelo
+  Blumenal x Cruzeiro
+  Sao_Jose_dos_Campos x Araguari
+  America-MG x Campinas
+  Joinville x Minas
+
+Rodada 9:
+  Minas x Guarulhos
+  Cruzeiro x SESI-Bauru
+  Blumenal x Joinville
+  America-MG x Sao_Jose_dos_Campos
+  Araguari x Suzano
+  Monte_Carmelo x Campinas
+
+Rodada 10:
+  Minas x Sao_Jose_dos_Campos
+  Cruzeiro x Guarulhos
+  Campinas x Joinville
+  America-MG x Blumenal
+  Araguari x SESI-Bauru
+  Monte_Carmelo x Suzano
+
+Rodada 11:
+  Minas x Blumenal
+  Cruzeiro x Sao_Jose_dos_Campos
+  Campinas x Suzano
+  America-MG x Joinville
+  Araguari x Guarulhos
+  Monte_Carmelo x SESI-Bauru
+
+Rodada 12:
+  SESI-Bauru x Minas
+  Guarulhos x America-MG
+  Campinas x Blumenal
+  Sao_Jose_dos_Campos x Joinville
+  Suzano x Cruzeiro
+  Monte_Carmelo x Araguari
+
+Rodada 13:
+  Cruzeiro x Monte_Carmelo
+  SESI-Bauru x America-MG
+  Sao_Jose_dos_Campos x Blumenal
+  Suzano x Minas
+  Joinville x Guarulhos
+  Araguari x Campinas
+
+Rodada 14:
+  Minas x Monte_Carmelo
+  Cruzeiro x Araguari
+  Blumenal x Guarulhos
+  Campinas x Sao_Jose_dos_Campos
+  Suzano x America-MG
+  Joinville x SESI-Bauru
+
+Rodada 15:
+  Minas x Araguari
+  Blumenal x SESI-Bauru
+  Campinas x Cruzeiro
+  Sao_Jose_dos_Campos x Guarulhos
+  America-MG x Monte_Carmelo
+  Joinville x Suzano
+
+Rodada 16:
+  Minas x Cruzeiro
+  Blumenal x Suzano
+  Campinas x Guarulhos
+  Sao_Jose_dos_Campos x SESI-Bauru
+  America-MG x Araguari
+  Monte_Carmelo x Joinville
+
+Rodada 17:
+  Guarulhos x SESI-Bauru
+  Campinas x Minas
+  Sao_Jose_dos_Campos x Suzano
+  America-MG x Cruzeiro
+  Araguari x Joinville
+  Monte_Carmelo x Blumenal
+
+Rodada 18:
+  Cruzeiro x Joinville
+  SESI-Bauru x Campinas
+  Guarulhos x Suzano
+  America-MG x Minas
+  Araguari x Blumenal
+  Monte_Carmelo x Sao_Jose_dos_Campos
+
+Rodada 19:
+  Minas x Joinville
+  Cruzeiro x Blumenal
+  Campinas x America-MG
+  Suzano x SESI-Bauru
+  Araguari x Sao_Jose_dos_Campos
+  Monte_Carmelo x Guarulhos
+
+Rodada 20:
+  SESI-Bauru x Cruzeiro
+  Guarulhos x Minas
+  Campinas x Monte_Carmelo
+  Sao_Jose_dos_Campos x America-MG
+  Suzano x Araguari
+  Joinville x Blumenal
+
+Rodada 21:
+  SESI-Bauru x Araguari
+  Guarulhos x Cruzeiro
+  Blumenal x America-MG
+  Sao_Jose_dos_Campos x Minas
+  Suzano x Monte_Carmelo
+  Joinville x Campinas
+
+Rodada 22:
+  SESI-Bauru x Monte_Carmelo
+  Guarulhos x Araguari
+  Blumenal x Minas
+  Sao_Jose_dos_Campos x Cruzeiro
+  Suzano x Campinas
+  Joinville x America-MG
+
+----- Distancia por time -----
+
+Minas = 7282
+Cruzeiro = 7019
+SESI-Bauru = 6121
+Guarulhos = 7887
+Blumenal = 7537
+Campinas = 10242
+Sao_Jose_dos_Campos = 6010
+Suzano = 5970
+America-MG = 5814
+Joinville = 7578
+Araguari = 8649
+Monte_Carmelo = 6931
