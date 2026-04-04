@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 
     // Uso: ./tcc2 <edicao> <temporada> [num_execucoes] [metodo]
     // Exemplo: ./tcc2 masculina 21-22 1 ga
-    // metodo: "ils" (default), "ga" (GA+RVND), "qvnd" (GA+QVND)
+    // metodo: "ils" (default), "ga", "qvnd", "gam" (GA+RVND+Min), "qvndm" (GA+QVND+Min)
     // Sem argumentos: roda todas as 8 instâncias × 10 execuções (ILS)
 
     if (argc >= 3)
@@ -107,18 +107,20 @@ int main(int argc, char *argv[])
         {
             st_solucao s;
             if (strcmp(metodo, "ga") == 0)
-                geneticAlgorithm(s, 0);
+                geneticAlgorithm(s, 0, 0);
             else if (strcmp(metodo, "qvnd") == 0)
-                geneticAlgorithm(s, 1);
+                geneticAlgorithm(s, 1, 0);
+            else if (strcmp(metodo, "gam") == 0)
+                geneticAlgorithm(s, 0, 1);
+            else if (strcmp(metodo, "qvndm") == 0)
+                geneticAlgorithm(s, 1, 1);
             else
                 iteratedLocalSearch(s);
-            const char *csv;
-            if (strcmp(metodo, "qvnd") == 0)
-                csv = "resultados-test-qvnd.csv";
-            else if (strcmp(metodo, "ga") == 0)
-                csv = "resultados-test-ga.csv";
-            else
-                csv = "resultados-exec-teste.csv";
+
+            // CSV por método
+            char csv_name[100];
+            snprintf(csv_name, sizeof(csv_name), "resultados-%s.csv", metodo);
+            const char *csv = csv_name;
             escreve_solucao_tabela_teste(s, csv, edicao, temporada, cabecalho);
             escreve_solucao_detalhada_arquivo(s, csv, edicao, temporada, metodo);
             cabecalho = 0;
@@ -1253,7 +1255,7 @@ void repair(st_solucao &child)
 }
 
 // Loop principal do GA
-void geneticAlgorithm(st_solucao &s_best, int usar_qvnd)
+void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
 {
     clock_t h_inicio = clock();
     double tempo = 0;
@@ -1261,6 +1263,10 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd)
     // Inicializar tabela Q se usando QVND
     if (usar_qvnd)
         inicializa_tabela_Q();
+
+    // Inicializar mineração se ativa
+    if (usar_mineracao)
+        reset_mineracao();
 
     // Inicializar população
     for (int i = 0; i < POP_SIZE; i++)
@@ -1292,22 +1298,41 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd)
             crossover(populacao[p1], populacao[p2], nova_populacao[i]);
             repair(nova_populacao[i]);
 
-            // Mutação
+            // Mutação (protegida na Fase 2 da mineração)
             double r = (double)(rand() % 1001) / 1000.0;
             if (r < PROB_MUTACAO)
             {
                 int mov = rand() % 3;
-                switch (mov)
+                if (mineracao_ativa && usar_mineracao && mov == 0)
                 {
-                case 0:
-                    inverte_mando(nova_populacao[i]);
-                    break;
-                case 1:
-                    permuta_rodada(nova_populacao[i]);
-                    break;
-                case 2:
-                    permuta_times(nova_populacao[i]);
-                    break;
+                    // inverte_mando protegida: só inverte se mando atual NÃO é o frequente
+                    int rod = 1 + (rand() % (num_rodadas / 2));
+                    int t = 1 + (rand() % num_times);
+                    int adv = MOD(nova_populacao[i].time_rodada[t][rod]);
+                    int freq_atual = (nova_populacao[i].time_rodada[t][rod] > 0)
+                                         ? mando_freq[t][adv]
+                                         : mando_freq[adv][t];
+                    int freq_inverso = (nova_populacao[i].time_rodada[t][rod] > 0)
+                                           ? mando_freq[adv][t]
+                                           : mando_freq[t][adv];
+                    if (freq_atual <= freq_inverso)
+                        inverte_mando(nova_populacao[i]);
+                    // Se freq_atual > freq_inverso, protege (não muta)
+                }
+                else
+                {
+                    switch (mov)
+                    {
+                    case 0:
+                        inverte_mando(nova_populacao[i]);
+                        break;
+                    case 1:
+                        permuta_rodada(nova_populacao[i]);
+                        break;
+                    case 2:
+                        permuta_times(nova_populacao[i]);
+                        break;
+                    }
                 }
             }
 
@@ -1350,6 +1375,17 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd)
             memcpy(&s_best, &populacao[0], sizeof(st_solucao));
             s_best.tempo_melhor_fo = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
             printf("GA Gen %d: melhor FO = %d TEMPO = %d\n", geracao, s_best.funObj, s_best.tempo_melhor_fo);
+        }
+
+        // Mineração: coleta elite (Fase 1) e transição (Fase 2)
+        if (usar_mineracao)
+        {
+            if (!mineracao_ativa)
+            {
+                atualiza_pool_elite(populacao, num_elite);
+                if (tempo >= tempo_execucao / 2.0)
+                    minerar_padroes();
+            }
         }
 
         // Diversidade: se elite convergiu, perturbar toda a população exceto o melhor

@@ -79,7 +79,7 @@ void copiaSolucao(st_solucao &s, st_solucao &s_aux);
 void verifica_tabela_solucao(st_solucao &s);
 
 // Métodos do GA + RVND
-void geneticAlgorithm(st_solucao &s_best, int usar_qvnd);
+void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao);
 void crossover(st_solucao &p1, st_solucao &p2, st_solucao &child);
 void repair(st_solucao &child);
 void rvnd(st_solucao &s);
