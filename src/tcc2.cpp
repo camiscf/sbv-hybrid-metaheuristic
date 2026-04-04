@@ -1202,7 +1202,9 @@ void crossover(st_solucao &p1, st_solucao &p2, st_solucao &child)
                 if (p2.time_rodada[t][r] > 0)
                     score2 += mando_freq[t][p2.time_rodada[t][r]];
             }
-            pai = (score1 >= score2) ? &p1 : &p2;
+            double prob_p1 = (double)(score1 + 1) / (score1 + score2 + 2);
+            double rr = (double)(rand() % 1001) / 1000.0;
+            pai = (rr < prob_p1) ? &p1 : &p2;
         }
         else
             pai = (rand() % 2 == 0) ? &p1 : &p2;
@@ -1315,9 +1317,10 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
                     int freq_inverso = (nova_populacao[i].time_rodada[t][rod] > 0)
                                            ? mando_freq[adv][t]
                                            : mando_freq[t][adv];
-                    if (freq_atual <= freq_inverso)
+                    double prob_proteger = (double)(freq_atual + 1) / (freq_atual + freq_inverso + 2);
+                    double rr2 = (double)(rand() % 1001) / 1000.0;
+                    if (rr2 >= prob_proteger)
                         inverte_mando(nova_populacao[i]);
-                    // Se freq_atual > freq_inverso, protege (não muta)
                 }
                 else
                 {
