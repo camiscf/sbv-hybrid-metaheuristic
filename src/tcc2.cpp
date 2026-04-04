@@ -61,6 +61,15 @@ st_solucao nova_populacao[POP_SIZE];
 double tabela_Q[Q_ESTADOS][Q_ACOES]; // persiste entre gerações
 double q_epsilon = Q_EPSILON_INIT;   // decai ao longo das gerações
 
+// ######### PARÂMETROS DA MULTIMINERAÇÃO #########
+
+#define POOL_ELITE_SIZE 100
+
+st_solucao pool_elite[POOL_ELITE_SIZE];
+int pool_count = 0;
+int mineracao_ativa = 0;              // 0 = Fase 1, 1 = Fase 2
+int mando_freq[MAX_TIMES][MAX_TIMES]; // mando_freq[i][j] = vezes que i jogou em casa contra j nas elite
+
 #define PASTA "../instancias"
 #define CAMINHO_ARQUIVO_DADOS "/dados-oficiais-"
 #define CAMINHO_ARQUIVO_RESULTADOS "/resultados-calib/calib-"
@@ -1083,6 +1092,63 @@ void qvnd(st_solucao &s)
     }
 }
 
+// ######### MULTIMINERAÇÃO #########
+
+// Reset para nova execução
+void reset_mineracao()
+{
+    pool_count = 0;
+    mineracao_ativa = 0;
+    memset(mando_freq, 0, sizeof(mando_freq));
+}
+
+// Atualiza pool com as melhores soluções vistas
+void atualiza_pool_elite(st_solucao pop[], int num_elite)
+{
+    for (int i = 0; i < num_elite; i++)
+    {
+        if (pool_count < POOL_ELITE_SIZE)
+        {
+            memcpy(&pool_elite[pool_count], &pop[i], sizeof(st_solucao));
+            pool_count++;
+        }
+        else
+        {
+            // Pool cheio: substituir a pior se a nova for melhor
+            int pior = 0;
+            for (int k = 1; k < POOL_ELITE_SIZE; k++)
+                if (pool_elite[k].funObj > pool_elite[pior].funObj)
+                    pior = k;
+            if (pop[i].funObj < pool_elite[pior].funObj)
+                memcpy(&pool_elite[pior], &pop[i], sizeof(st_solucao));
+        }
+    }
+}
+
+// Extrai frequência de mando por par de times no turno das elite
+void minerar_padroes()
+{
+    memset(mando_freq, 0, sizeof(mando_freq));
+
+    for (int s = 0; s < pool_count; s++)
+    {
+        for (int r = 1; r <= num_rodadas / 2; r++)
+        {
+            for (int t = 1; t <= num_times; t++)
+            {
+                if (pool_elite[s].time_rodada[t][r] > 0)
+                {
+                    int adv = pool_elite[s].time_rodada[t][r];
+                    mando_freq[t][adv]++;
+                }
+            }
+        }
+    }
+
+    mineracao_ativa = 1;
+    printf("Mineracao: %d solucoes mineradas\n", pool_count);
+}
+
 // Crossover greedy por rodada: escolhe pai que minimiza conflitos de matchup
 void crossover(st_solucao &p1, st_solucao &p2, st_solucao &child)
 {
@@ -1117,12 +1183,25 @@ void crossover(st_solucao &p1, st_solucao &p2, st_solucao &child)
                 conf2++;
         }
 
-        // Escolher pai com menos conflitos (empate: aleatório)
+        // Escolher pai com menos conflitos
         st_solucao *pai;
         if (conf1 < conf2)
             pai = &p1;
         else if (conf2 < conf1)
             pai = &p2;
+        else if (mineracao_ativa)
+        {
+            // Empate: desempatar por padrões minerados (Fase 2)
+            int score1 = 0, score2 = 0;
+            for (int t = 1; t <= num_times; t++)
+            {
+                if (p1.time_rodada[t][r] > 0)
+                    score1 += mando_freq[t][p1.time_rodada[t][r]];
+                if (p2.time_rodada[t][r] > 0)
+                    score2 += mando_freq[t][p2.time_rodada[t][r]];
+            }
+            pai = (score1 >= score2) ? &p1 : &p2;
+        }
         else
             pai = (rand() % 2 == 0) ? &p1 : &p2;
 

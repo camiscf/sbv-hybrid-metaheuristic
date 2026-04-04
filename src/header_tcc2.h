@@ -91,3 +91,8 @@ void qvnd(st_solucao &s);
 int extrair_estado(st_solucao &s, int ultima_viz);
 int epsilon_greedy(int estado);
 void inicializa_tabela_Q();
+
+// Métodos da Multimineração
+void atualiza_pool_elite(st_solucao pop[], int num_elite);
+void minerar_padroes();
+void reset_mineracao();
