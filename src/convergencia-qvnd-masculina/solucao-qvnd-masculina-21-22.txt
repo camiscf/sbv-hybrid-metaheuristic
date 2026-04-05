@@ -1,0 +1,198 @@
+Metodo: qvnd
+Instancia: masculina 21-22
+FO = 83681
+Dist Total = 83681
+Tempo Melhor FO = 276
+
+-------- Tabela ---------
+
+Rodada 1:
+  SESI-Bauru x Cruzeiro
+  Campinas x Minas
+  Funvic x Blumenal
+  America-MG x Guarulhos
+  Brasilia x Goias
+  Uberlândia x Sao_Jose_dos_Campos
+
+Rodada 2:
+  Cruzeiro x Minas
+  SESI-Bauru x Brasilia
+  Sao_Jose_dos_Campos x Blumenal
+  Funvic x Campinas
+  Goias x America-MG
+  Uberlândia x Guarulhos
+
+Rodada 3:
+  Minas x SESI-Bauru
+  Cruzeiro x Funvic
+  Guarulhos x Blumenal
+  Sao_Jose_dos_Campos x Campinas
+  Brasilia x America-MG
+  Uberlândia x Goias
+
+Rodada 4:
+  Minas x Funvic
+  Cruzeiro x Sao_Jose_dos_Campos
+  Guarulhos x Campinas
+  Blumenal x Goias
+  America-MG x SESI-Bauru
+  Brasilia x Uberlândia
+
+Rodada 5:
+  Minas x Sao_Jose_dos_Campos
+  Cruzeiro x Guarulhos
+  Blumenal x Brasilia
+  Campinas x Goias
+  Funvic x SESI-Bauru
+  America-MG x Uberlândia
+
+Rodada 6:
+  Minas x Guarulhos
+  SESI-Bauru x Uberlândia
+  Blumenal x America-MG
+  Campinas x Brasilia
+  Sao_Jose_dos_Campos x Funvic
+  Goias x Cruzeiro
+
+Rodada 7:
+  SESI-Bauru x Sao_Jose_dos_Campos
+  Guarulhos x Funvic
+  Blumenal x Uberlândia
+  Campinas x America-MG
+  Brasilia x Cruzeiro
+  Goias x Minas
+
+Rodada 8:
+  SESI-Bauru x Blumenal
+  Guarulhos x Sao_Jose_dos_Campos
+  Funvic x Goias
+  America-MG x Cruzeiro
+  Brasilia x Minas
+  Uberlândia x Campinas
+
+Rodada 9:
+  SESI-Bauru x Guarulhos
+  Campinas x Blumenal
+  Sao_Jose_dos_Campos x Goias
+  Funvic x Brasilia
+  America-MG x Minas
+  Uberlândia x Cruzeiro
+
+Rodada 10:
+  Cruzeiro x Blumenal
+  Guarulhos x Goias
+  Campinas x SESI-Bauru
+  Sao_Jose_dos_Campos x Brasilia
+  Funvic x America-MG
+  Uberlândia x Minas
+
+Rodada 11:
+  Minas x Blumenal
+  Cruzeiro x Campinas
+  SESI-Bauru x Goias
+  Guarulhos x Brasilia
+  Sao_Jose_dos_Campos x America-MG
+  Funvic x Uberlândia
+
+Rodada 12:
+  Minas x Campinas
+  Cruzeiro x SESI-Bauru
+  Guarulhos x America-MG
+  Blumenal x Funvic
+  Sao_Jose_dos_Campos x Uberlândia
+  Goias x Brasilia
+
+Rodada 13:
+  Minas x Cruzeiro
+  Guarulhos x Uberlândia
+  Blumenal x Sao_Jose_dos_Campos
+  Campinas x Funvic
+  America-MG x Goias
+  Brasilia x SESI-Bauru
+
+Rodada 14:
+  SESI-Bauru x Minas
+  Blumenal x Guarulhos
+  Campinas x Sao_Jose_dos_Campos
+  Funvic x Cruzeiro
+  America-MG x Brasilia
+  Goias x Uberlândia
+
+Rodada 15:
+  SESI-Bauru x America-MG
+  Campinas x Guarulhos
+  Sao_Jose_dos_Campos x Cruzeiro
+  Funvic x Minas
+  Goias x Blumenal
+  Uberlândia x Brasilia
+
+Rodada 16:
+  SESI-Bauru x Funvic
+  Guarulhos x Cruzeiro
+  Sao_Jose_dos_Campos x Minas
+  Brasilia x Blumenal
+  Goias x Campinas
+  Uberlândia x America-MG
+
+Rodada 17:
+  Cruzeiro x Goias
+  Guarulhos x Minas
+  Funvic x Sao_Jose_dos_Campos
+  America-MG x Blumenal
+  Brasilia x Campinas
+  Uberlândia x SESI-Bauru
+
+Rodada 18:
+  Minas x Goias
+  Cruzeiro x Brasilia
+  Sao_Jose_dos_Campos x SESI-Bauru
+  Funvic x Guarulhos
+  America-MG x Campinas
+  Uberlândia x Blumenal
+
+Rodada 19:
+  Minas x Brasilia
+  Cruzeiro x America-MG
+  Blumenal x SESI-Bauru
+  Campinas x Uberlândia
+  Sao_Jose_dos_Campos x Guarulhos
+  Goias x Funvic
+
+Rodada 20:
+  Minas x America-MG
+  Cruzeiro x Uberlândia
+  Guarulhos x SESI-Bauru
+  Blumenal x Campinas
+  Brasilia x Funvic
+  Goias x Sao_Jose_dos_Campos
+
+Rodada 21:
+  Minas x Uberlândia
+  SESI-Bauru x Campinas
+  Blumenal x Cruzeiro
+  America-MG x Funvic
+  Brasilia x Sao_Jose_dos_Campos
+  Goias x Guarulhos
+
+Rodada 22:
+  Blumenal x Minas
+  Campinas x Cruzeiro
+  America-MG x Sao_Jose_dos_Campos
+  Brasilia x Guarulhos
+  Goias x SESI-Bauru
+  Uberlândia x Funvic
+
+----- Distancia por time -----
+
+Minas = 6139
+Cruzeiro = 6565
+SESI-Bauru = 7803
+Guarulhos = 5562
+Blumenal = 7022
+Campinas = 6070
+Sao_Jose_dos_Campos = 5187
+Funvic = 5033
+America-MG = 8738
+Brasilia = 10266
+Goias = 7803
+Uberlândia = 7493

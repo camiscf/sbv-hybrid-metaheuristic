@@ -1,0 +1,198 @@
+Metodo: gam
+Instancia: masculina 23-24
+FO = 86026
+Dist Total = 86026
+Tempo Melhor FO = 148
+
+-------- Tabela ---------
+
+Rodada 1:
+  Minas x SESI-Bauru
+  Cruzeiro x Araguari
+  Guarulhos x America-MG
+  Blumenal x Campinas
+  Suzano x Monte_Carmelo
+  Joinville x Sao_Jose_dos_Campos
+
+Rodada 2:
+  Minas x Suzano
+  Blumenal x Cruzeiro
+  Sao_Jose_dos_Campos x Guarulhos
+  America-MG x SESI-Bauru
+  Joinville x Campinas
+  Araguari x Monte_Carmelo
+
+Rodada 3:
+  Campinas x Guarulhos
+  Sao_Jose_dos_Campos x SESI-Bauru
+  America-MG x Suzano
+  Joinville x Blumenal
+  Araguari x Minas
+  Monte_Carmelo x Cruzeiro
+
+Rodada 4:
+  Cruzeiro x Joinville
+  Guarulhos x Blumenal
+  Campinas x SESI-Bauru
+  Suzano x Sao_Jose_dos_Campos
+  Araguari x America-MG
+  Monte_Carmelo x Minas
+
+Rodada 5:
+  Cruzeiro x Minas
+  SESI-Bauru x Blumenal
+  Guarulhos x Joinville
+  Sao_Jose_dos_Campos x Araguari
+  Suzano x Campinas
+  Monte_Carmelo x America-MG
+
+Rodada 6:
+  Minas x America-MG
+  SESI-Bauru x Joinville
+  Guarulhos x Cruzeiro
+  Campinas x Araguari
+  Sao_Jose_dos_Campos x Monte_Carmelo
+  Suzano x Blumenal
+
+Rodada 7:
+  SESI-Bauru x Guarulhos
+  Blumenal x Araguari
+  Campinas x Monte_Carmelo
+  Sao_Jose_dos_Campos x Minas
+  Suzano x Joinville
+  America-MG x Cruzeiro
+
+Rodada 8:
+  Cruzeiro x SESI-Bauru
+  Guarulhos x Suzano
+  Blumenal x Monte_Carmelo
+  Campinas x Minas
+  Sao_Jose_dos_Campos x America-MG
+  Joinville x Araguari
+
+Rodada 9:
+  Cruzeiro x Sao_Jose_dos_Campos
+  Blumenal x Minas
+  Campinas x America-MG
+  Suzano x SESI-Bauru
+  Joinville x Monte_Carmelo
+  Araguari x Guarulhos
+
+Rodada 10:
+  Cruzeiro x Suzano
+  Blumenal x America-MG
+  Sao_Jose_dos_Campos x Campinas
+  Joinville x Minas
+  Araguari x SESI-Bauru
+  Monte_Carmelo x Guarulhos
+
+Rodada 11:
+  Minas x Guarulhos
+  Cruzeiro x Campinas
+  Sao_Jose_dos_Campos x Blumenal
+  Joinville x America-MG
+  Araguari x Suzano
+  Monte_Carmelo x SESI-Bauru
+
+Rodada 12:
+  SESI-Bauru x Minas
+  Campinas x Blumenal
+  Sao_Jose_dos_Campos x Joinville
+  America-MG x Guarulhos
+  Araguari x Cruzeiro
+  Monte_Carmelo x Suzano
+
+Rodada 13:
+  Cruzeiro x Blumenal
+  SESI-Bauru x America-MG
+  Guarulhos x Sao_Jose_dos_Campos
+  Campinas x Joinville
+  Suzano x Minas
+  Monte_Carmelo x Araguari
+
+Rodada 14:
+  Minas x Araguari
+  Cruzeiro x Monte_Carmelo
+  SESI-Bauru x Sao_Jose_dos_Campos
+  Guarulhos x Campinas
+  Blumenal x Joinville
+  Suzano x America-MG
+
+Rodada 15:
+  Minas x Monte_Carmelo
+  SESI-Bauru x Campinas
+  Blumenal x Guarulhos
+  Sao_Jose_dos_Campos x Suzano
+  America-MG x Araguari
+  Joinville x Cruzeiro
+
+Rodada 16:
+  Minas x Cruzeiro
+  Blumenal x SESI-Bauru
+  Campinas x Suzano
+  America-MG x Monte_Carmelo
+  Joinville x Guarulhos
+  Araguari x Sao_Jose_dos_Campos
+
+Rodada 17:
+  Cruzeiro x Guarulhos
+  Blumenal x Suzano
+  America-MG x Minas
+  Joinville x SESI-Bauru
+  Araguari x Campinas
+  Monte_Carmelo x Sao_Jose_dos_Campos
+
+Rodada 18:
+  Minas x Sao_Jose_dos_Campos
+  Cruzeiro x America-MG
+  Guarulhos x SESI-Bauru
+  Joinville x Suzano
+  Araguari x Blumenal
+  Monte_Carmelo x Campinas
+
+Rodada 19:
+  Minas x Campinas
+  SESI-Bauru x Cruzeiro
+  Suzano x Guarulhos
+  America-MG x Sao_Jose_dos_Campos
+  Araguari x Joinville
+  Monte_Carmelo x Blumenal
+
+Rodada 20:
+  Minas x Blumenal
+  SESI-Bauru x Suzano
+  Guarulhos x Araguari
+  Sao_Jose_dos_Campos x Cruzeiro
+  America-MG x Campinas
+  Monte_Carmelo x Joinville
+
+Rodada 21:
+  Minas x Joinville
+  SESI-Bauru x Araguari
+  Guarulhos x Monte_Carmelo
+  Campinas x Sao_Jose_dos_Campos
+  Suzano x Cruzeiro
+  America-MG x Blumenal
+
+Rodada 22:
+  SESI-Bauru x Monte_Carmelo
+  Guarulhos x Minas
+  Blumenal x Sao_Jose_dos_Campos
+  Campinas x Cruzeiro
+  Suzano x Araguari
+  America-MG x Joinville
+
+----- Distancia por time -----
+
+Minas = 6049
+Cruzeiro = 8618
+SESI-Bauru = 7098
+Guarulhos = 5482
+Blumenal = 7819
+Campinas = 5947
+Sao_Jose_dos_Campos = 6494
+Suzano = 6071
+America-MG = 10045
+Joinville = 6019
+Araguari = 7422
+Monte_Carmelo = 8962

@@ -38,6 +38,7 @@ double PERTURBA_TIMES = 0.3939;
 double TEMP_FIN = 0.01;
 
 double tempo_execucao = 300; // segundos
+FILE *conv_file = NULL;      // arquivo de convergência (NULL = não logar)
 
 // ######### PARÂMETROS DO GA (variáveis — calibráveis pelo irace) #########
 
@@ -282,6 +283,7 @@ void iteratedLocalSearch(st_solucao &s)
     memcpy(&s_melhor, &s, sizeof(s));
     melhor_fo = s.funObj;
     printf("Melhor FO = %d\n", melhor_fo);
+    int proximo_log = 0; // próximo segundo para logar convergência
     while (tempo <= tempo_execucao)
     {
         perturbarSolucao(PERTURBA_RODADA, PERTURBA_MANDO, PERTURBA_TIMES, s);
@@ -297,6 +299,12 @@ void iteratedLocalSearch(st_solucao &s)
             verifica_tabela_solucao(s);
         }
         tempo = (double)(clock() - h) / CLOCKS_PER_SEC;
+        // Log de convergência a cada 5 segundos
+        if (conv_file && (int)tempo >= proximo_log)
+        {
+            fprintf(conv_file, "%d;%d\n", proximo_log, melhor_fo);
+            proximo_log += 5;
+        }
     }
     memcpy(&s, &s_melhor, sizeof(s));
     verifica_tabela_solucao(s);
@@ -1317,6 +1325,7 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
     if (!modo_irace) printf("GA Init: melhor FO = %d\n", s_best.funObj);
 
     int geracao = 0;
+    int proximo_log = 0; // próximo segundo para logar convergência
 
     while (tempo < tempo_execucao)
     {
@@ -1449,6 +1458,13 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
 
         geracao++;
         tempo = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
+
+        // Log de convergência a cada 5 segundos
+        if (conv_file && (int)tempo >= proximo_log)
+        {
+            fprintf(conv_file, "%d;%d\n", proximo_log, s_best.funObj);
+            proximo_log += 5;
+        }
     }
 
     if (!modo_irace)

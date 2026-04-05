@@ -1,0 +1,18 @@
+#!/bin/bash
+# target-runner para irace
+# Argumentos do irace: <config_id> <instance_id> <seed> <instance_params...> <algo_params...>
+
+CONFIG_ID=$1
+INSTANCE_ID=$2
+SEED=$3
+EDICAO=$4
+TEMPORADA=$5
+shift 5
+
+EXE="../src/tcc2"
+
+# Rodada 1: usa "gam" (GA+RVND+Mineração)
+# Para Rodada 2: trocar "gam" por "qvndm" e adicionar params fixos da Rodada 1
+RESULT=$($EXE $EDICAO $TEMPORADA 1 qvndm --seed $SEED --tempo 60 --irace --pop 38 --tent 72 --elite 0.3938 --mut 0.1458 --tk 3 --nbl 10 --pool 30 --fase1 0.4978 $@ 2>/dev/null | tail -1)
+
+echo "$RESULT"

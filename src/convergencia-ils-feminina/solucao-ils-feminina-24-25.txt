@@ -1,0 +1,198 @@
+Metodo: ils
+Instancia: feminina 24-25
+FO = 93871
+Dist Total = 93871
+Tempo Melhor FO = 187
+
+-------- Tabela ---------
+
+Rodada 1:
+  Sesc-Flamengo x Osasco
+  Fluminense x Barueri
+  Sesi-Bauru x Abel_Moda_Brusque
+  Pinheiros x Maringa
+  Brasilia x Minas
+  Mackenzie x Praia_Clube
+
+Rodada 2:
+  Praia_Clube x Minas
+  Sesc-Flamengo x Barueri
+  Sesi-Bauru x Osasco
+  Pinheiros x Abel_Moda_Brusque
+  Brasilia x Fluminense
+  Mackenzie x Maringa
+
+Rodada 3:
+  Praia_Clube x Abel_Moda_Brusque
+  Minas x Osasco
+  Fluminense x Sesc-Flamengo
+  Sesi-Bauru x Maringa
+  Brasilia x Pinheiros
+  Mackenzie x Barueri
+
+Rodada 4:
+  Praia_Clube x Pinheiros
+  Osasco x Fluminense
+  Minas x Barueri
+  Sesc-Flamengo x Sesi-Bauru
+  Maringa x Abel_Moda_Brusque
+  Brasilia x Mackenzie
+
+Rodada 5:
+  Praia_Clube x Osasco
+  Minas x Pinheiros
+  Sesi-Bauru x Mackenzie
+  Barueri x Brasilia
+  Maringa x Sesc-Flamengo
+  Abel_Moda_Brusque x Fluminense
+
+Rodada 6:
+  Sesi-Bauru x Brasilia
+  Pinheiros x Fluminense
+  Barueri x Praia_Clube
+  Maringa x Osasco
+  Mackenzie x Minas
+  Abel_Moda_Brusque x Sesc-Flamengo
+
+Rodada 7:
+  Praia_Clube x Brasilia
+  Fluminense x Mackenzie
+  Sesi-Bauru x Minas
+  Pinheiros x Sesc-Flamengo
+  Maringa x Barueri
+  Abel_Moda_Brusque x Osasco
+
+Rodada 8:
+  Osasco x Pinheiros
+  Sesc-Flamengo x Mackenzie
+  Fluminense x Minas
+  Sesi-Bauru x Praia_Clube
+  Brasilia x Maringa
+  Abel_Moda_Brusque x Barueri
+
+Rodada 9:
+  Praia_Clube x Maringa
+  Sesc-Flamengo x Minas
+  Fluminense x Sesi-Bauru
+  Pinheiros x Barueri
+  Brasilia x Abel_Moda_Brusque
+  Mackenzie x Osasco
+
+Rodada 10:
+  Praia_Clube x Sesc-Flamengo
+  Minas x Abel_Moda_Brusque
+  Fluminense x Maringa
+  Barueri x Sesi-Bauru
+  Brasilia x Osasco
+  Mackenzie x Pinheiros
+
+Rodada 11:
+  Praia_Clube x Fluminense
+  Osasco x Barueri
+  Minas x Maringa
+  Sesi-Bauru x Pinheiros
+  Brasilia x Sesc-Flamengo
+  Mackenzie x Abel_Moda_Brusque
+
+Rodada 12:
+  Praia_Clube x Mackenzie
+  Osasco x Sesc-Flamengo
+  Minas x Brasilia
+  Barueri x Fluminense
+  Maringa x Pinheiros
+  Abel_Moda_Brusque x Sesi-Bauru
+
+Rodada 13:
+  Osasco x Sesi-Bauru
+  Minas x Praia_Clube
+  Fluminense x Brasilia
+  Barueri x Sesc-Flamengo
+  Maringa x Mackenzie
+  Abel_Moda_Brusque x Pinheiros
+
+Rodada 14:
+  Osasco x Minas
+  Sesc-Flamengo x Fluminense
+  Pinheiros x Brasilia
+  Barueri x Mackenzie
+  Maringa x Sesi-Bauru
+  Abel_Moda_Brusque x Praia_Clube
+
+Rodada 15:
+  Fluminense x Osasco
+  Sesi-Bauru x Sesc-Flamengo
+  Pinheiros x Praia_Clube
+  Barueri x Minas
+  Mackenzie x Brasilia
+  Abel_Moda_Brusque x Maringa
+
+Rodada 16:
+  Osasco x Praia_Clube
+  Sesc-Flamengo x Maringa
+  Fluminense x Abel_Moda_Brusque
+  Pinheiros x Minas
+  Brasilia x Barueri
+  Mackenzie x Sesi-Bauru
+
+Rodada 17:
+  Praia_Clube x Barueri
+  Osasco x Maringa
+  Minas x Mackenzie
+  Sesc-Flamengo x Abel_Moda_Brusque
+  Fluminense x Pinheiros
+  Brasilia x Sesi-Bauru
+
+Rodada 18:
+  Osasco x Abel_Moda_Brusque
+  Minas x Sesi-Bauru
+  Sesc-Flamengo x Pinheiros
+  Barueri x Maringa
+  Brasilia x Praia_Clube
+  Mackenzie x Fluminense
+
+Rodada 19:
+  Praia_Clube x Sesi-Bauru
+  Minas x Fluminense
+  Pinheiros x Osasco
+  Barueri x Abel_Moda_Brusque
+  Maringa x Brasilia
+  Mackenzie x Sesc-Flamengo
+
+Rodada 20:
+  Osasco x Mackenzie
+  Minas x Sesc-Flamengo
+  Sesi-Bauru x Fluminense
+  Barueri x Pinheiros
+  Maringa x Praia_Clube
+  Abel_Moda_Brusque x Brasilia
+
+Rodada 21:
+  Osasco x Brasilia
+  Sesc-Flamengo x Praia_Clube
+  Sesi-Bauru x Barueri
+  Pinheiros x Mackenzie
+  Maringa x Fluminense
+  Abel_Moda_Brusque x Minas
+
+Rodada 22:
+  Sesc-Flamengo x Brasilia
+  Fluminense x Praia_Clube
+  Pinheiros x Sesi-Bauru
+  Barueri x Osasco
+  Maringa x Minas
+  Abel_Moda_Brusque x Mackenzie
+
+----- Distancia por time -----
+
+Praia_Clube = 8871
+Osasco = 8128
+Minas = 6415
+Sesc-Flamengo = 7498
+Fluminense = 9133
+Sesi-Bauru = 8095
+Pinheiros = 6528
+Barueri = 6089
+Maringa = 9229
+Brasilia = 8044
+Mackenzie = 7007
+Abel_Moda_Brusque = 8834
