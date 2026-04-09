@@ -1,9 +1,9 @@
 #!/bin/bash
 # Roda os 5 métodos em 2 lotes: ILS/GA/QVND depois GAM/QVNDM
-# 8 instâncias × 10 execuções × 900s cada
+# 8 instâncias × 10 execuções × 300s cada
 # Parâmetros calibrados via irace (2026-04-04)
 
-OUTDIR="resultados-900s"
+OUTDIR="resultados-300s"
 mkdir -p "$OUTDIR"
 
 EDICOES=("masculina" "feminina")
@@ -11,10 +11,7 @@ TEMPORADAS=("21-22" "22-23" "23-24" "24-25")
 
 run_method() {
     local metodo=$1
-    local csv="${OUTDIR}/resultados-${metodo}.csv"
     local logfile="${OUTDIR}/log-${metodo}.txt"
-
-    rm -f "$csv"
 
     echo "=== Iniciando ${metodo} em $(date) ===" > "$logfile"
 
@@ -23,14 +20,17 @@ run_method() {
             echo ">>> ${metodo}: ${ed} ${temp} - $(date)" >> "$logfile"
             ./tcc2 "$ed" "$temp" 10 "$metodo" >> "$logfile" 2>&1
 
-            # Mover arquivos de convergência para a pasta de saída
-            for f in convergencia-${metodo}-${ed}-${temp}-exec*.csv; do
-                [ -f "$f" ] && mv "$f" "${OUTDIR}/"
-            done
+            # Mover convergência e solução para OUTDIR
+            mv convergencia-${metodo}-${ed}-${temp}-exec*.csv "${OUTDIR}/" 2>/dev/null
+            mv solucao-${metodo}-${ed}-${temp}.txt "${OUTDIR}/" 2>/dev/null
         done
     done
 
+    # Mover CSV de resultados para OUTDIR
+    mv "resultados-${metodo}.csv" "${OUTDIR}/" 2>/dev/null
+
     # Limpar cabeçalhos duplicados no CSV (manter só o primeiro)
+    local csv="${OUTDIR}/resultados-${metodo}.csv"
     if [ -f "$csv" ]; then
         head -1 "$csv" > "${csv}.tmp"
         grep -v "^EDICAO" "$csv" >> "${csv}.tmp"

@@ -66,10 +66,11 @@ double Q_EPSILON_DECAY = 0.9993;
 double tabela_Q[Q_ESTADOS][Q_ACOES];
 double q_epsilon = 0.2237;
 
-// ######### PARÂMETROS DA MULTIMINERAÇÃO (variáveis — calibráveis pelo irace) #########
+// ######### PARÂMETROS DA MULTIMINERAÇÃO ITERATIVA (variáveis — calibráveis pelo irace) #########
 
 int POOL_ELITE_SIZE = 30;
-double FRAC_TEMPO_FASE1 = 0.4978;
+int K_ESTAB = 15;              // gerações sem melhoria para disparar mineração
+int MIN_GEN_ENTRE_MINERACOES = 10; // intervalo mínimo entre minerações
 
 #define POOL_MAX 200 // tamanho máximo do pool (fixo)
 st_solucao pool_elite[POOL_MAX];
@@ -77,8 +78,23 @@ int pool_count = 0;
 int mineracao_ativa = 0;
 int mando_freq[MAX_TIMES][MAX_TIMES];
 
+// ######### CRITÉRIO DE PARADA DO GA #########
+
+int MAX_GERACOES = 150; // parada por gerações (GA). ILS usa tempo_execucao.
+
 // Flag do modo irace (imprime só FO)
 int modo_irace = 0;
+
+// Flags para pré-treino Q-Learning
+char q_table_path[300] = "";     // caminho da Q-table (vazio = não usar)
+int modo_treino = 0;             // 1 = modo pré-treino offline
+char lista_instancias_path[300] = ""; // arquivo com lista de instâncias para treino
+
+// Flags para coleta TTT (Time-To-Target)
+double ttt_alvos[3] = {-1, -1, -1};   // 3 alvos de FO (-1 = não ativo)
+double ttt_tempos[3] = {-1, -1, -1};  // tempo ao atingir cada alvo (-1 = não atingido)
+int ttt_ativo = 0;                      // 1 se --alvos foi passado
+char ttt_saida_path[300] = "";          // arquivo de saída TTT
 
 #define PASTA "../instancias"
 #define CAMINHO_ARQUIVO_DADOS "/dados-oficiais-"
@@ -89,6 +105,39 @@ int modo_irace = 0;
 
 #define EDICAO "/feminina"
 #define TEMPORADA "22-23"
+
+// Funções TTT inline (usadas no GA e ILS)
+void ttt_reset() {
+    for (int i = 0; i < 3; i++) ttt_tempos[i] = -1;
+}
+void ttt_check(int fo, double tempo) {
+    if (!ttt_ativo) return;
+    for (int i = 0; i < 3; i++)
+        if (ttt_tempos[i] < 0 && fo <= ttt_alvos[i])
+            ttt_tempos[i] = tempo;
+}
+void ttt_salvar() {
+    if (!ttt_ativo || !ttt_saida_path[0]) return;
+    FILE *f = fopen(ttt_saida_path, "w");
+    if (!f) return;
+    for (int i = 0; i < 3; i++)
+        fprintf(f, "%.0f %.3f\n", ttt_alvos[i], ttt_tempos[i]);
+    fclose(f);
+}
+
+// Forward declarations
+void ler_instancia(const char *caminho);
+void escreve_instancia();
+void geraSolucaoInicial(st_solucao &s);
+void calcFO(st_solucao &s);
+void iteratedLocalSearch(st_solucao &s);
+void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao);
+void inicializa_tabela_Q();
+void salvar_q_table(const char *path);
+int carregar_q_table(const char *path);
+void escreve_solucao_tabela_teste(st_solucao &s, const char *caminho, const char *edicao, const char *temporada, int cabecalho);
+void escreve_solucao_detalhada_arquivo(st_solucao &s, const char *caminho, const char *edicao, const char *temporada, const char *metodo);
+void verifica_tabela_solucao(st_solucao &s);
 
 int main(int argc, char *argv[])
 {
@@ -116,7 +165,9 @@ int main(int argc, char *argv[])
             else if (strcmp(argv[a], "--tk") == 0 && a + 1 < argc)   TORNEIO_K = atoi(argv[++a]);
             else if (strcmp(argv[a], "--nbl") == 0 && a + 1 < argc)  NUM_BL = atoi(argv[++a]);
             else if (strcmp(argv[a], "--pool") == 0 && a + 1 < argc) POOL_ELITE_SIZE = atoi(argv[++a]);
-            else if (strcmp(argv[a], "--fase1") == 0 && a + 1 < argc) FRAC_TEMPO_FASE1 = atof(argv[++a]);
+            else if (strcmp(argv[a], "--k-estab") == 0 && a + 1 < argc) K_ESTAB = atoi(argv[++a]);
+            else if (strcmp(argv[a], "--min-gen-mineracoes") == 0 && a + 1 < argc) MIN_GEN_ENTRE_MINERACOES = atoi(argv[++a]);
+            else if (strcmp(argv[a], "--max-geracoes") == 0 && a + 1 < argc) MAX_GERACOES = atoi(argv[++a]);
             else if (strcmp(argv[a], "--qalpha") == 0 && a + 1 < argc) Q_ALPHA = atof(argv[++a]);
             else if (strcmp(argv[a], "--qgamma") == 0 && a + 1 < argc) Q_GAMMA_RL = atof(argv[++a]);
             else if (strcmp(argv[a], "--qeps") == 0 && a + 1 < argc) Q_EPSILON_INIT = atof(argv[++a]);
@@ -125,8 +176,58 @@ int main(int argc, char *argv[])
             else if (strcmp(argv[a], "--seed") == 0 && a + 1 < argc) srand(atoi(argv[++a]));
             else if (strcmp(argv[a], "--tempo") == 0 && a + 1 < argc) tempo_execucao = atof(argv[++a]);
             else if (strcmp(argv[a], "--irace") == 0) modo_irace = 1;
+            else if (strcmp(argv[a], "--q-table-path") == 0 && a + 1 < argc) strncpy(q_table_path, argv[++a], sizeof(q_table_path)-1);
+            else if (strcmp(argv[a], "--modo-treino") == 0) modo_treino = 1;
+            else if (strcmp(argv[a], "--lista-instancias") == 0 && a + 1 < argc) strncpy(lista_instancias_path, argv[++a], sizeof(lista_instancias_path)-1);
+            else if (strcmp(argv[a], "--alvos") == 0 && a + 1 < argc) {
+                ttt_ativo = 1;
+                sscanf(argv[++a], "%lf,%lf,%lf", &ttt_alvos[0], &ttt_alvos[1], &ttt_alvos[2]);
+            }
+            else if (strcmp(argv[a], "--saida-ttt") == 0 && a + 1 < argc) strncpy(ttt_saida_path, argv[++a], sizeof(ttt_saida_path)-1);
         }
 
+        // ===== MODO PRÉ-TREINO: roda QVND em múltiplas instâncias acumulando Q-table =====
+        if (modo_treino && lista_instancias_path[0])
+        {
+            FILE *lista = fopen(lista_instancias_path, "r");
+            if (!lista) { printf("Erro ao abrir %s\n", lista_instancias_path); return 1; }
+
+            // Inicializar Q-table (carrega existente ou zerada)
+            if (q_table_path[0] && carregar_q_table(q_table_path))
+                printf("Q-table pré-existente carregada.\n");
+            else
+                inicializa_tabela_Q();
+
+            char linha[500];
+            int inst_num = 0;
+            while (fgets(linha, sizeof(linha), lista))
+            {
+                // Remover newline
+                linha[strcspn(linha, "\r\n")] = 0;
+                if (strlen(linha) == 0) continue;
+
+                inst_num++;
+                printf("[Treino %d] %s\n", inst_num, linha);
+                ler_instancia(linha);
+
+                st_solucao s;
+                geneticAlgorithm(s, 1, 0); // usar_qvnd=1, usar_mineracao=0
+
+                printf("[Treino %d] FO = %d\n", inst_num, s.funObj);
+            }
+            fclose(lista);
+
+            // Salvar Q-table acumulada
+            if (q_table_path[0])
+                salvar_q_table(q_table_path);
+            else
+                salvar_q_table("q_table_pretrain.qtable");
+
+            printf("Pré-treino concluído: %d instâncias processadas.\n", inst_num);
+            return 0;
+        }
+
+        // ===== MODO NORMAL =====
         char caminho[200];
         snprintf(caminho, sizeof(caminho), "../instancias/%s%s%s.txt", edicao, CAMINHO_ARQUIVO_DADOS, temporada);
         if (!modo_irace) printf("Caminho do arquivo: %s\n", caminho);
@@ -154,8 +255,8 @@ int main(int argc, char *argv[])
             }
             else
             {
-                char csv_name[100];
-                snprintf(csv_name, sizeof(csv_name), "resultados-%s.csv", metodo);
+                char csv_name[200];
+                snprintf(csv_name, sizeof(csv_name), "resultados-correcoes/resultados-%s.csv", metodo);
                 escreve_solucao_tabela_teste(s, csv_name, edicao, temporada, cabecalho);
                 escreve_solucao_detalhada_arquivo(s, csv_name, edicao, temporada, metodo);
                 cabecalho = 0;
@@ -282,6 +383,8 @@ void iteratedLocalSearch(st_solucao &s)
     // calcFO(s);
     memcpy(&s_melhor, &s, sizeof(s));
     melhor_fo = s.funObj;
+    ttt_reset();
+    ttt_check(melhor_fo, 0);
     printf("Melhor FO = %d\n", melhor_fo);
     int proximo_log = 0; // próximo segundo para logar convergência
     while (tempo <= tempo_execucao)
@@ -295,6 +398,7 @@ void iteratedLocalSearch(st_solucao &s)
             s.tempo_melhor_fo = (double)(clock() - h) / CLOCKS_PER_SEC;
             memcpy(&s_melhor, &s, sizeof(s));
             melhor_fo = s.funObj;
+            ttt_check(melhor_fo, s.tempo_melhor_fo);
             printf("Melhor FO = %d TEMPO = %d\n", melhor_fo, s.tempo_melhor_fo);
             verifica_tabela_solucao(s);
         }
@@ -308,6 +412,7 @@ void iteratedLocalSearch(st_solucao &s)
     }
     memcpy(&s, &s_melhor, sizeof(s));
     verifica_tabela_solucao(s);
+    ttt_salvar();
     printf("%d\n", s.funObj);
 }
 
@@ -678,7 +783,7 @@ void escreve_solucao_detalhada(st_solucao &s)
 void escreve_solucao_detalhada_arquivo(st_solucao &s, const char *caminho, const char *edicao, const char *temporada, const char *metodo)
 {
     char nome_arq[300];
-    snprintf(nome_arq, sizeof(nome_arq), "solucao-%s-%s-%s.txt", metodo, edicao, temporada);
+    snprintf(nome_arq, sizeof(nome_arq), "resultados-correcoes/solucao-%s-%s-%s.txt", metodo, edicao, temporada);
 
     FILE *f = fopen(nome_arq, "w");
     if (f == NULL)
@@ -982,6 +1087,28 @@ void inicializa_tabela_Q()
     q_epsilon = Q_EPSILON_INIT;
 }
 
+// Salva Q-table em arquivo binário (81 estados × 3 ações = 243 doubles)
+void salvar_q_table(const char *path)
+{
+    FILE *f = fopen(path, "wb");
+    if (!f) { printf("Erro ao salvar Q-table em %s\n", path); return; }
+    fwrite(tabela_Q, sizeof(double), Q_ESTADOS * Q_ACOES, f);
+    fclose(f);
+    if (!modo_irace) printf("Q-table salva em %s\n", path);
+}
+
+// Carrega Q-table de arquivo binário. Retorna 1 se sucesso, 0 se falhou.
+int carregar_q_table(const char *path)
+{
+    FILE *f = fopen(path, "rb");
+    if (!f) return 0;
+    size_t lidos = fread(tabela_Q, sizeof(double), Q_ESTADOS * Q_ACOES, f);
+    fclose(f);
+    if (lidos != Q_ESTADOS * Q_ACOES) return 0;
+    if (!modo_irace) printf("Q-table carregada de %s (%zu valores)\n", path, lidos);
+    return 1;
+}
+
 // Extrai estado discretizado da solução (4 features → 81 estados)
 int extrair_estado(st_solucao &s, int ultima_viz)
 {
@@ -1146,7 +1273,8 @@ void reset_mineracao()
     memset(mando_freq, 0, sizeof(mando_freq));
 }
 
-// Atualiza pool com as melhores soluções vistas
+// Atualiza pool elite como buffer FIFO rotativo
+// Quando cheio, remove a entrada mais antiga (posição 0) e desloca
 void atualiza_pool_elite(st_solucao pop[], int num_elite)
 {
     for (int i = 0; i < num_elite; i++)
@@ -1158,15 +1286,20 @@ void atualiza_pool_elite(st_solucao pop[], int num_elite)
         }
         else
         {
-            // Pool cheio: substituir a pior se a nova for melhor
-            int pior = 0;
-            for (int k = 1; k < POOL_ELITE_SIZE; k++)
-                if (pool_elite[k].funObj > pool_elite[pior].funObj)
-                    pior = k;
-            if (pop[i].funObj < pool_elite[pior].funObj)
-                memcpy(&pool_elite[pior], &pop[i], sizeof(st_solucao));
+            // FIFO: desloca tudo para a esquerda e insere no final
+            memmove(&pool_elite[0], &pool_elite[1], sizeof(st_solucao) * (POOL_ELITE_SIZE - 1));
+            memcpy(&pool_elite[POOL_ELITE_SIZE - 1], &pop[i], sizeof(st_solucao));
         }
     }
+}
+
+// Remove a metade mais antiga do pool (posições 0..n/2-1), preserva as mais recentes
+void limpar_metade_pool()
+{
+    if (pool_count <= 1) return;
+    int metade = pool_count / 2;
+    memmove(&pool_elite[0], &pool_elite[metade], sizeof(st_solucao) * (pool_count - metade));
+    pool_count -= metade;
 }
 
 // Extrai frequência de mando por par de times no turno das elite
@@ -1305,8 +1438,14 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
     double tempo = 0;
 
     // Inicializar tabela Q se usando QVND
-    if (usar_qvnd)
-        inicializa_tabela_Q();
+    // No modo treino, NÃO reinicializa (acumula entre instâncias)
+    if (usar_qvnd && !modo_treino)
+    {
+        if (q_table_path[0] && carregar_q_table(q_table_path))
+            q_epsilon = Q_EPSILON_INIT; // warm-start: carrega Q mas reseta epsilon
+        else
+            inicializa_tabela_Q();
+    }
 
     // Inicializar mineração se ativa
     if (usar_mineracao)
@@ -1322,12 +1461,20 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
     sort_populacao(populacao, POP_SIZE);
     memcpy(&s_best, &populacao[0], sizeof(st_solucao));
     s_best.tempo_melhor_fo = 0;
+    ttt_reset();
+    ttt_check(s_best.funObj, 0);
     if (!modo_irace) printf("GA Init: melhor FO = %d\n", s_best.funObj);
 
     int geracao = 0;
     int proximo_log = 0; // próximo segundo para logar convergência
 
-    while (tempo < tempo_execucao)
+    // Variáveis de controle do MDM iterativo
+    int gen_sem_melhoria_mdm = 0;
+    int gen_ultima_mineracao = -1000; // permite mineração logo no início se necessário
+    int melhor_fo_anterior = populacao[0].funObj;
+    int num_mineracoes = 0;
+
+    while (geracao < MAX_GERACOES)
     {
         // Elitismo: manter elite da geração anterior, gerar filhos para o resto
         int num_elite = (int)(FRAC_ELITE * POP_SIZE);
@@ -1399,9 +1546,6 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
                 qvnd(populacao[i]);
             else
                 rvnd(populacao[i]);
-            tempo = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
-            if (tempo >= tempo_execucao)
-                break;
         }
 
         // Decair epsilon do QVND ao longo das gerações
@@ -1419,18 +1563,34 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
         if (populacao[0].funObj < s_best.funObj)
         {
             memcpy(&s_best, &populacao[0], sizeof(st_solucao));
-            s_best.tempo_melhor_fo = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
-            if (!modo_irace) printf("GA Gen %d: melhor FO = %d TEMPO = %d\n", geracao, s_best.funObj, s_best.tempo_melhor_fo);
+            double t_now = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
+            s_best.tempo_melhor_fo = (int)t_now;
+            ttt_check(s_best.funObj, t_now);
+            if (!modo_irace) printf("GA Gen %d: melhor FO = %d TEMPO = %.2fs\n", geracao, s_best.funObj, t_now);
         }
 
-        // Mineração: coleta elite (Fase 1) e transição (Fase 2)
+        // Multimineração iterativa: coleta elite e re-minera quando estabiliza
         if (usar_mineracao)
         {
-            if (!mineracao_ativa)
+            atualiza_pool_elite(populacao, num_elite);
+
+            if (populacao[0].funObj < melhor_fo_anterior)
+                gen_sem_melhoria_mdm = 0;
+            else
+                gen_sem_melhoria_mdm++;
+
+            melhor_fo_anterior = populacao[0].funObj;
+
+            // Dispara re-mineração se estabilizou e intervalo mínimo respeitado
+            if (gen_sem_melhoria_mdm >= K_ESTAB &&
+                (geracao - gen_ultima_mineracao) >= MIN_GEN_ENTRE_MINERACOES)
             {
-                atualiza_pool_elite(populacao, num_elite);
-                if (tempo >= tempo_execucao * FRAC_TEMPO_FASE1)
-                    minerar_padroes();
+                minerar_padroes();
+                limpar_metade_pool();
+                gen_ultima_mineracao = geracao;
+                gen_sem_melhoria_mdm = 0;
+                if (!modo_irace) printf("  [MDM] Mineração #%d disparada na geração %d (pool=%d)\n",
+                                        ++num_mineracoes, geracao, pool_count);
             }
         }
 
@@ -1466,10 +1626,13 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
             proximo_log += 5;
         }
     }
+    // Registrar tempo total de execução do GA
+    double tempo_total_ga = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
+    ttt_salvar();
 
     if (!modo_irace)
     {
-        printf("GA: %d geracoes, melhor FO = %d\n", geracao, s_best.funObj);
+        printf("GA: %d geracoes em %.1fs, melhor FO = %d\n", geracao, tempo_total_ga, s_best.funObj);
         printf("Crossover final: %d ok, %d fail (%.1f%% ok)\n",
                crossover_ok, crossover_fail,
                (crossover_ok + crossover_fail > 0) ? 100.0 * crossover_ok / (crossover_ok + crossover_fail) : 0.0);

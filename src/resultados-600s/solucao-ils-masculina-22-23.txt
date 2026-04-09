@@ -1,0 +1,198 @@
+Metodo: ils
+Instancia: masculina 22-23
+FO = 139116
+Dist Total = 139116
+Tempo Melhor FO = 50
+
+-------- Tabela ---------
+
+Rodada 1:
+  sada_cruzeiro x sesi
+  vedacit_guarulhos x farma_conde_volei
+  itambe_minas x brasilia
+  volei_renata x suzano
+  araguari_volei x apan_blumenau
+  rede_cuca x america
+
+Rodada 2:
+  sada_cruzeiro x suzano
+  farma_conde_volei x itambe_minas
+  araguari_volei x vedacit_guarulhos
+  america x apan_blumenau
+  brasilia x volei_renata
+  rede_cuca x sesi
+
+Rodada 3:
+  sada_cruzeiro x vedacit_guarulhos
+  farma_conde_volei x america
+  suzano x itambe_minas
+  araguari_volei x volei_renata
+  brasilia x sesi
+  rede_cuca x apan_blumenau
+
+Rodada 4:
+  sada_cruzeiro x araguari_volei
+  vedacit_guarulhos x itambe_minas
+  farma_conde_volei x rede_cuca
+  sesi x volei_renata
+  suzano x america
+  brasilia x apan_blumenau
+
+Rodada 5:
+  vedacit_guarulhos x america
+  itambe_minas x araguari_volei
+  volei_renata x sada_cruzeiro
+  farma_conde_volei x brasilia
+  suzano x rede_cuca
+  apan_blumenau x sesi
+
+Rodada 6:
+  sada_cruzeiro x itambe_minas
+  vedacit_guarulhos x rede_cuca
+  sesi x farma_conde_volei
+  suzano x brasilia
+  apan_blumenau x volei_renata
+  araguari_volei x america
+
+Rodada 7:
+  vedacit_guarulhos x brasilia
+  volei_renata x itambe_minas
+  sesi x suzano
+  apan_blumenau x farma_conde_volei
+  araguari_volei x rede_cuca
+  america x sada_cruzeiro
+
+Rodada 8:
+  volei_renata x farma_conde_volei
+  sesi x vedacit_guarulhos
+  apan_blumenau x suzano
+  america x itambe_minas
+  brasilia x araguari_volei
+  rede_cuca x sada_cruzeiro
+
+Rodada 9:
+  vedacit_guarulhos x apan_blumenau
+  farma_conde_volei x suzano
+  araguari_volei x sesi
+  america x volei_renata
+  brasilia x sada_cruzeiro
+  rede_cuca x itambe_minas
+
+Rodada 10:
+  sada_cruzeiro x apan_blumenau
+  itambe_minas x sesi
+  suzano x vedacit_guarulhos
+  araguari_volei x farma_conde_volei
+  brasilia x america
+  rede_cuca x volei_renata
+
+Rodada 11:
+  sada_cruzeiro x farma_conde_volei
+  vedacit_guarulhos x volei_renata
+  itambe_minas x apan_blumenau
+  suzano x araguari_volei
+  america x sesi
+  rede_cuca x brasilia
+
+Rodada 12:
+  farma_conde_volei x vedacit_guarulhos
+  sesi x sada_cruzeiro
+  suzano x volei_renata
+  apan_blumenau x araguari_volei
+  america x rede_cuca
+  brasilia x itambe_minas
+
+Rodada 13:
+  vedacit_guarulhos x araguari_volei
+  itambe_minas x farma_conde_volei
+  volei_renata x brasilia
+  sesi x rede_cuca
+  suzano x sada_cruzeiro
+  apan_blumenau x america
+
+Rodada 14:
+  vedacit_guarulhos x sada_cruzeiro
+  itambe_minas x suzano
+  volei_renata x araguari_volei
+  sesi x brasilia
+  apan_blumenau x rede_cuca
+  america x farma_conde_volei
+
+Rodada 15:
+  itambe_minas x vedacit_guarulhos
+  volei_renata x sesi
+  apan_blumenau x brasilia
+  araguari_volei x sada_cruzeiro
+  america x suzano
+  rede_cuca x farma_conde_volei
+
+Rodada 16:
+  sada_cruzeiro x volei_renata
+  sesi x apan_blumenau
+  araguari_volei x itambe_minas
+  america x vedacit_guarulhos
+  brasilia x farma_conde_volei
+  rede_cuca x suzano
+
+Rodada 17:
+  itambe_minas x sada_cruzeiro
+  volei_renata x apan_blumenau
+  farma_conde_volei x sesi
+  america x araguari_volei
+  brasilia x suzano
+  rede_cuca x vedacit_guarulhos
+
+Rodada 18:
+  sada_cruzeiro x america
+  itambe_minas x volei_renata
+  farma_conde_volei x apan_blumenau
+  suzano x sesi
+  brasilia x vedacit_guarulhos
+  rede_cuca x araguari_volei
+
+Rodada 19:
+  sada_cruzeiro x rede_cuca
+  vedacit_guarulhos x sesi
+  itambe_minas x america
+  farma_conde_volei x volei_renata
+  suzano x apan_blumenau
+  araguari_volei x brasilia
+
+Rodada 20:
+  sada_cruzeiro x brasilia
+  itambe_minas x rede_cuca
+  volei_renata x america
+  sesi x araguari_volei
+  suzano x farma_conde_volei
+  apan_blumenau x vedacit_guarulhos
+
+Rodada 21:
+  vedacit_guarulhos x suzano
+  volei_renata x rede_cuca
+  farma_conde_volei x araguari_volei
+  sesi x itambe_minas
+  apan_blumenau x sada_cruzeiro
+  america x brasilia
+
+Rodada 22:
+  volei_renata x vedacit_guarulhos
+  farma_conde_volei x sada_cruzeiro
+  sesi x america
+  apan_blumenau x itambe_minas
+  araguari_volei x suzano
+  brasilia x rede_cuca
+
+----- Distancia por time -----
+
+sada_cruzeiro = 10096
+vedacit_guarulhos = 9516
+itambe_minas = 10930
+volei_renata = 12082
+farma_conde_volei = 9807
+sesi = 10321
+suzano = 9565
+apan_blumenau = 11443
+araguari_volei = 10939
+america = 13812
+brasilia = 13179
+rede_cuca = 17426

@@ -31,7 +31,11 @@ for genero in GENEROS:
         for metodo in METODOS:
             dfs = []
             for k in range(1, 11):
-                arq = os.path.join(DATADIR, f'convergencia-{metodo}-{genero}-{temp}-exec{k}.csv')
+                nome_arq = f'convergencia-{metodo}-{genero}-{temp}-exec{k}.csv'
+                # Procurar na raiz ou na subpasta
+                arq = os.path.join(DATADIR, nome_arq)
+                if not os.path.exists(arq):
+                    arq = os.path.join(DATADIR, f'convergencia-{metodo}-{genero}', nome_arq)
                 if os.path.exists(arq):
                     df = pd.read_csv(arq, sep=';')
                     dfs.append(df)
@@ -47,13 +51,16 @@ for genero in GENEROS:
 
             fo_cols = [c for c in merged.columns if c.startswith('FO_')]
             merged['FO_media'] = merged[fo_cols].mean(axis=1)
+            merged['FO_min'] = merged[fo_cols].min(axis=1)
+            merged['FO_max'] = merged[fo_cols].max(axis=1)
 
-            # Salvar convergência média em CSV
+            # Salvar convergência média/min/max em CSV
             media_csv = os.path.join(conv_media_dir, f'conv-media-{metodo}-{genero}-{temp}.csv')
-            merged[['TEMPO', 'FO_media']].to_csv(media_csv, sep=';', index=False)
+            merged[['TEMPO', 'FO_media', 'FO_min', 'FO_max']].to_csv(media_csv, sep=';', index=False)
             print(f'Convergência média: {media_csv}')
 
             ax.plot(merged['TEMPO'], merged['FO_media'], label=LABELS[metodo], color=CORES[metodo], linewidth=1.5)
+            ax.fill_between(merged['TEMPO'], merged['FO_min'], merged['FO_max'], color=CORES[metodo], alpha=0.12)
 
         ax.set_xlabel('Tempo (s)')
         ax.set_ylabel('FO média')
@@ -66,6 +73,43 @@ for genero in GENEROS:
         fig.savefig(nome, dpi=150)
         plt.close(fig)
         print(f'Gráfico: {nome}')
+
+        # Gráfico individual por método (com faixa min-max)
+        for metodo in METODOS:
+            dfs = []
+            for k in range(1, 11):
+                nome_arq = f'convergencia-{metodo}-{genero}-{temp}-exec{k}.csv'
+                arq = os.path.join(DATADIR, nome_arq)
+                if not os.path.exists(arq):
+                    arq = os.path.join(DATADIR, f'convergencia-{metodo}-{genero}', nome_arq)
+                if os.path.exists(arq):
+                    dfs.append(pd.read_csv(arq, sep=';'))
+            if not dfs:
+                continue
+
+            merged = dfs[0][['TEMPO']].copy()
+            for i, df in enumerate(dfs):
+                merged = merged.merge(df.rename(columns={'FO': f'FO_{i}'}), on='TEMPO', how='outer')
+            merged = merged.sort_values('TEMPO').reset_index(drop=True)
+            fo_cols = [c for c in merged.columns if c.startswith('FO_')]
+            merged['FO_media'] = merged[fo_cols].mean(axis=1)
+            merged['FO_min'] = merged[fo_cols].min(axis=1)
+            merged['FO_max'] = merged[fo_cols].max(axis=1)
+
+            fig2, ax2 = plt.subplots(figsize=(8, 5))
+            ax2.plot(merged['TEMPO'], merged['FO_media'], color=CORES[metodo], linewidth=1.5, label='Média')
+            ax2.fill_between(merged['TEMPO'], merged['FO_min'], merged['FO_max'], color=CORES[metodo], alpha=0.2, label='Min-Max')
+            ax2.set_xlabel('Tempo (s)')
+            ax2.set_ylabel('FO')
+            ax2.set_title(f'{LABELS[metodo]} — {genero.capitalize()} {temp}')
+            ax2.legend(fontsize=9)
+            ax2.grid(True, alpha=0.3)
+            fig2.tight_layout()
+
+            nome2 = os.path.join(graficos_dir, f'convergencia-{metodo}-{genero}-{temp}.png')
+            fig2.savefig(nome2, dpi=150)
+            plt.close(fig2)
+            print(f'Gráfico individual: {nome2}')
 
 # ========== TABELA COMPARATIVA ==========
 

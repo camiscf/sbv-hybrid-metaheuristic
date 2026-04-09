@@ -1,0 +1,198 @@
+Metodo: ga
+Instancia: masculina 23-24
+FO = 96905
+Dist Total = 96905
+Tempo Melhor FO = 0
+
+-------- Tabela ---------
+
+Rodada 1:
+  SESI-Bauru x Cruzeiro
+  Blumenal x Joinville
+  Suzano x Sao_Jose_dos_Campos
+  America-MG x Campinas
+  Araguari x Minas
+  Monte_Carmelo x Guarulhos
+
+Rodada 2:
+  Minas x SESI-Bauru
+  Guarulhos x Suzano
+  Campinas x Cruzeiro
+  America-MG x Blumenal
+  Joinville x Sao_Jose_dos_Campos
+  Monte_Carmelo x Araguari
+
+Rodada 3:
+  Minas x Guarulhos
+  Cruzeiro x Araguari
+  Blumenal x Sao_Jose_dos_Campos
+  Suzano x Monte_Carmelo
+  America-MG x SESI-Bauru
+  Joinville x Campinas
+
+Rodada 4:
+  Cruzeiro x Monte_Carmelo
+  Blumenal x Campinas
+  Sao_Jose_dos_Campos x SESI-Bauru
+  Suzano x Minas
+  America-MG x Guarulhos
+  Joinville x Araguari
+
+Rodada 5:
+  Minas x America-MG
+  SESI-Bauru x Campinas
+  Blumenal x Araguari
+  Sao_Jose_dos_Campos x Guarulhos
+  Suzano x Cruzeiro
+  Joinville x Monte_Carmelo
+
+Rodada 6:
+  SESI-Bauru x Joinville
+  Guarulhos x Cruzeiro
+  Sao_Jose_dos_Campos x Campinas
+  Suzano x Blumenal
+  Araguari x America-MG
+  Monte_Carmelo x Minas
+
+Rodada 7:
+  Cruzeiro x Minas
+  SESI-Bauru x Blumenal
+  Guarulhos x Joinville
+  Campinas x Suzano
+  Araguari x Sao_Jose_dos_Campos
+  Monte_Carmelo x America-MG
+
+Rodada 8:
+  Minas x Joinville
+  Guarulhos x Blumenal
+  Suzano x SESI-Bauru
+  America-MG x Cruzeiro
+  Araguari x Campinas
+  Monte_Carmelo x Sao_Jose_dos_Campos
+
+Rodada 9:
+  Guarulhos x SESI-Bauru
+  Blumenal x Minas
+  Sao_Jose_dos_Campos x Cruzeiro
+  America-MG x Joinville
+  Araguari x Suzano
+  Monte_Carmelo x Campinas
+
+Rodada 10:
+  SESI-Bauru x Araguari
+  Blumenal x Monte_Carmelo
+  Campinas x Guarulhos
+  Sao_Jose_dos_Campos x Minas
+  America-MG x Suzano
+  Joinville x Cruzeiro
+
+Rodada 11:
+  SESI-Bauru x Monte_Carmelo
+  Guarulhos x Araguari
+  Blumenal x Cruzeiro
+  Campinas x Minas
+  America-MG x Sao_Jose_dos_Campos
+  Joinville x Suzano
+
+Rodada 12:
+  Minas x Araguari
+  Cruzeiro x SESI-Bauru
+  Guarulhos x Monte_Carmelo
+  Campinas x America-MG
+  Sao_Jose_dos_Campos x Suzano
+  Joinville x Blumenal
+
+Rodada 13:
+  Cruzeiro x Campinas
+  SESI-Bauru x Minas
+  Blumenal x America-MG
+  Sao_Jose_dos_Campos x Joinville
+  Suzano x Guarulhos
+  Araguari x Monte_Carmelo
+
+Rodada 14:
+  SESI-Bauru x America-MG
+  Guarulhos x Minas
+  Campinas x Joinville
+  Sao_Jose_dos_Campos x Blumenal
+  Araguari x Cruzeiro
+  Monte_Carmelo x Suzano
+
+Rodada 15:
+  Minas x Suzano
+  SESI-Bauru x Sao_Jose_dos_Campos
+  Guarulhos x America-MG
+  Campinas x Blumenal
+  Araguari x Joinville
+  Monte_Carmelo x Cruzeiro
+
+Rodada 16:
+  Cruzeiro x Suzano
+  Guarulhos x Sao_Jose_dos_Campos
+  Campinas x SESI-Bauru
+  America-MG x Minas
+  Araguari x Blumenal
+  Monte_Carmelo x Joinville
+
+Rodada 17:
+  Minas x Monte_Carmelo
+  Cruzeiro x Guarulhos
+  Blumenal x Suzano
+  Campinas x Sao_Jose_dos_Campos
+  America-MG x Araguari
+  Joinville x SESI-Bauru
+
+Rodada 18:
+  Minas x Cruzeiro
+  Blumenal x SESI-Bauru
+  Sao_Jose_dos_Campos x Araguari
+  Suzano x Campinas
+  America-MG x Monte_Carmelo
+  Joinville x Guarulhos
+
+Rodada 19:
+  Cruzeiro x America-MG
+  SESI-Bauru x Suzano
+  Blumenal x Guarulhos
+  Campinas x Araguari
+  Sao_Jose_dos_Campos x Monte_Carmelo
+  Joinville x Minas
+
+Rodada 20:
+  Minas x Blumenal
+  Cruzeiro x Sao_Jose_dos_Campos
+  SESI-Bauru x Guarulhos
+  Campinas x Monte_Carmelo
+  Suzano x Araguari
+  Joinville x America-MG
+
+Rodada 21:
+  Minas x Sao_Jose_dos_Campos
+  Cruzeiro x Joinville
+  Guarulhos x Campinas
+  Suzano x America-MG
+  Araguari x SESI-Bauru
+  Monte_Carmelo x Blumenal
+
+Rodada 22:
+  Minas x Campinas
+  Cruzeiro x Blumenal
+  Sao_Jose_dos_Campos x America-MG
+  Suzano x Joinville
+  Araguari x Guarulhos
+  Monte_Carmelo x SESI-Bauru
+
+----- Distancia por time -----
+
+Minas = 9361
+Cruzeiro = 6782
+SESI-Bauru = 5991
+Guarulhos = 7650
+Blumenal = 9785
+Campinas = 7597
+Sao_Jose_dos_Campos = 7166
+Suzano = 8060
+America-MG = 7194
+Joinville = 8234
+Araguari = 8534
+Monte_Carmelo = 10551
