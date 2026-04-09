@@ -1,0 +1,20 @@
+#!/bin/bash
+# target-runner para irace — Rodada 4: Q-Learning (5 params)
+# Params GA+MDM fixados da Rodada 3. Usa qvndm.
+# IMPORTANTE: atualizar os valores fixos abaixo após a Rodada 3.
+
+CONFIG_ID=$1
+INSTANCE_ID=$2
+SEED=$3
+EDICAO=$4
+TEMPORADA=$5
+shift 5
+
+EXE="../src/tcc2"
+
+# Params fixados da Rodada 3 (ATUALIZAR após rodar Rodada 3)
+FIXED="--pop XXXX --tent XXXX --elite XXXX --mut XXXX --tk XXXX --nbl XXXX --pool XXXX --k-estab XXXX --min-gen-mineracoes XXXX"
+
+RESULT=$($EXE $EDICAO $TEMPORADA 1 qvndm --seed $SEED --max-geracoes 50 --irace $FIXED $@ 2>/dev/null | tail -1)
+
+echo "$RESULT"

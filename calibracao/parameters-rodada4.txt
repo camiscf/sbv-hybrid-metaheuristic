@@ -1,0 +1,5 @@
+Q_ALPHA          "--qalpha "   r (0.01, 0.50)
+Q_GAMMA_RL       "--qgamma "   r (0.50, 0.99)
+Q_EPSILON_INIT   "--qeps "     r (0.05, 0.50)
+Q_EPSILON_MIN    "--qepsmin "  r (0.01, 0.10)
+Q_EPSILON_DECAY  "--qdecay "   r (0.990, 0.9999)

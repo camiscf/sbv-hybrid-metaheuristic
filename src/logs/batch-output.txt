@@ -1,0 +1,33 @@
+nohup: ignoring input
+Compilando...
+tcc2.cpp: In function ‘void ler_instancia(const char*)’:
+tcc2.cpp:187:21: warning: format ‘%s’ expects argument of type ‘char*’, but argument 3 has type ‘char (*)[50]’ [-Wformat=]
+  187 |         fscanf(f, "%s", &nome_time[i]);
+      |                    ~^   ~~~~~~~~~~~~~
+      |                     |   |
+      |                     |   char (*)[50]
+      |                     char*
+tcc2.cpp:181:11: warning: ignoring return value of ‘int fscanf(FILE*, const char*, ...)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  181 |     fscanf(f, "%d", &num_times);
+      |     ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+tcc2.cpp:187:15: warning: ignoring return value of ‘int fscanf(FILE*, const char*, ...)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  187 |         fscanf(f, "%s", &nome_time[i]);
+      |         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+tcc2.cpp:193:19: warning: ignoring return value of ‘int fscanf(FILE*, const char*, ...)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  193 |             fscanf(f, "%d", &dist[i][j]);
+      |             ~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+tcc2.cpp:200:11: warning: ignoring return value of ‘int fscanf(FILE*, const char*, ...)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  200 |     fscanf(f, "%d %d %d", &max_home, &max_away, &dif_home_away);
+      |     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tcc2.cpp: In function ‘void ler_tabela_resultado(const char*, st_solucao&)’:
+tcc2.cpp:212:19: warning: ignoring return value of ‘int fscanf(FILE*, const char*, ...)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  212 |             fscanf(f, "%d %d", &time1, &time2);
+      |             ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Iniciando 3 métodos em paralelo: Fri Apr  3 20:51:40 -03 2026
+PIDs: ILS=114945, GA=114946, QVND=114947
+Acompanhe com: tail -f log-ils.txt  (ou log-ga.txt, log-qvnd.txt)
+Progresso CSV: wc -l resultados-*.csv
+ILS finalizado: Sat Apr  4 03:31:41 -03 2026
+GA finalizado: Sat Apr  4 03:31:41 -03 2026
+QVND finalizado: Sat Apr  4 03:31:41 -03 2026
+Tudo concluído: Sat Apr  4 03:31:41 -03 2026

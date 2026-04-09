@@ -1,0 +1,10 @@
+trainInstancesDir = ""
+trainInstancesFile = "instances.txt"
+parameterFile = "parameters-rodada3.txt"
+targetRunner = "./target-runner-rodada3"
+maxExperiments = 1000
+testType = "friedman"
+firstTest = 5
+eachTest = 1
+seed = 1234
+parallel = 4

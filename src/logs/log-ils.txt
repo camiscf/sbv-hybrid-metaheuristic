@@ -1,0 +1,1057 @@
+=== Iniciando ils em Sat Apr  4 18:52:03 -03 2026 ===
+>>> ils: masculina 21-22 - Sat Apr  4 18:52:03 -03 2026
+Caminho do arquivo: ../instancias/masculina/dados-oficiais-21-22.txt
+Numero de Times: 12
+Nome dos Times
+Minas
+Cruzeiro
+SESI-Bauru
+Guarulhos
+Blumenal
+Campinas
+Sao_Jose_dos_Campos
+Funvic
+America-MG
+Brasilia
+Goias
+Uberlândia
+Distancia Cidades
+0 22 605 576 1090 584 601 661 423 733 888 537 
+22 0 585 556 1070 564 581 641 445 711 866 517 
+605 585 0 22 574 98 95 130 965 1014 871 537 
+576 556 22 0 592 68 67 110 938 987 844 512 
+1090 1070 574 592 0 560 585 620 1440 1454 1304 1015 
+584 564 98 68 560 0 69 105 929 978 834 509 
+601 581 95 67 585 69 0 35 946 995 851 526 
+661 641 130 110 620 105 35 0 1006 1055 911 586 
+423 445 965 938 1440 929 946 1006 0 403 330 429 
+733 711 1014 987 1454 978 995 1055 403 0 209 738 
+888 866 871 844 1304 834 851 911 330 209 0 634 
+537 517 537 512 1015 509 526 586 429 738 634 0 
+
+4 4 5
+Melhor FO = 151494
+Melhor FO = 95723 TEMPO = 0
+Melhor FO = 93558 TEMPO = 0
+Melhor FO = 92152 TEMPO = 1
+Melhor FO = 91596 TEMPO = 2
+Melhor FO = 91356 TEMPO = 16
+Melhor FO = 91047 TEMPO = 17
+Melhor FO = 90277 TEMPO = 20
+Melhor FO = 89985 TEMPO = 28
+Melhor FO = 88998 TEMPO = 46
+Melhor FO = 88716 TEMPO = 58
+Melhor FO = 83358 TEMPO = 80
+83358
+Tabela salva em solucao-ils-masculina-21-22.txt
+Melhor FO = 152213
+Melhor FO = 96978 TEMPO = 0
+Melhor FO = 95554 TEMPO = 0
+Melhor FO = 92165 TEMPO = 0
+Melhor FO = 90204 TEMPO = 3
+Melhor FO = 89511 TEMPO = 10
+Melhor FO = 88875 TEMPO = 26
+Melhor FO = 88464 TEMPO = 44
+Melhor FO = 86875 TEMPO = 96
+Melhor FO = 86633 TEMPO = 129
+Melhor FO = 85932 TEMPO = 237
+85932
+Tabela salva em solucao-ils-masculina-21-22.txt
+Melhor FO = 156789
+Melhor FO = 97722 TEMPO = 0
+Melhor FO = 96350 TEMPO = 1
+Melhor FO = 95537 TEMPO = 1
+Melhor FO = 95182 TEMPO = 2
+Melhor FO = 94805 TEMPO = 3
+Melhor FO = 92002 TEMPO = 4
+Melhor FO = 89510 TEMPO = 4
+Melhor FO = 88039 TEMPO = 15
+Melhor FO = 86905 TEMPO = 70
+Melhor FO = 84686 TEMPO = 225
+Melhor FO = 84495 TEMPO = 288
+84495
+Tabela salva em solucao-ils-masculina-21-22.txt
+Melhor FO = 154086
+Melhor FO = 93661 TEMPO = 0
+Melhor FO = 91778 TEMPO = 3
+Melhor FO = 91442 TEMPO = 8
+Melhor FO = 90721 TEMPO = 8
+Melhor FO = 90315 TEMPO = 13
+Melhor FO = 86668 TEMPO = 30
+Melhor FO = 86497 TEMPO = 97
+Melhor FO = 86431 TEMPO = 255
+86431
+Tabela salva em solucao-ils-masculina-21-22.txt
+Melhor FO = 153138
+Melhor FO = 94531 TEMPO = 0
+Melhor FO = 92535 TEMPO = 0
+Melhor FO = 87129 TEMPO = 5
+Melhor FO = 86575 TEMPO = 20
+86575
+Tabela salva em solucao-ils-masculina-21-22.txt
+Melhor FO = 154269
+Melhor FO = 94314 TEMPO = 0
+Melhor FO = 92854 TEMPO = 2
+Melhor FO = 92579 TEMPO = 6
+Melhor FO = 91472 TEMPO = 7
+Melhor FO = 90468 TEMPO = 8
+Melhor FO = 85949 TEMPO = 13
+Melhor FO = 84559 TEMPO = 25
+Melhor FO = 83561 TEMPO = 214
+Melhor FO = 81592 TEMPO = 262
+81592
+Tabela salva em solucao-ils-masculina-21-22.txt
+Melhor FO = 155660
+Melhor FO = 91779 TEMPO = 0
+Melhor FO = 91562 TEMPO = 4
+Melhor FO = 89756 TEMPO = 10
+Melhor FO = 89081 TEMPO = 33
+Melhor FO = 87633 TEMPO = 65
+Melhor FO = 87050 TEMPO = 125
+Melhor FO = 86387 TEMPO = 229
+86387
+Tabela salva em solucao-ils-masculina-21-22.txt
+Melhor FO = 157039
+Melhor FO = 91149 TEMPO = 0
+Melhor FO = 91062 TEMPO = 6
+Melhor FO = 90478 TEMPO = 7
+Melhor FO = 89167 TEMPO = 13
+Melhor FO = 88974 TEMPO = 51
+Melhor FO = 81748 TEMPO = 119
+81748
+Tabela salva em solucao-ils-masculina-21-22.txt
+Melhor FO = 152953
+Melhor FO = 94899 TEMPO = 0
+Melhor FO = 92396 TEMPO = 2
+Melhor FO = 92071 TEMPO = 9
+Melhor FO = 91795 TEMPO = 11
+Melhor FO = 88575 TEMPO = 18
+Melhor FO = 82339 TEMPO = 37
+82339
+Tabela salva em solucao-ils-masculina-21-22.txt
+Melhor FO = 153010
+Melhor FO = 95270 TEMPO = 0
+Melhor FO = 89821 TEMPO = 1
+Melhor FO = 89103 TEMPO = 17
+Melhor FO = 88694 TEMPO = 17
+Melhor FO = 87231 TEMPO = 50
+Melhor FO = 86640 TEMPO = 292
+86640
+Tabela salva em solucao-ils-masculina-21-22.txt
+>>> ils: masculina 22-23 - Sat Apr  4 19:42:04 -03 2026
+Caminho do arquivo: ../instancias/masculina/dados-oficiais-22-23.txt
+Numero de Times: 12
+Nome dos Times
+sada_cruzeiro
+vedacit_guarulhos
+itambe_minas
+volei_renata
+farma_conde_volei
+sesi
+suzano
+apan_blumenau
+araguari_volei
+america
+brasilia
+rede_cuca
+Distancia Cidades
+0 560 16 570 594 573 597 1163 546 419 729 2355 
+560 0 574 117 78 52 39 620 628 972 1013 3097 
+16 574 0 583 607 587 611 1175 560 423 734 2358 
+570 117 583 0 151 102 151 680 532 979 916 3001 
+594 78 607 151 0 93 71 695 677 1004 1062 3146 
+573 52 587 102 93 0 55 599 624 987 1007 3092 
+597 39 611 151 71 55 0 664 664 1011 1049 3133 
+1163 620 1175 680 695 599 664 0 1199 1588 1583 3668 
+546 628 560 532 677 624 664 1199 0 626 391 2476 
+419 972 423 979 1004 987 1011 1588 626 0 700 1942 
+729 1013 734 916 1062 1007 1049 1583 391 700 0 2135 
+2355 3097 2358 3001 3146 3092 3133 3668 2476 1942 2135 0 
+
+4 4 5
+Melhor FO = 248034
+Melhor FO = 164476 TEMPO = 0
+Melhor FO = 152650 TEMPO = 0
+Melhor FO = 150981 TEMPO = 1
+Melhor FO = 148698 TEMPO = 2
+Melhor FO = 144695 TEMPO = 2
+Melhor FO = 144096 TEMPO = 27
+Melhor FO = 142854 TEMPO = 85
+Melhor FO = 142450 TEMPO = 116
+Melhor FO = 141113 TEMPO = 142
+Melhor FO = 139216 TEMPO = 231
+139216
+Tabela salva em solucao-ils-masculina-22-23.txt
+Melhor FO = 245505
+Melhor FO = 157341 TEMPO = 0
+Melhor FO = 153006 TEMPO = 0
+Melhor FO = 150496 TEMPO = 2
+Melhor FO = 148513 TEMPO = 2
+Melhor FO = 144986 TEMPO = 4
+Melhor FO = 141632 TEMPO = 21
+Melhor FO = 140925 TEMPO = 137
+140925
+Tabela salva em solucao-ils-masculina-22-23.txt
+Melhor FO = 249836
+Melhor FO = 149265 TEMPO = 0
+Melhor FO = 146544 TEMPO = 7
+Melhor FO = 145542 TEMPO = 13
+Melhor FO = 144628 TEMPO = 15
+Melhor FO = 141859 TEMPO = 26
+Melhor FO = 141071 TEMPO = 30
+Melhor FO = 137994 TEMPO = 39
+137994
+Tabela salva em solucao-ils-masculina-22-23.txt
+Melhor FO = 236664
+Melhor FO = 152447 TEMPO = 0
+Melhor FO = 151864 TEMPO = 0
+Melhor FO = 147855 TEMPO = 1
+Melhor FO = 143357 TEMPO = 2
+Melhor FO = 143345 TEMPO = 62
+Melhor FO = 137866 TEMPO = 95
+137866
+Tabela salva em solucao-ils-masculina-22-23.txt
+Melhor FO = 242514
+Melhor FO = 149008 TEMPO = 0
+Melhor FO = 147607 TEMPO = 1
+Melhor FO = 146318 TEMPO = 3
+Melhor FO = 144697 TEMPO = 4
+Melhor FO = 144622 TEMPO = 11
+Melhor FO = 143586 TEMPO = 52
+Melhor FO = 141291 TEMPO = 52
+Melhor FO = 140484 TEMPO = 91
+140484
+Tabela salva em solucao-ils-masculina-22-23.txt
+Melhor FO = 240660
+Melhor FO = 152662 TEMPO = 0
+Melhor FO = 151100 TEMPO = 0
+Melhor FO = 150598 TEMPO = 1
+Melhor FO = 143901 TEMPO = 1
+Melhor FO = 140963 TEMPO = 13
+140963
+Tabela salva em solucao-ils-masculina-22-23.txt
+Melhor FO = 234646
+Melhor FO = 144056 TEMPO = 0
+Melhor FO = 141440 TEMPO = 24
+141440
+Tabela salva em solucao-ils-masculina-22-23.txt
+Melhor FO = 242665
+Melhor FO = 144726 TEMPO = 0
+Melhor FO = 143287 TEMPO = 34
+Melhor FO = 140422 TEMPO = 74
+140422
+Tabela salva em solucao-ils-masculina-22-23.txt
+Melhor FO = 242405
+Melhor FO = 152569 TEMPO = 0
+Melhor FO = 150514 TEMPO = 1
+Melhor FO = 148487 TEMPO = 2
+Melhor FO = 147850 TEMPO = 2
+Melhor FO = 145836 TEMPO = 2
+Melhor FO = 145194 TEMPO = 3
+Melhor FO = 144120 TEMPO = 16
+Melhor FO = 143949 TEMPO = 79
+Melhor FO = 138143 TEMPO = 133
+138143
+Tabela salva em solucao-ils-masculina-22-23.txt
+Melhor FO = 245665
+Melhor FO = 146455 TEMPO = 0
+Melhor FO = 146074 TEMPO = 21
+Melhor FO = 144259 TEMPO = 29
+Melhor FO = 142527 TEMPO = 74
+Melhor FO = 141978 TEMPO = 116
+141978
+Tabela salva em solucao-ils-masculina-22-23.txt
+>>> ils: masculina 23-24 - Sat Apr  4 20:32:04 -03 2026
+Caminho do arquivo: ../instancias/masculina/dados-oficiais-23-24.txt
+Numero de Times: 12
+Nome dos Times
+Minas
+Cruzeiro
+SESI-Bauru
+Guarulhos
+Blumenal
+Campinas
+Sao_Jose_dos_Campos
+Suzano
+America-MG
+Joinville
+Araguari
+Monte_Carmelo
+Distancia Cidades
+0 22 605 576 1090 584 601 623 423 860 483 526 
+22 0 585 556 1070 564 581 603 445 838 461 504 
+605 585 0 22 574 98 95 50 965 704 1080 1158 
+576 556 22 0 592 68 67 29 938 675 1053 1131 
+1090 1070 574 592 0 560 585 621 1440 139 1524 1602 
+584 564 98 68 560 0 69 82 929 649 1044 1122 
+601 581 95 67 585 69 0 99 946 627 1061 1139 
+623 603 50 29 621 82 99 0 975 682 1090 1168 
+423 445 965 938 1440 929 946 975 0 1445 1070 1090 
+860 838 704 675 139 649 627 682 1445 0 1416 1494 
+483 461 1080 1053 1524 1044 1061 1090 1070 1416 0 111 
+526 504 1158 1131 1602 1122 1139 1168 1090 1494 111 0 
+
+4 4 5
+Melhor FO = 170118
+Melhor FO = 100993 TEMPO = 0
+Melhor FO = 98746 TEMPO = 7
+Melhor FO = 97229 TEMPO = 25
+Melhor FO = 95479 TEMPO = 26
+Melhor FO = 93646 TEMPO = 31
+Melhor FO = 92194 TEMPO = 106
+Melhor FO = 91479 TEMPO = 239
+91479
+Tabela salva em solucao-ils-masculina-23-24.txt
+Melhor FO = 170454
+Melhor FO = 103196 TEMPO = 0
+Melhor FO = 95268 TEMPO = 0
+Melhor FO = 94117 TEMPO = 33
+94117
+Tabela salva em solucao-ils-masculina-23-24.txt
+Melhor FO = 170212
+Melhor FO = 99799 TEMPO = 0
+Melhor FO = 96894 TEMPO = 15
+Melhor FO = 95446 TEMPO = 21
+Melhor FO = 94938 TEMPO = 122
+94938
+Tabela salva em solucao-ils-masculina-23-24.txt
+Melhor FO = 170444
+Melhor FO = 106816 TEMPO = 0
+Melhor FO = 103827 TEMPO = 1
+Melhor FO = 101651 TEMPO = 4
+Melhor FO = 100424 TEMPO = 4
+Melhor FO = 99894 TEMPO = 9
+Melhor FO = 97955 TEMPO = 18
+Melhor FO = 95954 TEMPO = 50
+Melhor FO = 95089 TEMPO = 53
+Melhor FO = 92688 TEMPO = 93
+92688
+Tabela salva em solucao-ils-masculina-23-24.txt
+Melhor FO = 169374
+Melhor FO = 104185 TEMPO = 0
+Melhor FO = 97969 TEMPO = 1
+Melhor FO = 96045 TEMPO = 32
+Melhor FO = 93762 TEMPO = 107
+Melhor FO = 92022 TEMPO = 107
+Melhor FO = 89293 TEMPO = 122
+89293
+Tabela salva em solucao-ils-masculina-23-24.txt
+Melhor FO = 171581
+Melhor FO = 108236 TEMPO = 0
+Melhor FO = 103949 TEMPO = 0
+Melhor FO = 99952 TEMPO = 1
+Melhor FO = 99666 TEMPO = 6
+Melhor FO = 94543 TEMPO = 23
+Melhor FO = 91920 TEMPO = 53
+Melhor FO = 91237 TEMPO = 162
+91237
+Tabela salva em solucao-ils-masculina-23-24.txt
+Melhor FO = 175282
+Melhor FO = 108934 TEMPO = 0
+Melhor FO = 107979 TEMPO = 0
+Melhor FO = 107765 TEMPO = 1
+Melhor FO = 104840 TEMPO = 1
+Melhor FO = 104166 TEMPO = 1
+Melhor FO = 103176 TEMPO = 2
+Melhor FO = 100631 TEMPO = 4
+Melhor FO = 97625 TEMPO = 7
+Melhor FO = 95696 TEMPO = 12
+Melhor FO = 92227 TEMPO = 18
+Melhor FO = 89762 TEMPO = 52
+89762
+Tabela salva em solucao-ils-masculina-23-24.txt
+Melhor FO = 172727
+Melhor FO = 106184 TEMPO = 0
+Melhor FO = 104139 TEMPO = 2
+Melhor FO = 102058 TEMPO = 2
+Melhor FO = 99414 TEMPO = 4
+Melhor FO = 96938 TEMPO = 7
+Melhor FO = 93971 TEMPO = 35
+Melhor FO = 92091 TEMPO = 43
+92091
+Tabela salva em solucao-ils-masculina-23-24.txt
+Melhor FO = 172369
+Melhor FO = 105766 TEMPO = 0
+Melhor FO = 103307 TEMPO = 2
+Melhor FO = 98993 TEMPO = 3
+Melhor FO = 97254 TEMPO = 24
+Melhor FO = 95655 TEMPO = 54
+Melhor FO = 94058 TEMPO = 58
+Melhor FO = 92837 TEMPO = 205
+Melhor FO = 91984 TEMPO = 253
+91984
+Tabela salva em solucao-ils-masculina-23-24.txt
+Melhor FO = 172965
+Melhor FO = 103601 TEMPO = 0
+Melhor FO = 97518 TEMPO = 4
+Melhor FO = 94208 TEMPO = 7
+Melhor FO = 92912 TEMPO = 98
+92912
+Tabela salva em solucao-ils-masculina-23-24.txt
+>>> ils: masculina 24-25 - Sat Apr  4 21:22:04 -03 2026
+Caminho do arquivo: ../instancias/masculina/dados-oficiais-24-25.txt
+Numero de Times: 12
+Nome dos Times
+Minas
+Cruzeiro
+SESI-Bauru
+Guarulhos
+Blumenau
+Campinas
+Sao_Jose_dos_Campos
+Suzano
+Goias
+Joinville
+Praia_Clube
+Neurologia_Ativa
+Distancia Cidades
+0 22 605 576 1090 584 601 623 888 860 537 888 
+22 0 585 556 1070 564 581 603 866 838 517 866 
+605 585 0 22 574 98 95 50 871 704 537 871 
+576 556 22 0 592 68 67 29 844 675 512 844 
+1090 1070 574 592 0 560 585 621 1304 139 1015 1304 
+584 564 98 68 560 0 69 82 834 649 509 834 
+601 581 95 67 585 69 0 99 851 627 526 851 
+623 603 50 29 621 82 99 0 870 682 545 870 
+888 866 871 844 1304 834 851 870 0 1280 634 0 
+860 838 704 675 139 649 627 682 1280 0 1060 1280 
+537 517 537 512 1015 509 526 545 634 1060 0 634 
+888 866 871 844 1304 834 851 870 0 1280 634 0 
+
+4 4 5
+Melhor FO = 151104
+Melhor FO = 96933 TEMPO = 0
+Melhor FO = 92524 TEMPO = 0
+Melhor FO = 91032 TEMPO = 2
+Melhor FO = 90643 TEMPO = 3
+Melhor FO = 89340 TEMPO = 4
+Melhor FO = 88866 TEMPO = 6
+Melhor FO = 86813 TEMPO = 19
+Melhor FO = 82638 TEMPO = 27
+82638
+Tabela salva em solucao-ils-masculina-24-25.txt
+Melhor FO = 149967
+Melhor FO = 89337 TEMPO = 0
+Melhor FO = 88276 TEMPO = 8
+Melhor FO = 87819 TEMPO = 10
+Melhor FO = 85541 TEMPO = 15
+Melhor FO = 83212 TEMPO = 18
+83212
+Tabela salva em solucao-ils-masculina-24-25.txt
+Melhor FO = 153205
+Melhor FO = 96737 TEMPO = 0
+Melhor FO = 94927 TEMPO = 0
+Melhor FO = 87630 TEMPO = 1
+Melhor FO = 85170 TEMPO = 49
+Melhor FO = 78085 TEMPO = 53
+Melhor FO = 77591 TEMPO = 231
+77591
+Tabela salva em solucao-ils-masculina-24-25.txt
+Melhor FO = 150099
+Melhor FO = 99203 TEMPO = 0
+Melhor FO = 98701 TEMPO = 0
+Melhor FO = 94603 TEMPO = 1
+Melhor FO = 90599 TEMPO = 1
+Melhor FO = 90057 TEMPO = 7
+Melhor FO = 86931 TEMPO = 7
+Melhor FO = 86444 TEMPO = 37
+Melhor FO = 86167 TEMPO = 50
+Melhor FO = 84696 TEMPO = 65
+Melhor FO = 83247 TEMPO = 248
+83247
+Tabela salva em solucao-ils-masculina-24-25.txt
+Melhor FO = 149787
+Melhor FO = 94627 TEMPO = 0
+Melhor FO = 89134 TEMPO = 1
+Melhor FO = 87497 TEMPO = 3
+Melhor FO = 83620 TEMPO = 43
+83620
+Tabela salva em solucao-ils-masculina-24-25.txt
+Melhor FO = 151833
+Melhor FO = 93826 TEMPO = 0
+Melhor FO = 90389 TEMPO = 1
+Melhor FO = 87379 TEMPO = 2
+Melhor FO = 86656 TEMPO = 11
+Melhor FO = 85636 TEMPO = 22
+Melhor FO = 85348 TEMPO = 33
+Melhor FO = 84997 TEMPO = 89
+Melhor FO = 80746 TEMPO = 169
+80746
+Tabela salva em solucao-ils-masculina-24-25.txt
+Melhor FO = 148357
+Melhor FO = 94509 TEMPO = 0
+Melhor FO = 90890 TEMPO = 0
+Melhor FO = 88711 TEMPO = 1
+Melhor FO = 87454 TEMPO = 3
+Melhor FO = 87013 TEMPO = 22
+Melhor FO = 86327 TEMPO = 40
+Melhor FO = 86233 TEMPO = 47
+Melhor FO = 79199 TEMPO = 52
+79199
+Tabela salva em solucao-ils-masculina-24-25.txt
+Melhor FO = 150234
+Melhor FO = 96889 TEMPO = 0
+Melhor FO = 92486 TEMPO = 0
+Melhor FO = 87891 TEMPO = 1
+Melhor FO = 87125 TEMPO = 9
+Melhor FO = 83205 TEMPO = 26
+Melhor FO = 82704 TEMPO = 120
+82704
+Tabela salva em solucao-ils-masculina-24-25.txt
+Melhor FO = 149183
+Melhor FO = 90623 TEMPO = 0
+Melhor FO = 83676 TEMPO = 4
+Melhor FO = 80999 TEMPO = 108
+Melhor FO = 80397 TEMPO = 290
+80397
+Tabela salva em solucao-ils-masculina-24-25.txt
+Melhor FO = 151423
+Melhor FO = 98847 TEMPO = 0
+Melhor FO = 97465 TEMPO = 0
+Melhor FO = 95237 TEMPO = 1
+Melhor FO = 94006 TEMPO = 1
+Melhor FO = 89080 TEMPO = 2
+Melhor FO = 84339 TEMPO = 13
+Melhor FO = 83827 TEMPO = 17
+Melhor FO = 80570 TEMPO = 207
+80570
+Tabela salva em solucao-ils-masculina-24-25.txt
+>>> ils: feminina 21-22 - Sat Apr  4 22:12:04 -03 2026
+Caminho do arquivo: ../instancias/feminina/dados-oficiais-21-22.txt
+Numero de Times: 12
+Nome dos Times
+Praia_Clube
+Osasco
+Minas
+Sesc-Flamengo
+Fluminense
+Sesi-Bauru
+Pinheiros
+Barueri
+Maringa
+Brasília
+Valinhos
+Curitiba
+Distancia Cidades
+0 586 543 992 992 487 590 581 736 422 586 731 
+586 0 607 449 449 312 24 12 630 1002 66 419 
+543 607 0 442 442 704 583 606 1062 733 604 848 
+992 449 442 0 0 457 442 457 1074 1166 445 846 
+992 449 442 0 0 457 442 457 1074 1166 445 846 
+487 312 704 457 457 0 332 302 400 912 172 319 
+590 24 583 442 442 332 0 31 646 1005 82 462 
+581 12 606 457 457 302 31 0 618 1005 82 462 
+736 630 1062 1074 1074 400 646 618 0 1157 636 394 
+422 1002 733 1166 1166 912 1005 1005 1157 0 916 1139 
+586 66 604 445 445 172 82 82 636 916 0 319 
+731 419 848 846 846 319 462 462 394 1139 319 0 
+
+4 4 5
+Melhor FO = 142505
+Melhor FO = 89270 TEMPO = 0
+Melhor FO = 85299 TEMPO = 2
+Melhor FO = 84081 TEMPO = 9
+Melhor FO = 82856 TEMPO = 34
+Melhor FO = 81708 TEMPO = 239
+81708
+Tabela salva em solucao-ils-feminina-21-22.txt
+Melhor FO = 141476
+Melhor FO = 91156 TEMPO = 0
+Melhor FO = 91111 TEMPO = 0
+Melhor FO = 89247 TEMPO = 1
+Melhor FO = 88363 TEMPO = 3
+Melhor FO = 87543 TEMPO = 3
+Melhor FO = 86567 TEMPO = 7
+Melhor FO = 86479 TEMPO = 10
+Melhor FO = 85735 TEMPO = 22
+Melhor FO = 85326 TEMPO = 31
+Melhor FO = 84380 TEMPO = 50
+Melhor FO = 83319 TEMPO = 64
+Melhor FO = 81543 TEMPO = 101
+Melhor FO = 77497 TEMPO = 247
+77497
+Tabela salva em solucao-ils-feminina-21-22.txt
+Melhor FO = 142994
+Melhor FO = 91845 TEMPO = 0
+Melhor FO = 86990 TEMPO = 0
+Melhor FO = 85645 TEMPO = 1
+Melhor FO = 84408 TEMPO = 9
+Melhor FO = 81968 TEMPO = 62
+Melhor FO = 81594 TEMPO = 91
+Melhor FO = 81505 TEMPO = 108
+Melhor FO = 81130 TEMPO = 152
+81130
+Tabela salva em solucao-ils-feminina-21-22.txt
+Melhor FO = 144252
+Melhor FO = 83477 TEMPO = 0
+Melhor FO = 82274 TEMPO = 53
+Melhor FO = 81124 TEMPO = 185
+81124
+Tabela salva em solucao-ils-feminina-21-22.txt
+Melhor FO = 139800
+Melhor FO = 89878 TEMPO = 0
+Melhor FO = 89398 TEMPO = 1
+Melhor FO = 88232 TEMPO = 1
+Melhor FO = 88053 TEMPO = 3
+Melhor FO = 87526 TEMPO = 6
+Melhor FO = 86936 TEMPO = 14
+Melhor FO = 85840 TEMPO = 16
+Melhor FO = 85799 TEMPO = 23
+Melhor FO = 85458 TEMPO = 25
+Melhor FO = 83431 TEMPO = 69
+Melhor FO = 82860 TEMPO = 102
+Melhor FO = 82220 TEMPO = 108
+Melhor FO = 80658 TEMPO = 227
+80658
+Tabela salva em solucao-ils-feminina-21-22.txt
+Melhor FO = 143983
+Melhor FO = 91882 TEMPO = 0
+Melhor FO = 90635 TEMPO = 0
+Melhor FO = 85980 TEMPO = 1
+Melhor FO = 85281 TEMPO = 2
+Melhor FO = 84423 TEMPO = 6
+Melhor FO = 84288 TEMPO = 29
+Melhor FO = 84209 TEMPO = 46
+Melhor FO = 83185 TEMPO = 78
+Melhor FO = 82772 TEMPO = 296
+82772
+Tabela salva em solucao-ils-feminina-21-22.txt
+Melhor FO = 141949
+Melhor FO = 91497 TEMPO = 0
+Melhor FO = 88946 TEMPO = 0
+Melhor FO = 88911 TEMPO = 4
+Melhor FO = 87629 TEMPO = 8
+Melhor FO = 87091 TEMPO = 13
+Melhor FO = 84026 TEMPO = 14
+Melhor FO = 83391 TEMPO = 41
+Melhor FO = 81099 TEMPO = 49
+81099
+Tabela salva em solucao-ils-feminina-21-22.txt
+Melhor FO = 143045
+Melhor FO = 90882 TEMPO = 0
+Melhor FO = 87999 TEMPO = 1
+Melhor FO = 87535 TEMPO = 4
+Melhor FO = 84609 TEMPO = 4
+Melhor FO = 83959 TEMPO = 31
+Melhor FO = 80899 TEMPO = 100
+Melhor FO = 79334 TEMPO = 159
+79334
+Tabela salva em solucao-ils-feminina-21-22.txt
+Melhor FO = 142327
+Melhor FO = 94464 TEMPO = 0
+Melhor FO = 87514 TEMPO = 0
+Melhor FO = 83363 TEMPO = 1
+Melhor FO = 82333 TEMPO = 3
+Melhor FO = 82300 TEMPO = 60
+Melhor FO = 79031 TEMPO = 62
+79031
+Tabela salva em solucao-ils-feminina-21-22.txt
+Melhor FO = 141708
+Melhor FO = 91810 TEMPO = 0
+Melhor FO = 88760 TEMPO = 0
+Melhor FO = 84954 TEMPO = 1
+Melhor FO = 84873 TEMPO = 65
+Melhor FO = 84433 TEMPO = 70
+Melhor FO = 82878 TEMPO = 80
+Melhor FO = 82685 TEMPO = 104
+Melhor FO = 81664 TEMPO = 234
+81664
+Tabela salva em solucao-ils-feminina-21-22.txt
+>>> ils: feminina 22-23 - Sat Apr  4 23:02:06 -03 2026
+Caminho do arquivo: ../instancias/feminina/dados-oficiais-22-23.txt
+Numero de Times: 12
+Nome dos Times
+Praia_Clube
+Osasco
+Minas
+Sesc-Flamengo
+Fluminense
+Sesi-Bauru
+Pinheiros
+Barueri
+Maringa
+Brasilia
+Sao_Caetano
+Brusque
+Distancia Cidades
+0 586 543 992 992 487 590 581 736 422 598 1195 
+586 0 607 449 449 312 24 12 630 1002 33 625 
+543 607 0 442 442 704 583 606 1062 733 586 1212 
+992 449 442 0 0 457 442 457 1074 1166 437 1078 
+992 449 442 0 0 457 442 457 1074 1166 437 1078 
+487 312 704 457 457 0 332 302 400 912 342 778 
+590 24 583 442 442 332 0 31 646 1005 13 630 
+581 12 606 457 457 302 31 0 618 1005 43 630 
+736 630 1062 1074 1074 400 646 618 0 1157 659 664 
+422 1002 733 1166 1166 912 1005 1005 1157 0 1018 1615 
+598 33 586 437 437 342 13 43 659 1018 0 641 
+1195 625 1212 1078 1078 778 630 630 664 1615 641 0 
+
+5 5 5
+Melhor FO = 153970
+Melhor FO = 91532 TEMPO = 0
+Melhor FO = 88480 TEMPO = 3
+Melhor FO = 84772 TEMPO = 4
+Melhor FO = 79195 TEMPO = 132
+79195
+Tabela salva em solucao-ils-feminina-22-23.txt
+Melhor FO = 154559
+Melhor FO = 98754 TEMPO = 0
+Melhor FO = 92964 TEMPO = 0
+Melhor FO = 91255 TEMPO = 1
+Melhor FO = 88574 TEMPO = 2
+Melhor FO = 87784 TEMPO = 10
+Melhor FO = 85342 TEMPO = 25
+Melhor FO = 83924 TEMPO = 115
+Melhor FO = 83688 TEMPO = 248
+83688
+Tabela salva em solucao-ils-feminina-22-23.txt
+Melhor FO = 154271
+Melhor FO = 93349 TEMPO = 0
+Melhor FO = 91026 TEMPO = 1
+Melhor FO = 90523 TEMPO = 4
+Melhor FO = 90248 TEMPO = 7
+Melhor FO = 79442 TEMPO = 9
+79442
+Tabela salva em solucao-ils-feminina-22-23.txt
+Melhor FO = 152852
+Melhor FO = 97470 TEMPO = 0
+Melhor FO = 96160 TEMPO = 0
+Melhor FO = 93785 TEMPO = 0
+Melhor FO = 92873 TEMPO = 1
+Melhor FO = 89475 TEMPO = 2
+Melhor FO = 86940 TEMPO = 12
+Melhor FO = 86208 TEMPO = 81
+Melhor FO = 84786 TEMPO = 82
+Melhor FO = 84282 TEMPO = 193
+Melhor FO = 82294 TEMPO = 201
+82294
+Tabela salva em solucao-ils-feminina-22-23.txt
+Melhor FO = 152957
+Melhor FO = 93604 TEMPO = 0
+Melhor FO = 90396 TEMPO = 0
+Melhor FO = 88666 TEMPO = 0
+Melhor FO = 87577 TEMPO = 9
+Melhor FO = 86699 TEMPO = 11
+Melhor FO = 85206 TEMPO = 16
+Melhor FO = 83179 TEMPO = 19
+Melhor FO = 82256 TEMPO = 51
+82256
+Tabela salva em solucao-ils-feminina-22-23.txt
+Melhor FO = 153713
+Melhor FO = 97085 TEMPO = 0
+Melhor FO = 93443 TEMPO = 0
+Melhor FO = 88252 TEMPO = 0
+Melhor FO = 86682 TEMPO = 10
+Melhor FO = 83973 TEMPO = 37
+Melhor FO = 81521 TEMPO = 137
+81521
+Tabela salva em solucao-ils-feminina-22-23.txt
+Melhor FO = 153825
+Melhor FO = 92621 TEMPO = 0
+Melhor FO = 90898 TEMPO = 1
+Melhor FO = 89159 TEMPO = 2
+Melhor FO = 80895 TEMPO = 13
+80895
+Tabela salva em solucao-ils-feminina-22-23.txt
+Melhor FO = 152486
+Melhor FO = 96266 TEMPO = 0
+Melhor FO = 92380 TEMPO = 0
+Melhor FO = 91868 TEMPO = 1
+Melhor FO = 88164 TEMPO = 4
+Melhor FO = 87039 TEMPO = 5
+Melhor FO = 84486 TEMPO = 48
+Melhor FO = 81459 TEMPO = 70
+81459
+Tabela salva em solucao-ils-feminina-22-23.txt
+Melhor FO = 154010
+Melhor FO = 94255 TEMPO = 0
+Melhor FO = 91888 TEMPO = 0
+Melhor FO = 89896 TEMPO = 0
+Melhor FO = 89464 TEMPO = 1
+Melhor FO = 87368 TEMPO = 3
+Melhor FO = 86240 TEMPO = 61
+Melhor FO = 85012 TEMPO = 92
+Melhor FO = 84546 TEMPO = 176
+Melhor FO = 83985 TEMPO = 235
+83985
+Tabela salva em solucao-ils-feminina-22-23.txt
+Melhor FO = 152684
+Melhor FO = 97042 TEMPO = 0
+Melhor FO = 93931 TEMPO = 0
+Melhor FO = 91926 TEMPO = 1
+Melhor FO = 87999 TEMPO = 3
+Melhor FO = 86833 TEMPO = 11
+Melhor FO = 85728 TEMPO = 20
+Melhor FO = 85221 TEMPO = 104
+Melhor FO = 85027 TEMPO = 118
+Melhor FO = 84552 TEMPO = 193
+84552
+Tabela salva em solucao-ils-feminina-22-23.txt
+>>> ils: feminina 23-24 - Sat Apr  4 23:52:07 -03 2026
+Caminho do arquivo: ../instancias/feminina/dados-oficiais-23-24.txt
+Numero de Times: 12
+Nome dos Times
+Praia_Clube
+Osasco
+Minas
+Sesc-Flamengo
+Fluminense
+Sesi-Bauru
+Pinheiros
+Barueri
+Maringa
+Brasilia
+Sao_Caetano
+Bluvolei
+Distancia Cidades
+0 586 543 992 992 487 590 581 736 422 602 1176 
+586 0 607 449 449 312 24 12 630 1002 33 613 
+543 607 0 442 442 704 583 606 1062 733 619 1022 
+992 449 442 0 0 457 442 457 1074 1166 448 1113 
+992 449 442 0 0 457 442 457 1074 1166 448 1113 
+487 312 704 457 457 0 332 302 400 912 290 863 
+590 24 583 442 442 332 0 31 646 1005 56 631 
+581 12 606 457 457 302 31 0 618 1005 48 617 
+736 630 1062 1074 1074 400 646 618 0 1157 617 255 
+422 1002 733 1166 1166 912 1005 1005 1157 0 1020 1596 
+602 33 619 448 448 290 56 48 617 1020 0 620 
+1176 613 1022 1113 1113 863 631 617 255 1596 620 0 
+
+4 4 5
+Melhor FO = 151743
+Melhor FO = 93354 TEMPO = 0
+Melhor FO = 91259 TEMPO = 2
+Melhor FO = 91121 TEMPO = 13
+Melhor FO = 89115 TEMPO = 30
+Melhor FO = 88361 TEMPO = 68
+Melhor FO = 86834 TEMPO = 163
+86834
+Tabela salva em solucao-ils-feminina-23-24.txt
+Melhor FO = 150051
+Melhor FO = 90560 TEMPO = 0
+Melhor FO = 89395 TEMPO = 9
+Melhor FO = 86712 TEMPO = 24
+Melhor FO = 83078 TEMPO = 29
+83078
+Tabela salva em solucao-ils-feminina-23-24.txt
+Melhor FO = 150903
+Melhor FO = 95683 TEMPO = 0
+Melhor FO = 91716 TEMPO = 1
+Melhor FO = 89771 TEMPO = 2
+Melhor FO = 87297 TEMPO = 15
+Melhor FO = 86922 TEMPO = 69
+Melhor FO = 86322 TEMPO = 223
+86322
+Tabela salva em solucao-ils-feminina-23-24.txt
+Melhor FO = 149790
+Melhor FO = 90673 TEMPO = 0
+Melhor FO = 87109 TEMPO = 4
+Melhor FO = 86346 TEMPO = 37
+86346
+Tabela salva em solucao-ils-feminina-23-24.txt
+Melhor FO = 150687
+Melhor FO = 98086 TEMPO = 0
+Melhor FO = 97603 TEMPO = 0
+Melhor FO = 93462 TEMPO = 1
+Melhor FO = 91914 TEMPO = 5
+Melhor FO = 91095 TEMPO = 6
+Melhor FO = 90238 TEMPO = 12
+Melhor FO = 87095 TEMPO = 25
+Melhor FO = 83091 TEMPO = 139
+83091
+Tabela salva em solucao-ils-feminina-23-24.txt
+Melhor FO = 151454
+Melhor FO = 98805 TEMPO = 0
+Melhor FO = 98634 TEMPO = 1
+Melhor FO = 96349 TEMPO = 1
+Melhor FO = 95052 TEMPO = 2
+Melhor FO = 94141 TEMPO = 3
+Melhor FO = 93371 TEMPO = 4
+Melhor FO = 89712 TEMPO = 8
+Melhor FO = 84329 TEMPO = 26
+84329
+Tabela salva em solucao-ils-feminina-23-24.txt
+Melhor FO = 153597
+Melhor FO = 92705 TEMPO = 0
+Melhor FO = 88618 TEMPO = 1
+Melhor FO = 88479 TEMPO = 8
+Melhor FO = 87074 TEMPO = 12
+Melhor FO = 84532 TEMPO = 103
+84532
+Tabela salva em solucao-ils-feminina-23-24.txt
+Melhor FO = 152180
+Melhor FO = 96544 TEMPO = 0
+Melhor FO = 91900 TEMPO = 1
+Melhor FO = 91188 TEMPO = 18
+Melhor FO = 88000 TEMPO = 23
+Melhor FO = 84286 TEMPO = 79
+84286
+Tabela salva em solucao-ils-feminina-23-24.txt
+Melhor FO = 149747
+Melhor FO = 98854 TEMPO = 0
+Melhor FO = 97040 TEMPO = 0
+Melhor FO = 94430 TEMPO = 0
+Melhor FO = 92198 TEMPO = 3
+Melhor FO = 89961 TEMPO = 5
+Melhor FO = 88995 TEMPO = 16
+Melhor FO = 87651 TEMPO = 78
+Melhor FO = 87566 TEMPO = 221
+87566
+Tabela salva em solucao-ils-feminina-23-24.txt
+Melhor FO = 153642
+Melhor FO = 96908 TEMPO = 0
+Melhor FO = 91479 TEMPO = 1
+Melhor FO = 91182 TEMPO = 6
+Melhor FO = 90941 TEMPO = 12
+Melhor FO = 89128 TEMPO = 13
+Melhor FO = 89024 TEMPO = 32
+Melhor FO = 88325 TEMPO = 46
+Melhor FO = 87718 TEMPO = 148
+87718
+Tabela salva em solucao-ils-feminina-23-24.txt
+>>> ils: feminina 24-25 - Sun Apr  5 00:42:05 -03 2026
+Caminho do arquivo: ../instancias/feminina/dados-oficiais-24-25.txt
+Numero de Times: 12
+Nome dos Times
+Praia_Clube
+Osasco
+Minas
+Sesc-Flamengo
+Fluminense
+Sesi-Bauru
+Pinheiros
+Barueri
+Maringa
+Brasilia
+Mackenzie
+Abel_Moda_Brusque
+Distancia Cidades
+0 586 543 992 992 487 590 581 736 422 543 1195 
+586 0 607 449 449 312 24 12 630 1002 607 625 
+543 607 0 442 442 704 583 606 1062 733 5 1212 
+992 449 442 0 0 457 442 457 1074 1166 442 1078 
+992 449 442 0 0 457 442 457 1074 1166 442 1078 
+487 312 704 457 457 0 332 302 400 912 704 778 
+590 24 583 442 442 332 0 31 646 1005 583 630 
+581 12 606 457 457 302 31 0 618 1005 606 630 
+736 630 1062 1074 1074 400 646 618 0 1157 1062 664 
+422 1002 733 1166 1166 912 1005 1005 1157 0 733 1615 
+543 607 5 442 442 704 583 606 1062 733 0 1212 
+1195 625 1212 1078 1078 778 630 630 664 1615 1212 0 
+
+4 4 5
+Melhor FO = 163431
+Melhor FO = 108384 TEMPO = 0
+Melhor FO = 102509 TEMPO = 0
+Melhor FO = 101219 TEMPO = 1
+Melhor FO = 98062 TEMPO = 4
+Melhor FO = 98032 TEMPO = 23
+Melhor FO = 97816 TEMPO = 32
+Melhor FO = 96986 TEMPO = 54
+Melhor FO = 95842 TEMPO = 67
+Melhor FO = 94123 TEMPO = 106
+94123
+Tabela salva em solucao-ils-feminina-24-25.txt
+Melhor FO = 162443
+Melhor FO = 104374 TEMPO = 0
+Melhor FO = 104041 TEMPO = 0
+Melhor FO = 103424 TEMPO = 1
+Melhor FO = 102705 TEMPO = 4
+Melhor FO = 101885 TEMPO = 8
+Melhor FO = 99569 TEMPO = 11
+Melhor FO = 98840 TEMPO = 15
+Melhor FO = 98083 TEMPO = 21
+Melhor FO = 97363 TEMPO = 26
+Melhor FO = 96330 TEMPO = 41
+Melhor FO = 94197 TEMPO = 187
+94197
+Tabela salva em solucao-ils-feminina-24-25.txt
+Melhor FO = 162395
+Melhor FO = 107482 TEMPO = 0
+Melhor FO = 102578 TEMPO = 1
+Melhor FO = 101681 TEMPO = 1
+Melhor FO = 99602 TEMPO = 2
+Melhor FO = 94708 TEMPO = 3
+Melhor FO = 91014 TEMPO = 233
+91014
+Tabela salva em solucao-ils-feminina-24-25.txt
+Melhor FO = 160924
+Melhor FO = 107068 TEMPO = 0
+Melhor FO = 106582 TEMPO = 0
+Melhor FO = 100997 TEMPO = 0
+Melhor FO = 100510 TEMPO = 3
+Melhor FO = 100045 TEMPO = 10
+Melhor FO = 100022 TEMPO = 20
+Melhor FO = 98327 TEMPO = 22
+Melhor FO = 97952 TEMPO = 41
+Melhor FO = 97583 TEMPO = 42
+Melhor FO = 95767 TEMPO = 86
+Melhor FO = 95670 TEMPO = 173
+Melhor FO = 94251 TEMPO = 218
+94251
+Tabela salva em solucao-ils-feminina-24-25.txt
+Melhor FO = 163131
+Melhor FO = 105130 TEMPO = 0
+Melhor FO = 103991 TEMPO = 0
+Melhor FO = 102085 TEMPO = 2
+Melhor FO = 101426 TEMPO = 2
+Melhor FO = 100803 TEMPO = 3
+Melhor FO = 98773 TEMPO = 23
+Melhor FO = 96390 TEMPO = 44
+Melhor FO = 96338 TEMPO = 111
+Melhor FO = 96233 TEMPO = 243
+96233
+Tabela salva em solucao-ils-feminina-24-25.txt
+Melhor FO = 159304
+Melhor FO = 102586 TEMPO = 0
+Melhor FO = 100746 TEMPO = 1
+Melhor FO = 100214 TEMPO = 2
+Melhor FO = 97130 TEMPO = 5
+Melhor FO = 96872 TEMPO = 40
+Melhor FO = 95144 TEMPO = 109
+Melhor FO = 94350 TEMPO = 171
+94350
+Tabela salva em solucao-ils-feminina-24-25.txt
+Melhor FO = 162892
+Melhor FO = 101125 TEMPO = 0
+Melhor FO = 100368 TEMPO = 1
+Melhor FO = 100342 TEMPO = 1
+Melhor FO = 99576 TEMPO = 3
+Melhor FO = 97935 TEMPO = 6
+Melhor FO = 97385 TEMPO = 8
+Melhor FO = 95978 TEMPO = 72
+Melhor FO = 95294 TEMPO = 80
+Melhor FO = 95226 TEMPO = 169
+Melhor FO = 94552 TEMPO = 174
+94552
+Tabela salva em solucao-ils-feminina-24-25.txt
+Melhor FO = 161981
+Melhor FO = 100788 TEMPO = 0
+Melhor FO = 98370 TEMPO = 4
+Melhor FO = 98224 TEMPO = 17
+Melhor FO = 97199 TEMPO = 18
+Melhor FO = 94928 TEMPO = 62
+94928
+Tabela salva em solucao-ils-feminina-24-25.txt
+Melhor FO = 163247
+Melhor FO = 108052 TEMPO = 0
+Melhor FO = 102795 TEMPO = 0
+Melhor FO = 100183 TEMPO = 2
+Melhor FO = 99403 TEMPO = 18
+Melhor FO = 96548 TEMPO = 29
+Melhor FO = 96243 TEMPO = 31
+Melhor FO = 95115 TEMPO = 224
+95115
+Tabela salva em solucao-ils-feminina-24-25.txt
+Melhor FO = 164789
+Melhor FO = 99924 TEMPO = 0
+Melhor FO = 99351 TEMPO = 11
+Melhor FO = 98828 TEMPO = 18
+Melhor FO = 98329 TEMPO = 27
+Melhor FO = 98059 TEMPO = 39
+Melhor FO = 94535 TEMPO = 45
+Melhor FO = 93871 TEMPO = 187
+93871
+Tabela salva em solucao-ils-feminina-24-25.txt
+=== Finalizado ils em Sun Apr  5 01:32:05 -03 2026 ===
