@@ -1,0 +1,16 @@
+#!/bin/bash
+# target-runner para irace — Rodada completa: 14 parâmetros (GA+MDM+Q-Learning)
+# Usa qvndm (método mais completo). Parada por 500 gerações.
+
+CONFIG_ID=$1
+INSTANCE_ID=$2
+SEED=$3
+EDICAO=$4
+TEMPORADA=$5
+shift 5
+
+EXE="../src/tcc2"
+
+RESULT=$($EXE $EDICAO $TEMPORADA 1 qvndm --seed $SEED --max-geracoes 500 --irace $@ 2>/dev/null | tail -1)
+
+echo "$RESULT"

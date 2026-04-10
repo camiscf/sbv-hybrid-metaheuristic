@@ -42,11 +42,11 @@ FILE *conv_file = NULL;      // arquivo de convergência (NULL = não logar)
 
 // ######### PARÂMETROS DO GA (variáveis — calibráveis pelo irace) #########
 
-int POP_SIZE = 38;
-int TORNEIO_K = 3;
-double PROB_MUTACAO = 0.1458;
-double FRAC_ELITE = 0.3938;
-int RVND_MAX_TENT = 72;
+int POP_SIZE = 54;
+int TORNEIO_K = 5;
+double PROB_MUTACAO = 0.5061;
+double FRAC_ELITE = 0.2787;
+int RVND_MAX_TENT = 100;
 int NUM_BL = 10; // quantas elite recebem busca local
 
 #define POP_MAX 200 // tamanho máximo de arrays (fixo)
@@ -57,20 +57,20 @@ st_solucao nova_populacao[POP_MAX];
 
 #define Q_ESTADOS 81 // 3^4 features discretizadas
 #define Q_ACOES 3    // 3 vizinhanças
-double Q_ALPHA = 0.2927;
-double Q_GAMMA_RL = 0.883;
-double Q_EPSILON_INIT = 0.2237;
-double Q_EPSILON_MIN = 0.0292;
-double Q_EPSILON_DECAY = 0.9993;
+double Q_ALPHA = 0.6798;
+double Q_GAMMA_RL = 0.3165;
+double Q_EPSILON_INIT = 0.2065;
+double Q_EPSILON_MIN = 0.031;
+double Q_EPSILON_DECAY = 0.9949;
 
 double tabela_Q[Q_ESTADOS][Q_ACOES];
-double q_epsilon = 0.2237;
+double q_epsilon = 0.2065;
 
 // ######### PARÂMETROS DA MULTIMINERAÇÃO ITERATIVA (variáveis — calibráveis pelo irace) #########
 
-int POOL_ELITE_SIZE = 30;
-int K_ESTAB = 15;              // gerações sem melhoria para disparar mineração
-int MIN_GEN_ENTRE_MINERACOES = 10; // intervalo mínimo entre minerações
+int POOL_ELITE_SIZE = 50;
+int K_ESTAB = 5;               // gerações sem melhoria para disparar mineração
+int MIN_GEN_ENTRE_MINERACOES = 18; // intervalo mínimo entre minerações
 
 #define POOL_MAX 200 // tamanho máximo do pool (fixo)
 st_solucao pool_elite[POOL_MAX];
@@ -80,7 +80,7 @@ int mando_freq[MAX_TIMES][MAX_TIMES];
 
 // ######### CRITÉRIO DE PARADA DO GA #########
 
-int MAX_GERACOES = 150; // parada por gerações (GA). ILS usa tempo_execucao.
+int MAX_GERACOES = 5000; // parada por gerações (GA). ILS usa tempo_execucao.
 
 // Flag do modo irace (imprime só FO)
 int modo_irace = 0;

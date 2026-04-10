@@ -1,0 +1,18 @@
+# Binários compilados
+src/tcc2
+src/*.o
+*.exe
+src/*.txt
+
+# Resultados de execução (grandes, gerados)
+resultados/*.csv
+
+# Temporários
+*.swp
+*.tmp
+tempCodeRunnerFile.cpp
+
+# Pasta original do Filipe (já copiado para src/ e instancias/)
+tcc2-public-main/
+
+docs/

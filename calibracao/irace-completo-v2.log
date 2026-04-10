@@ -1,0 +1,422 @@
+#------------------------------------------------------------------------------
+# irace: An implementation in R of (Elitist) Iterated Racing
+# Version: 4.4.1.ccb6607
+# Copyright (C) 2010-2025
+# Manuel Lopez-Ibanez     <manuel.lopez-ibanez@manchester.ac.uk>
+# Jeremie Dubois-Lacoste
+# Leslie Perez Caceres    <leslie.perez.caceres@ulb.ac.be>
+#
+# This is free software, and you are welcome to redistribute it under certain
+# conditions.  See the GNU General Public License for details. There is NO
+# WARRANTY; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# irace builds upon previous code from the race package:
+#     race: Racing methods for the selection of the best
+#     Copyright (C) 2003 Mauro Birattari
+#------------------------------------------------------------------------------
+# installed at: /usr/local/lib/R/site-library/irace
+# called with: --scenario scenario-completo.txt
+# 2026-04-09 17:31:19 -03: Reading parameter file '/mnt/c/Users/camil/codes/mestrado/sbv-hybrid-metaheuristic/calibracao/parameters-completo.txt'.
+# 2026-04-09 17:31:19 -03: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 5
+# minNbSurvival: 5
+# nbParameters: 14
+# seed: 1234
+# confidence level: 0.95
+# budget: 2000
+# mu: 5
+# deterministic: FALSE
+
+# 2026-04-09 17:31:19 -03: Iteration 1 of 5
+# experimentsUsed: 0
+# remainingBudget: 2000
+# currentBudget: 400
+# nbConfigurations: 66
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          1|         66|         25|     84694.00000|         66|00:00:04|   NA|  NA|    NA|
+|x|          2|         66|         24|     89772.00000|        132|00:00:06|+0.52|0.76|0.5199|
+|x|          3|         66|         24|     86794.33333|        198|00:00:03|+0.51|0.67|0.4925|
+|x|          4|         66|         24|     87375.75000|        264|00:00:03|+0.50|0.63|0.4960|
+|-|          5|         16|         24|     86684.00000|        330|00:00:03|-0.04|0.17|0.9733|
+|=|          6|         16|         24|     86455.83333|        346|00:00:01|-0.03|0.14|0.9411|
+|=|          7|         16|         24|     86842.85714|        362|00:00:01|+0.00|0.15|0.9154|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          24    mean value:      86842.85714
+Description of the best-so-far configuration:
+   .ID. POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY .PARENT.
+24   24       70           149     0.2018       0.4229         3     10             200      21              15  0.1006     0.6588         0.2204        0.1593          0.9996       NA
+
+# 2026-04-09 17:31:45 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY
+24       70           149     0.2018       0.4229         3     10             200      21              15  0.1006     0.6588         0.2204        0.1593          0.9996
+11       42           107     0.2893       0.1994         5     10              30      23               3  0.7672     0.5510         0.3888        0.0347          0.9912
+31       95            42     0.2768       0.1135         3     10              50       6               3  0.0512     0.6157         0.1285        0.1950          0.9977
+59       26           104     0.2830       0.3971         5      5             100      19              17  0.4586     0.5618         0.0596        0.0554          0.9954
+25       65            65     0.4268       0.5947         5     10              30      29              19  0.5450     0.7019         0.1898        0.1237          0.9940
+# 2026-04-09 17:31:45 -03: Iteration 2 of 5
+# experimentsUsed: 362
+# remainingBudget: 1638
+# currentBudget: 409
+# nbConfigurations: 55
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          8|         55|         76|     91002.00000|         55|00:00:03|   NA|  NA|    NA|
+|x|          2|         55|         59|     92837.50000|        105|00:00:03|+0.35|0.68|0.5370|
+|x|          1|         55|         11|     92886.33333|        155|00:00:03|+0.35|0.57|0.6081|
+|x|          5|         55|         98|     91200.00000|        205|00:00:04|+0.41|0.56|0.5176|
+|-|          6|         14|         59|     87821.20000|        255|00:00:03|+0.01|0.21|0.8830|
+|=|          3|         14|         11|     87742.16667|        264|00:00:01|-0.01|0.16|0.9001|
+|=|          7|         14|         11|     87893.85714|        273|00:00:01|+0.01|0.15|0.8953|
+|=|          4|         14|         11|     88092.75000|        282|00:00:01|+0.04|0.16|0.8607|
+|=|          9|         14|         11|     89110.77778|        296|00:00:01|+0.01|0.12|0.9075|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          11    mean value:      89110.77778
+Description of the best-so-far configuration:
+   .ID. POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY .PARENT.
+11   11       42           107     0.2893       0.1994         5     10              30      23               3  0.7672      0.551         0.3888        0.0347          0.9912       NA
+
+# 2026-04-09 17:32:09 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY
+11       42           107     0.2893       0.1994         5     10              30      23               3  0.7672     0.5510         0.3888        0.0347          0.9912
+87       64           146     0.3774       0.2190         5     10              30      20               3  0.7823     0.5006         0.1329        0.0128          0.9968
+98       69            70     0.2895       0.5245         5     10              30      23               7  0.7584     0.4218         0.1420        0.0786          0.9965
+24       70           149     0.2018       0.4229         3     10             200      21              15  0.1006     0.6588         0.2204        0.1593          0.9996
+31       95            42     0.2768       0.1135         3     10              50       6               3  0.0512     0.6157         0.1285        0.1950          0.9977
+# 2026-04-09 17:32:09 -03: Iteration 3 of 5
+# experimentsUsed: 658
+# remainingBudget: 1342
+# currentBudget: 447
+# nbConfigurations: 49
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|         10|         49|        158|     78322.00000|         49|00:00:05|   NA|  NA|    NA|
+|x|          5|         49|        158|     82254.50000|         93|00:00:04|+0.30|0.65|0.5005|
+|x|          6|         49|        158|     81825.33333|        137|00:00:04|+0.26|0.50|0.5413|
+|x|          3|         49|        158|     82058.00000|        181|00:00:04|+0.29|0.47|0.5702|
+|-|          2|         23|        158|     84225.80000|        225|00:00:04|-0.07|0.15|0.9769|
+|=|          4|         23|        158|     84776.50000|        243|00:00:04|-0.06|0.12|0.9796|
+|=|          8|         23|        158|     86411.85714|        261|00:00:02|-0.04|0.11|0.9516|
+|=|          9|         23|        158|     87875.00000|        279|00:00:02|-0.00|0.12|0.9186|
+|=|          7|         23|        137|     87419.11111|        297|00:00:02|+0.00|0.11|0.9217|
+|=|          1|         23|        137|     86626.90000|        315|00:00:02|+0.02|0.12|0.8882|
+|=|         11|         23|        137|     86813.72727|        338|00:00:02|+0.04|0.13|0.8866|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:         137    mean value:      86813.72727
+Description of the best-so-far configuration:
+    .ID. POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY .PARENT.
+137  137       45           100     0.2293       0.1423         5     10              30      29               9  0.7445     0.6971         0.1635         0.025          0.9967       11
+
+# 2026-04-09 17:32:48 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY
+137       45           100     0.2293       0.1423         5     10              30      29               9  0.7445     0.6971         0.1635        0.0250          0.9967
+157       83           145     0.3466       0.1912         3     10              30      26               3  0.5288     0.4689         0.1068        0.0294          0.9945
+11        42           107     0.2893       0.1994         5     10              30      23               3  0.7672     0.5510         0.3888        0.0347          0.9912
+158       92           136     0.2595       0.3121         2     10              30      20               9  0.6059     0.6881         0.1593        0.0218          0.9942
+98        69            70     0.2895       0.5245         5     10              30      23               7  0.7584     0.4218         0.1420        0.0786          0.9965
+# 2026-04-09 17:32:48 -03: Iteration 4 of 5
+# experimentsUsed: 996
+# remainingBudget: 1004
+# currentBudget: 502
+# nbConfigurations: 46
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|         12|         46|        158|     77690.00000|         46|00:00:05|   NA|  NA|    NA|
+|x|          5|         46|        158|     81938.50000|         87|00:00:04|+0.21|0.61|0.5792|
+|x|          7|         46|         98|     84459.00000|        128|00:00:04|+0.25|0.50|0.5687|
+|x|          6|         46|        200|     83731.75000|        169|00:00:06|+0.31|0.48|0.5095|
+|-|         11|         24|        166|     84258.60000|        210|00:00:04|-0.10|0.12|1.0497|
+|=|          3|         24|        200|     83218.16667|        229|00:00:02|-0.03|0.14|0.9991|
+|=|          8|         24|        200|     84983.42857|        248|00:00:02|+0.00|0.15|0.9714|
+|=|          4|         24|        166|     85564.37500|        267|00:00:02|+0.03|0.15|0.9362|
+|=|          2|         24|        166|     86877.22222|        286|00:00:02|+0.04|0.14|0.9422|
+|=|          9|         24|        200|     87930.40000|        305|00:00:02|+0.01|0.11|0.9511|
+|=|         10|         24|        166|     88475.54545|        324|00:00:02|+0.01|0.10|0.9340|
+|=|          1|         24|        137|     86508.33333|        343|00:00:02|+0.03|0.11|0.9096|
+|-|         13|         18|        137|     87190.61538|        367|00:00:03|-0.03|0.05|0.9503|
+|=|         14|         18|        137|     87042.92857|        385|00:00:02|-0.03|0.05|0.9404|
+|=|         15|         18|        137|     87147.06667|        403|00:00:04|-0.02|0.05|0.9420|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:         137    mean value:      87147.06667
+Description of the best-so-far configuration:
+    .ID. POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY .PARENT.
+137  137       45           100     0.2293       0.1423         5     10              30      29               9  0.7445     0.6971         0.1635         0.025          0.9967       11
+
+# 2026-04-09 17:33:43 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY
+137       45           100     0.2293       0.1423         5     10              30      29               9  0.7445     0.6971         0.1635        0.0250          0.9967
+200       60           169     0.2928       0.2754         3     10              30      23               7  0.5471     0.6801         0.0602        0.0210          0.9954
+166       65           116     0.2463       0.1989         3     10              30      29               7  0.3536     0.3433         0.0327        0.0250          0.9935
+199       85           133     0.4453       0.1983         3     10              30      27               8  0.3135     0.5132         0.0932        0.0168          0.9951
+196       71            90     0.1794       0.2031         5     10             100      30              15  0.7343     0.5613         0.0555        0.0532          0.9982
+# 2026-04-09 17:33:43 -03: Iteration 5 of 5
+# experimentsUsed: 1399
+# remainingBudget: 601
+# currentBudget: 601
+# nbConfigurations: 42
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|         16|         42|        206|     76149.00000|         42|00:00:06|   NA|  NA|    NA|
+|x|         13|         42|        199|     84581.00000|         79|00:00:05|+0.30|0.65|0.6743|
+|x|          9|         42|        214|     88811.00000|        116|00:00:05|+0.40|0.60|0.5931|
+|x|         14|         42|        199|     87608.75000|        153|00:00:05|+0.28|0.46|0.6662|
+|-|          6|         16|        199|     85294.20000|        190|00:00:05|+0.00|0.20|0.8813|
+|=|          2|         16|        199|     87661.00000|        201|00:00:02|+0.03|0.19|0.8827|
+|=|         12|         16|        199|     87006.71429|        212|00:00:03|+0.00|0.15|0.9154|
+|=|          1|         16|        199|     86960.12500|        223|00:00:02|+0.02|0.14|0.9029|
+|=|          4|         16|        199|     87000.00000|        234|00:00:01|+0.03|0.14|0.8998|
+|=|          7|         16|        137|     86634.60000|        245|00:00:01|+0.01|0.11|0.9139|
+|=|          3|         16|        137|     85925.90909|        256|00:00:01|+0.04|0.13|0.8937|
+|=|         10|         16|        137|     85322.00000|        267|00:00:02|+0.05|0.13|0.8821|
+|=|          8|         16|        137|     86030.61538|        278|00:00:02|+0.05|0.12|0.8817|
+|-|         15|         11|        137|     86214.50000|        289|00:00:02|-0.04|0.03|0.9267|
+|=|         11|         11|        137|     86379.00000|        295|00:00:01|-0.04|0.03|0.9321|
+|=|          5|         11|        214|     87121.12500|        301|00:00:01|-0.04|0.02|0.9356|
+|=|         17|         11|        214|     87038.17647|        312|00:00:01|-0.03|0.03|0.9253|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:         214    mean value:      87038.17647
+Description of the best-so-far configuration:
+    .ID. POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY .PARENT.
+214  214       39           177     0.2484       0.3433         3     10              30      20               8  0.7434     0.6191         0.0972        0.0187          0.9941      200
+
+# 2026-04-09 17:34:36 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY
+214       39           177     0.2484       0.3433         3     10              30      20               8  0.7434     0.6191         0.0972        0.0187          0.9941
+137       45           100     0.2293       0.1423         5     10              30      29               9  0.7445     0.6971         0.1635        0.0250          0.9967
+212       72           153     0.2709       0.0554         3     10              30      21               9  0.1420     0.3310         0.0841        0.0394          0.9932
+200       60           169     0.2928       0.2754         3     10              30      23               7  0.5471     0.6801         0.0602        0.0210          0.9954
+204       52           131     0.2305       0.1379         3     10             100      23               7  0.5437     0.6212         0.0890        0.0626          0.9997
+# 2026-04-09 17:34:37 -03: Iteration 6 of 6
+# experimentsUsed: 1711
+# remainingBudget: 289
+# currentBudget: 289
+# nbConfigurations: 20
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|         18|         20|        249|     89588.00000|         20|00:00:03|   NA|  NA|    NA|
+|x|         10|         20|        137|     85688.50000|         35|00:00:02|+0.25|0.62|0.6350|
+|x|          3|         20|        137|     83405.33333|         50|00:00:02|+0.17|0.45|0.6839|
+|x|         13|         20|        214|     88214.50000|         65|00:00:02|+0.16|0.37|0.7575|
+|=|          5|         20|        214|     87955.80000|         80|00:00:03|+0.09|0.27|0.8665|
+|-|         16|         10|        214|     86332.00000|         95|00:00:02|+0.07|0.22|0.8495|
+|=|          7|         10|        249|     86043.42857|        100|00:00:01|+0.01|0.15|0.8689|
+|=|         15|         10|        214|     86157.12500|        105|00:00:01|-0.02|0.10|0.9007|
+|=|          4|         10|        214|     86072.33333|        110|00:00:01|+0.02|0.13|0.8545|
+|=|          1|         10|        214|     86343.40000|        115|00:00:01|+0.03|0.13|0.8305|
+|=|         14|         10|        137|     85356.45455|        120|00:00:00|+0.03|0.12|0.8228|
+|=|         12|         10|        214|     85916.58333|        125|00:00:00|+0.02|0.11|0.8324|
+|=|          6|         10|        214|     85645.76923|        130|00:00:00|+0.01|0.08|0.8416|
+|=|          8|         10|        137|     85640.00000|        135|00:00:01|+0.02|0.09|0.8424|
+|=|         17|         10|        214|     86481.00000|        140|00:00:01|+0.04|0.10|0.8324|
+|=|         11|         10|        214|     86578.68750|        145|00:00:01|+0.01|0.07|0.8601|
+|=|          2|         10|        249|     87520.05882|        150|00:00:00|+0.01|0.06|0.8800|
+|=|          9|         10|        214|     87489.83333|        155|00:00:00|+0.01|0.07|0.8778|
+|=|         19|         10|        137|     86756.68421|        165|00:00:01|-0.00|0.05|0.8815|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:         137    mean value:      86756.68421
+Description of the best-so-far configuration:
+    .ID. POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY .PARENT.
+137  137       45           100     0.2293       0.1423         5     10              30      29               9  0.7445     0.6971         0.1635         0.025          0.9967       11
+
+# 2026-04-09 17:35:08 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY
+137       45           100     0.2293       0.1423         5     10              30      29               9  0.7445     0.6971         0.1635        0.0250          0.9967
+214       39           177     0.2484       0.3433         3     10              30      20               8  0.7434     0.6191         0.0972        0.0187          0.9941
+249       45           197     0.2227       0.3207         3     10              30      24              13  0.4414     0.6172         0.0485        0.0297          0.9931
+200       60           169     0.2928       0.2754         3     10              30      23               7  0.5471     0.6801         0.0602        0.0210          0.9954
+204       52           131     0.2305       0.1379         3     10             100      23               7  0.5437     0.6212         0.0890        0.0626          0.9997
+# 2026-04-09 17:35:08 -03: Iteration 7 of 7
+# experimentsUsed: 1876
+# remainingBudget: 124
+# currentBudget: 124
+# nbConfigurations: 10
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|         20|         10|        204|     82772.00000|         10|00:00:01|   NA|  NA|    NA|
+|x|          7|         10|        204|     85173.50000|         15|00:00:01|+0.10|0.55|0.7184|
+|x|          5|         10|        258|     84869.00000|         20|00:00:01|-0.02|0.32|0.8249|
+|x|         14|         10|        204|     86413.25000|         25|00:00:01|+0.05|0.29|0.8005|
+|=|          9|         10|        204|     88216.00000|         30|00:00:01|+0.15|0.32|0.7666|
+|=|         10|         10|        137|     86963.83333|         35|00:00:01|+0.08|0.23|0.7909|
+|=|          6|         10|        137|     86305.57143|         40|00:00:01|+0.11|0.23|0.7641|
+|=|          2|         10|        204|     88009.50000|         45|00:00:01|+0.09|0.20|0.7864|
+|-|         17|          8|        214|     88251.33333|         50|00:00:01|-0.08|0.04|0.9517|
+|=|          4|          8|        137|     87561.10000|         53|00:00:00|-0.05|0.06|0.9236|
+|=|          1|          8|        137|     86828.00000|         56|00:00:00|-0.03|0.06|0.8993|
+|=|         15|          8|        214|     87598.08333|         59|00:00:00|-0.00|0.08|0.8862|
+|=|         16|          8|        214|     86876.15385|         62|00:00:00|-0.01|0.07|0.8896|
+|=|         19|          8|        137|     85915.78571|         65|00:00:02|+0.01|0.08|0.8714|
+|=|         18|          8|        137|     86367.93333|         68|00:00:00|+0.01|0.08|0.8719|
+|=|         11|          8|        137|     86512.56250|         71|00:00:00|+0.00|0.07|0.8780|
+|=|          3|          8|        214|     86688.64706|         74|00:00:00|+0.02|0.08|0.8614|
+|=|         13|          8|        214|     87095.05556|         77|00:00:00|+0.02|0.08|0.8616|
+|=|         12|          8|        214|     86693.73684|         80|00:00:00|+0.02|0.07|0.8678|
+|=|          8|          8|        214|     87264.50000|         83|00:00:00|+0.03|0.08|0.8594|
+|=|         21|          8|        214|     87714.95238|         91|00:00:01|+0.04|0.09|0.8553|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:         214    mean value:      87714.95238
+Description of the best-so-far configuration:
+    .ID. POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY .PARENT.
+214  214       39           177     0.2484       0.3433         3     10              30      20               8  0.7434     0.6191         0.0972        0.0187          0.9941      200
+
+# 2026-04-09 17:35:31 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY
+214       39           177     0.2484       0.3433         3     10              30      20               8  0.7434     0.6191         0.0972        0.0187          0.9941
+200       60           169     0.2928       0.2754         3     10              30      23               7  0.5471     0.6801         0.0602        0.0210          0.9954
+137       45           100     0.2293       0.1423         5     10              30      29               9  0.7445     0.6971         0.1635        0.0250          0.9967
+254       52           170     0.2435       0.1839         3     10              30      22               8  0.7898     0.5270         0.0793        0.0169          0.9927
+249       45           197     0.2227       0.3207         3     10              30      24              13  0.4414     0.6172         0.0485        0.0297          0.9931
+# 2026-04-09 17:35:31 -03: Iteration 8 of 8
+# experimentsUsed: 1967
+# remainingBudget: 33
+# currentBudget: 33
+# nbConfigurations: 6
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|         22|          6|        259|     82780.00000|          6|00:00:01|   NA|  NA|    NA|
+|x|          3|          6|        200|     81590.50000|          7|00:00:00|-0.03|0.49|1.0573|
+|x|         14|          6|        200|     83756.66667|          8|00:00:00|+0.09|0.39|0.7959|
+|x|          6|          6|        200|     82901.25000|          9|00:00:00|-0.09|0.19|0.9712|
+|=|          8|          6|        200|     85436.00000|         10|00:00:00|-0.09|0.13|0.9385|
+|=|          5|          6|        200|     85780.50000|         11|00:00:00|-0.14|0.05|0.9403|
+|=|         15|          6|        200|     85781.57143|         12|00:00:00|-0.11|0.05|0.9017|
+|=|          7|          6|        200|     86034.87500|         13|00:00:00|-0.08|0.06|0.8891|
+|=|          1|          6|        200|     86340.00000|         14|00:00:00|-0.04|0.07|0.8796|
+|=|         13|          6|        200|     87295.70000|         15|00:00:00|-0.08|0.03|0.9095|
+|=|         21|          6|        200|     88062.27273|         16|00:00:00|-0.06|0.03|0.8929|
+|=|         12|          6|        200|     87330.50000|         17|00:00:00|-0.06|0.03|0.8910|
+|=|         18|          6|        200|     88274.38462|         18|00:00:00|-0.07|0.01|0.8992|
+|=|         20|          6|        200|     87921.21429|         19|00:00:00|-0.06|0.02|0.8904|
+|=|         19|          6|        200|     87436.40000|         20|00:00:00|-0.04|0.03|0.8792|
+|=|         11|          6|        200|     87402.68750|         21|00:00:00|-0.02|0.04|0.8717|
+|=|          2|          6|        200|     88031.58824|         22|00:00:00|-0.02|0.04|0.8727|
+|=|          4|          6|        200|     88046.33333|         23|00:00:00|-0.03|0.02|0.8771|
+|=|         16|          6|        200|     87662.68421|         24|00:00:00|-0.02|0.03|0.8716|
+|=|         10|          6|        200|     87815.90000|         25|00:00:00|-0.02|0.03|0.8669|
+|=|          9|          6|        200|     88302.23810|         26|00:00:00|-0.02|0.03|0.8660|
+|=|         17|          6|        200|     88249.50000|         27|00:00:00|-0.01|0.03|0.8617|
+|=|         23|          6|        200|     88132.60870|         33|00:00:01|-0.00|0.04|0.8572|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:         200    mean value:      88132.60870
+Description of the best-so-far configuration:
+    .ID. POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY .PARENT.
+200  200       60           169     0.2928       0.2754         3     10              30      23               7  0.5471     0.6801         0.0602         0.021          0.9954      157
+
+# 2026-04-09 17:35:43 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY
+200       60           169     0.2928       0.2754         3     10              30      23               7  0.5471     0.6801         0.0602        0.0210          0.9954
+214       39           177     0.2484       0.3433         3     10              30      20               8  0.7434     0.6191         0.0972        0.0187          0.9941
+137       45           100     0.2293       0.1423         5     10              30      29               9  0.7445     0.6971         0.1635        0.0250          0.9967
+249       45           197     0.2227       0.3207         3     10              30      24              13  0.4414     0.6172         0.0485        0.0297          0.9931
+254       52           170     0.2435       0.1839         3     10              30      22               8  0.7898     0.5270         0.0793        0.0169          0.9927
+# 2026-04-09 17:35:43 -03: Stopped because budget is exhausted
+# Iteration: 9
+# nbIterations: 8
+# experimentsUsed: 2000
+# timeUsed: 0
+# remainingBudget: 0
+# currentBudget: 33
+# number of elites: 5
+# nbConfigurations: 6
+# Total CPU user time: 896.655, CPU sys time: 29.569, Wall-clock time: 263.783
+# Best configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    POP_SIZE RVND_MAX_TENT FRAC_ELITE PROB_MUTACAO TORNEIO_K NUM_BL POOL_ELITE_SIZE K_ESTAB MIN_GEN_MINERAC Q_ALPHA Q_GAMMA_RL Q_EPSILON_INIT Q_EPSILON_MIN Q_EPSILON_DECAY
+200       60           169     0.2928       0.2754         3     10              30      23               7  0.5471     0.6801         0.0602        0.0210          0.9954
+214       39           177     0.2484       0.3433         3     10              30      20               8  0.7434     0.6191         0.0972        0.0187          0.9941
+137       45           100     0.2293       0.1423         5     10              30      29               9  0.7445     0.6971         0.1635        0.0250          0.9967
+249       45           197     0.2227       0.3207         3     10              30      24              13  0.4414     0.6172         0.0485        0.0297          0.9931
+254       52           170     0.2435       0.1839         3     10              30      22               8  0.7898     0.5270         0.0793        0.0169          0.9927
+# Best configurations as commandlines (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+200 --pop 60 --tent 169 --elite 0.2928 --mut 0.2754 --tk 3 --nbl 10 --pool 30 --k-estab 23 --min-gen-mineracoes 7 --qalpha 0.5471 --qgamma 0.6801 --qeps 0.0602 --qepsmin 0.021 --qdecay 0.9954
+214 --pop 39 --tent 177 --elite 0.2484 --mut 0.3433 --tk 3 --nbl 10 --pool 30 --k-estab 20 --min-gen-mineracoes 8 --qalpha 0.7434 --qgamma 0.6191 --qeps 0.0972 --qepsmin 0.0187 --qdecay 0.9941
+137 --pop 45 --tent 100 --elite 0.2293 --mut 0.1423 --tk 5 --nbl 10 --pool 30 --k-estab 29 --min-gen-mineracoes 9 --qalpha 0.7445 --qgamma 0.6971 --qeps 0.1635 --qepsmin 0.025 --qdecay 0.9967
+249 --pop 45 --tent 197 --elite 0.2227 --mut 0.3207 --tk 3 --nbl 10 --pool 30 --k-estab 24 --min-gen-mineracoes 13 --qalpha 0.4414 --qgamma 0.6172 --qeps 0.0485 --qepsmin 0.0297 --qdecay 0.9931
+254 --pop 52 --tent 170 --elite 0.2435 --mut 0.1839 --tk 3 --nbl 10 --pool 30 --k-estab 22 --min-gen-mineracoes 8 --qalpha 0.7898 --qgamma 0.527 --qeps 0.0793 --qepsmin 0.0169 --qdecay 0.9927
+
+
+# Testing of elite configurations: 1 
+# Testing iteration configurations: FALSE 
+# 2026-04-09 17:35:43 -03: No test instances, skip testing
