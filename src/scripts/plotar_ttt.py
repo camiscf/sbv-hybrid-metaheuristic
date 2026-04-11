@@ -20,11 +20,11 @@ LABELS = {"ils": "ILS+SA", "ga": "GA+RVND", "qvnd": "GA+QVND", "gam": "GA+RVND+M
 CORES = {"ils": "#e41a1c", "ga": "#377eb8", "qvnd": "#4daf4a", "gam": "#984ea3", "qvndm": "#ff7f00"}
 CHECKPOINTS = ["0%", "-2%", "-5%"]
 
-# Instâncias representativas (ajustar após resultados)
+# Instâncias representativas (com dados nos 3 checkpoints)
 INSTANCIAS_REPR = [
     ("masculina", "23-24"),
     ("masculina", "24-25"),
-    ("feminina", "22-23"),
+    ("feminina", "24-25"),
 ]
 
 alvos_df = pd.read_csv(ALVOS_CSV)

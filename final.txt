@@ -1,0 +1,1 @@
+/bin/bash: line 9: scripts/rodar_tttplot.sh: No such file or directory

@@ -4,6 +4,10 @@ src/*.o
 *.exe
 src/*.txt
 
+src/resultados-300s/
+src/resultados-600s/
+src/resultados-correcoes/
+src/dummies/
 # Resultados de execução (grandes, gerados)
 resultados/*.csv
 
@@ -16,3 +20,4 @@ tempCodeRunnerFile.cpp
 tcc2-public-main/
 
 docs/
+

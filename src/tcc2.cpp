@@ -85,6 +85,9 @@ int MAX_GERACOES = 5000; // parada por gerações (GA). ILS usa tempo_execucao.
 // Flag do modo irace (imprime só FO)
 int modo_irace = 0;
 
+// Flag para log de convergência
+char conv_file_path[300] = ""; // caminho do arquivo de convergência (vazio = não logar)
+
 // Flags para pré-treino Q-Learning
 char q_table_path[300] = "";     // caminho da Q-table (vazio = não usar)
 int modo_treino = 0;             // 1 = modo pré-treino offline
@@ -184,6 +187,7 @@ int main(int argc, char *argv[])
                 sscanf(argv[++a], "%lf,%lf,%lf", &ttt_alvos[0], &ttt_alvos[1], &ttt_alvos[2]);
             }
             else if (strcmp(argv[a], "--saida-ttt") == 0 && a + 1 < argc) strncpy(ttt_saida_path, argv[++a], sizeof(ttt_saida_path)-1);
+            else if (strcmp(argv[a], "--conv-file") == 0 && a + 1 < argc) strncpy(conv_file_path, argv[++a], sizeof(conv_file_path)-1);
         }
 
         // ===== MODO PRÉ-TREINO: roda QVND em múltiplas instâncias acumulando Q-table =====
@@ -378,6 +382,13 @@ void iteratedLocalSearch(st_solucao &s)
     const clock_t CLOCK_INICIAL = clock();
     h = clock();
 
+    // Abrir arquivo de convergência se solicitado
+    if (conv_file_path[0])
+    {
+        conv_file = fopen(conv_file_path, "w");
+        if (conv_file) fprintf(conv_file, "TEMPO;FO\n");
+    }
+
     geraSolucaoInicial(s);
     simulateAnnealing(TAXA_RESFRIAMENTO, NUMERO_ITERACOES, TEMPERATURA_INICIAL, TEMP_FIN, s, CLOCK_INICIAL);
     // calcFO(s);
@@ -413,6 +424,7 @@ void iteratedLocalSearch(st_solucao &s)
     memcpy(&s, &s_melhor, sizeof(s));
     verifica_tabela_solucao(s);
     ttt_salvar();
+    if (conv_file) { fclose(conv_file); conv_file = NULL; }
     printf("%d\n", s.funObj);
 }
 
@@ -1451,6 +1463,13 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
     if (usar_mineracao)
         reset_mineracao();
 
+    // Abrir arquivo de convergência se solicitado
+    if (conv_file_path[0])
+    {
+        conv_file = fopen(conv_file_path, "w");
+        if (conv_file) fprintf(conv_file, "GERACAO;FO;TEMPO\n");
+    }
+
     // Inicializar população
     for (int i = 0; i < POP_SIZE; i++)
     {
@@ -1619,16 +1638,16 @@ void geneticAlgorithm(st_solucao &s_best, int usar_qvnd, int usar_mineracao)
         geracao++;
         tempo = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
 
-        // Log de convergência a cada 5 segundos
-        if (conv_file && (int)tempo >= proximo_log)
+        // Log de convergência a cada geração
+        if (conv_file)
         {
-            fprintf(conv_file, "%d;%d\n", proximo_log, s_best.funObj);
-            proximo_log += 5;
+            fprintf(conv_file, "%d;%d;%.3f\n", geracao, s_best.funObj, tempo);
         }
     }
     // Registrar tempo total de execução do GA
     double tempo_total_ga = (double)(clock() - h_inicio) / CLOCKS_PER_SEC;
     ttt_salvar();
+    if (conv_file) { fclose(conv_file); conv_file = NULL; }
 
     if (!modo_irace)
     {

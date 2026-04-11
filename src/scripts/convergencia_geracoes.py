@@ -76,19 +76,16 @@ for ax, (edicao, temp) in zip(axes, INSTANCIAS):
     maximo = np.nanmax(all_curves, axis=0)
     x = np.arange(MAX_GER + 1)
 
-    ax.plot(x, media, color='#377eb8', linewidth=1.5, label='Média')
-    ax.fill_between(x, minimo, maximo, color='#377eb8', alpha=0.15, label='Min-Max')
+    # Cortar primeiras gerações (solução inicial distorce escala)
+    corte = max(10, MAX_GER // 100)
+    x_plot = x[corte:]
+    ax.plot(x_plot, media[corte:], color='#377eb8', linewidth=1.5, label='Média')
+    ax.fill_between(x_plot, minimo[corte:], maximo[corte:], color='#377eb8', alpha=0.15, label='Min-Max')
     ax.set_xlabel('Geração')
     ax.set_ylabel('Melhor FO')
     ax.set_title(f'{edicao.capitalize()} {temp} — {METODO.upper()}')
     ax.legend(fontsize=9)
     ax.grid(True, alpha=0.3)
-
-    # Marcar gerações de referência
-    for g_ref in [100, 150, 200, 300]:
-        if g_ref <= MAX_GER:
-            ax.axvline(x=g_ref, color='gray', linestyle='--', alpha=0.4)
-            ax.text(g_ref + 2, ax.get_ylim()[1] * 0.99, f'g={g_ref}', fontsize=8, color='gray')
 
     # Imprimir valores em pontos-chave
     print(f"\n  Convergência ({edicao} {temp}):")
